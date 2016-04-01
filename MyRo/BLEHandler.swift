@@ -3,7 +3,6 @@
 //  MyRo
 //
 //  Created by Aadesh Patel on 4/1/16.
-//  Copyright © 2016 ISBX. All rights reserved.
 //
 
 import CoreBluetooth
@@ -17,6 +16,8 @@ class BLEHandler: NSObject, CBCentralManagerDelegate {
     }
     
     func centralManagerDidUpdateState(central: CBCentralManager) {
+        print("BLE STATE")
+
         switch (central.state) {
         case .PoweredOn:
             print("BLE on")
@@ -52,9 +53,10 @@ class BLEHandler: NSObject, CBCentralManagerDelegate {
     }
     
     func centralManager(central: CBCentralManager, didDiscoverPeripheral peripheral: CBPeripheral, advertisementData: [String : AnyObject], RSSI: NSNumber) {
-        print("BLE discovered: \(peripheral.name)")
+        print("BLE discovered: \(peripheral.name) : \(RSSI)")
         
-        if (self.peripheral == nil || self.peripheral.state == .Disconnected) {
+        if ((self.peripheral == nil || self.peripheral.state == .Disconnected) && peripheral.name == "HMSoft") {
+            print("FOUND")
             self.peripheral = peripheral
             self.service = BLEService(peripheral: peripheral)
             central.connectPeripheral(peripheral, options: nil)
@@ -62,11 +64,16 @@ class BLEHandler: NSObject, CBCentralManagerDelegate {
     }
     
     func centralManager(central: CBCentralManager, didConnectPeripheral peripheral: CBPeripheral) {
+        print("Connected Peri")
         self.service = nil
         central.stopScan()
+        
+        
     }
     
     func centralManager(central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: NSError?) {
+        print("Disconnected Peri")
+
         central.scanForPeripheralsWithServices(nil, options: nil)
     }
 }

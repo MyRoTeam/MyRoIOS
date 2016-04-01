@@ -14,31 +14,47 @@ public final class User: NSObject, JSONModel, NSCoding {
     
     public static var currentUser: User! {
         set {
-            KeychainWrapper.sharedKeychain().setData(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: "current_user")
+            NSUserDefaults.standardUserDefaults().setObject(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: "current_user")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            //KeychainWrapper.sharedKeychain().setData(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: "current_user")
         }
         get {
-            if let data = KeychainWrapper.sharedKeychain().dataForKey("current_user") {
+            guard let data = NSUserDefaults.standardUserDefaults().objectForKey("current_user") as? NSData else {
+                return nil
+            }
+            
+            return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? User
+            
+            /*if let data = KeychainWrapper.sharedKeychain().dataForKey("current_user") {
                 let user = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? User
                 
                 return user
             }
             
-            return nil
+            return nil*/
         }
     }
     
     public static var authToken: String! {
         set {
-            KeychainWrapper.sharedKeychain().setData(newValue.dataUsingEncoding(NSUTF8StringEncoding), forKey: "auth_token")
+            //KeychainWrapper.sharedKeychain().setData(newValue.dataUsingEncoding(NSUTF8StringEncoding), forKey: "auth_token")
+            NSUserDefaults.standardUserDefaults().setObject(newValue.dataUsingEncoding(NSUTF8StringEncoding), forKey: "auth_token")
+            NSUserDefaults.standardUserDefaults().synchronize()
         }
         get {
+            guard let data = NSUserDefaults.standardUserDefaults().objectForKey("auth_token") as? NSData else {
+                return nil
+            }
+            
+            return String(data: data, encoding: NSUTF8StringEncoding)
+            /*
             if let data = KeychainWrapper.sharedKeychain().dataForKey("auth_token") {
                 guard let token = String(data: data, encoding: NSUTF8StringEncoding) else { return nil }
                 
                 return token
             }
             
-            return nil
+            return nil*/
         }
     }
     

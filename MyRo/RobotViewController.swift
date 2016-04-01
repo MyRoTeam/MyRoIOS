@@ -25,13 +25,17 @@ class RobotViewController: UIViewController {
         self.remoteView.delegate = self
     }
 
+    private var manager: BLEManager!
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         self.client = ARDAppClient(delegate: self)
         self.client.serverHostUrl = "https://apprtc.appspot.com"
+        //self.client.connectToRoomWithId("myro-000000", options: nil)
+        
         self.handleRobotUdidIfNeeded({ (response: [String : AnyObject]) in
-                self.client.connectToRoomWithId("myro-\(Robot.currentRobot.code)", options: nil)
+                print("Connecting To: \(Robot.currentRobot.code)")
+                self.client.connectToRoomWithId("myro-000002", options: nil)
             },
             failure: { (error: NSError) in
                 // TODO: Handle Error
@@ -39,14 +43,14 @@ class RobotViewController: UIViewController {
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
-        self.disconnect()
-        
         SocketService.connect()
-        SocketService.subscribe("myro-instruction-\(Robot.currentRobot.udid)", callback: { (response: [AnyObject], emitter: SocketAckEmitter) in
+        SocketService.subscribe("myro-instruction-000000", callback: { (response: [AnyObject], emitter: SocketAckEmitter) in
             guard let str = response as? String, let data = str.dataUsingEncoding(NSUTF8StringEncoding) else { return }
             
-            BLEManager.sharedManager.sendData(data)
+            //BLEManager.sharedManager.sendData(data)
         })
+        
+        self.manager = BLEManager()
         
         //self.client = ARDAppClient(delegate: self)
         //self.client.connectToRoomWithId("myro-test10", options: nil)
@@ -65,8 +69,14 @@ class RobotViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    deinit {
+        self.disconnect()
+        SocketService.disconnect()
+    }
+    
     private func handleRobotUdidIfNeeded(success: APISuccessBlock, failure: APIFailureBlock) {
         guard Robot.currentRobot == nil else {
+            print("HERE")
             success?([:])
             return
         }
@@ -97,7 +107,7 @@ class RobotViewController: UIViewController {
     
     @IBAction func endCall() {
         self.disconnect()
-        self.dismissViewControllerAnimated(true, completion: nil)
+        SocketService.disconnect()
     }
     
     private func disconnect() {

@@ -8,7 +8,7 @@
         <!--Robot View Controller-->
         <scene sceneID="gdR-71-TPG">
             <objects>
-                <viewController storyboardIdentifier="RobotViewController" id="qTU-85-eXw" customClass="RobotViewController" customModule="AppRTC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RobotViewController" id="qTU-85-eXw" customClass="RobotViewController" customModule="MyRo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Lk-Fq-Ri8"/>
                         <viewControllerLayoutGuide type="bottom" id="FqQ-Ka-25d"/>
@@ -19,7 +19,22 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgu-Yt-jWZ" customClass="RTCEAGLVideoView">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zU6-lk-fE9">
+                                        <rect key="frame" x="285" y="530" width="30" height="30"/>
+                                        <state key="normal" title="End">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="endCall" destination="qTU-85-eXw" eventType="touchUpInside" id="5Rh-xI-bGt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="zU6-lk-fE9" secondAttribute="bottom" constant="20" id="Eff-sG-5aJ"/>
+                                    <constraint firstItem="zU6-lk-fE9" firstAttribute="centerX" secondItem="Mgu-Yt-jWZ" secondAttribute="centerX" id="mxT-UQ-mLV"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

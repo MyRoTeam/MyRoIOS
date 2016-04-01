@@ -3,7 +3,6 @@
 //  MyRo
 //
 //  Created by Aadesh Patel on 4/1/16.
-//  Copyright © 2016 ISBX. All rights reserved.
 //
 
 import CoreBluetooth
@@ -17,8 +16,9 @@ class BLEManager {
     private let centralManagerQueue = dispatch_queue_create("com.myro.ble", nil)
     
     init() {
+        print("BLE INIT")
         self.handler = BLEHandler()
-        self.centralManager = CBCentralManager(delegate: self.handler, queue: self.centralManagerQueue)
+        self.centralManager = CBCentralManager(delegate: self.handler, queue: nil)
     }
     
     func sendData(data: NSData) {

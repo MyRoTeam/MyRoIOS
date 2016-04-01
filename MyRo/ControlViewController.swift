@@ -57,11 +57,16 @@ class ControlViewController: UIViewController {
         self.disconnect()
         self.client = ARDAppClient(delegate: self)
         self.client.serverHostUrl = "https://apprtc.appspot.com"
-        self.client.connectToRoomWithId(self.room, options: nil)
+        self.client.connectToRoomWithId(/*self.room*/"myro-000002", options: nil)
         self.client.muteAudioIn()
         
-        SocketService.Socket = SocketIOClient(socketURL: NSURL(string: SocketService.URL)!, options: [.Log(true), .ForcePolling(true), .ConnectParams(["token": User.connectedRobotToken])])
-        SocketService.connect()
+        //SocketService.Socket = SocketIOClient(socketURL: NSURL(string: SocketService.URL)!, options: [.Log(true), .ForcePolling(true), .ConnectParams(["token": User.connectedRobotToken])])
+        //SocketService.connect()        
+    }
+    
+    deinit {
+        self.disconnect()
+        SocketService.disconnect()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -89,6 +94,8 @@ class ControlViewController: UIViewController {
     
     @IBAction func endCall() {
         self.disconnect()
+        SocketService.disconnect()
+
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

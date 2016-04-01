@@ -8,19 +8,29 @@
 
 import UIKit
 
-public final class Robot: JSONModel, NSCoding {
+public final class Robot: NSObject, JSONModel, NSCoding {
     public static var currentRobot: Robot! {
         set {
-            KeychainWrapper.sharedKeychain().setData(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: "current_robot")
+            //KeychainWrapper.sharedKeychain().setData(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: "current_robot")
+            NSUserDefaults.standardUserDefaults().setObject(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: "current_robot")
+            //NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "current_robot")
+            NSUserDefaults.standardUserDefaults().synchronize()
         }
         get {
+            guard let data = NSUserDefaults.standardUserDefaults().objectForKey("current_robot") as? NSData else {
+                return nil
+            }
+            
+            return NSKeyedUnarchiver.unarchiveObjectWithData(data) as? Robot
+            
+            /*
             if let data = KeychainWrapper.sharedKeychain().dataForKey("current_robot") {
                 let robot = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? Robot
                 
                 return robot
             }
             
-            return nil
+            return nil*/
         }
     }
     
@@ -29,11 +39,13 @@ public final class Robot: JSONModel, NSCoding {
     public var udid: String!
     public var code: String!
     
-    required public init() {
-        
+    required public override init() {
+        super.init()
     }
     
     public init(name: String, udid: String) {
+        super.init()
+        
         self.name = name
         self.udid = udid
     }

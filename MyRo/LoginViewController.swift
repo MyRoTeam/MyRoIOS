@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
                 
                 self?.performSegueWithIdentifier("login", sender: nil)
             }, failure: { [weak self] (error: NSError) -> Void in
+                print("ERROR: \(error)")
                 let alertController = UIAlertController(title: "Authentication Failed", message: "Invalid username/password", preferredStyle: UIAlertControllerStyle.Alert)
                 let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: { (action: UIAlertAction) -> Void in
                     
