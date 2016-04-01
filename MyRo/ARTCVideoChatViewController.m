@@ -66,6 +66,8 @@
     [self.client connectToRoomWithId:self.roomName options:nil];
     
     [self.urlLabel setText:self.roomUrl];
+    
+    NSLog(@"ROOM: %@", self.roomName);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

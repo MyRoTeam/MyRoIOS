@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:AppRTC.xcodeproj">
+      location = "group:/Users/aadeshpatel/Documents/apprtc-ios/MyRo.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
