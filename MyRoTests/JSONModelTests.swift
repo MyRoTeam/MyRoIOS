@@ -27,7 +27,7 @@ class JSONModelTests: XCTestCase {
         robot.udid = "TestUDID"
         let json = robot.toJSON()
         
-        XCTAssertEqual(robot.id, json["id"] as? String)
+        XCTAssertEqual(robot.id, json["_id"] as? String)
         XCTAssertEqual(robot.name, json["name"] as? String)
         XCTAssertEqual(robot.code, json["code"] as? String)
         XCTAssertEqual(robot.udid, json["udid"] as? String)
@@ -39,7 +39,7 @@ class JSONModelTests: XCTestCase {
         user.username = "TestUsername"
         let json = user.toJSON()
         
-        XCTAssertEqual(user.id, json["id"] as? String)
+        XCTAssertEqual(user.id, json["_id"] as? String)
         XCTAssertEqual(user.username, json["username"] as? String)
     }
     

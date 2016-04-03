@@ -32,8 +32,9 @@ class KeychainTests: XCTestCase {
         let data = "TestString".dataUsingEncoding(NSUTF8StringEncoding)
         keychain.setData(data, forKey: key)
         
-        XCTAssertEqual(data, keychain.dataForKey(key))
+        let retrievedValue = String(data: keychain.dataForKey(key), encoding: NSUTF8StringEncoding)
         
-        keychain.setData(nil, forKey: key)
+        XCTAssertNotNil(retrievedValue, "Retrieved value from keychain is nil")
+        XCTAssertEqual("TestString", retrievedValue!)
     }
 }

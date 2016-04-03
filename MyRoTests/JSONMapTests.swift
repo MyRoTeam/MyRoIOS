@@ -39,7 +39,8 @@ class JSONMapTests: XCTestCase {
         let _ = map["name"]
         let name = "TestName"
         JSONMap.to(name, map: map)
-        
+        let _ = map["name"]
+
         XCTAssertEqual(map.value(), name)
     }
     
