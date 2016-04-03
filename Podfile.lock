@@ -6,11 +6,7 @@ PODS:
   - SocketRocket (0.5.0)
 
 DEPENDENCIES:
-  - AppRTC (from `.`)
-
-EXTERNAL SOURCES:
-  AppRTC:
-    :path: "."
+  - AppRTC
 
 SPEC CHECKSUMS:
   AppRTC: 29a5418955fee7fba3df36a0c37285cd835272ad

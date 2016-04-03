@@ -46,6 +46,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="endButton" destination="zU6-lk-fE9" id="wMq-kS-O9N"/>
                         <outlet property="remoteView" destination="Mgu-Yt-jWZ" id="0EG-CZ-KDV"/>
                     </connections>
                 </viewController>

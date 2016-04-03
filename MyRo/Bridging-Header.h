@@ -3,7 +3,6 @@
 //  MyRo
 //
 //  Created by Aadesh Patel on 4/1/16.
-//  Copyright © 2016 ISBX. All rights reserved.
 //
 
 #ifndef Bridging_Header_h

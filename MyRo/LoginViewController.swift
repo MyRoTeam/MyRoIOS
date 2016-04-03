@@ -1,6 +1,6 @@
 //
 //  LoginViewController.swift
-//  NeverGoneBot-iOS
+//  MyRo-iOS
 //
 //  Created by Aadesh Patel on 2/4/16.
 //  Copyright © 2016 Aadesh Patel. All rights reserved.
@@ -8,15 +8,21 @@
 
 import UIKit
 
+/// View controller where user can login or register a new account
 class LoginViewController: UIViewController {
-    
+    /// Text field to input username
     @IBOutlet weak var usernameTextField: UITextField!
+    
+    /// Text field to input password
     @IBOutlet weak var passwordTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        SocketService.connect()
+        SocketService.publish("myro instruction", items: "Test123")
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,6 +30,12 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    /**
+     Attempts to login by sending a request to the server and handles the
+     response accordingly
+ 
+     - parameter sender: Button that caused the login event
+     */
     @IBAction func login(sender: UIButton) {
         UserService.authenticateUser(self.usernameTextField.text,
             password: self.passwordTextField.text,

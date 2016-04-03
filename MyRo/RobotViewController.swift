@@ -3,29 +3,45 @@
 //  MyRo
 //
 //  Created by Aadesh Patel on 4/1/16.
-//  Copyright © 2016 ISBX. All rights reserved.
 //
 
 import UIKit
 import AVFoundation
 
+/**
+ View controller that handles the WebRTC video stream communication and displays the
+ client's video stream
+ */
 class RobotViewController: UIViewController {
+    /// Button to leave the current video call room
+    @IBOutlet weak var endButton: UIButton!
+    
+    /// Connected user's video stream view
     @IBOutlet weak var remoteView: RTCEAGLVideoView!
+    
+    /// Connected user's video stream
     private var remoteVideoTrack: RTCVideoTrack!
+    
+    /// Connected user's video stream view size
     private var remoteVideoSize: CGSize!
     
+    /// If audio is currently on or off
     private var isMute: Bool = false
-    private var isVideoBack: Bool = false
     
+    //private var isVideoBack: Bool = false
+    
+    /// WebRTC client object
     private var client: ARDAppClient!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.remoteView.delegate = self
+        
+        self.view.bringSubviewToFront(self.endButton)
     }
 
-    private var manager: BLEManager!
+    //private var manager: BLEManager!
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -35,7 +51,7 @@ class RobotViewController: UIViewController {
         
         self.handleRobotUdidIfNeeded({ (response: [String : AnyObject]) in
                 print("Connecting To: \(Robot.currentRobot.code)")
-                self.client.connectToRoomWithId("myro-000002", options: nil)
+                self.client.connectToRoomWithId("myro-code123", options: nil)
             },
             failure: { (error: NSError) in
                 // TODO: Handle Error
@@ -44,13 +60,16 @@ class RobotViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         SocketService.connect()
-        SocketService.subscribe("myro-instruction-000000", callback: { (response: [AnyObject], emitter: SocketAckEmitter) in
+        SocketService.subscribe("myro instruction", callback: { (response: [AnyObject], emitter: SocketAckEmitter) in
+            print("GOT IT")
+            print("RETRIEVED: \(response)")
             guard let str = response as? String, let data = str.dataUsingEncoding(NSUTF8StringEncoding) else { return }
             
             //BLEManager.sharedManager.sendData(data)
         })
         
-        self.manager = BLEManager()
+        
+        //self.manager = BLEManager()
         
         //self.client = ARDAppClient(delegate: self)
         //self.client.connectToRoomWithId("myro-test10", options: nil)
@@ -74,6 +93,15 @@ class RobotViewController: UIViewController {
         SocketService.disconnect()
     }
     
+    /**
+     Retrieves UDID from the current device, sends it to the server to map the current device to
+     the supplied UDID, and then caches the UDID for the device in the device's Keychain which is
+     a persistent and secure cache on iOS devices. If the UDID already exists in the Keychain cache,
+     then it won't send a request to the server.
+     
+     - parameter success: Callback that gets invoked if the server successfully saves the UDID supplied
+     - parameter failure: Callback that gets invoked if the server fails to save the UDID supplied
+    */
     private func handleRobotUdidIfNeeded(success: APISuccessBlock, failure: APIFailureBlock) {
         guard Robot.currentRobot == nil else {
             print("HERE")
@@ -94,22 +122,34 @@ class RobotViewController: UIViewController {
             failure: failure)
     }
     
-    
+    /**
+     Toggles the robot's audio for the video stream
+     
+     - parameter sender: UIButton that invoked this selector
+     */
     @IBAction func toggleAudio(sender: UIButton) {
-        self.isMute ? self.client.unmuteAudioIn() : self.client.muteAudioIn()
+        //self.isMute ? self.client.unmuteAudioIn() : self.client.muteAudioIn()
         self.isMute = !self.isMute
     }
     
+    /*
     @IBAction func toggleVideo() {
         self.isVideoBack ? self.client.swapCameraToFront() : self.client.swapCameraToBack()
         self.isVideoBack = !self.isVideoBack
-    }
+    }*/
     
+    /**
+     Wrapper function that invokes methods to disconnect the robot from the websocket
+     and the video call room
+     */
     @IBAction func endCall() {
         self.disconnect()
         SocketService.disconnect()
     }
     
+    /**
+     Disconnects the robot from the video call room
+     */
     private func disconnect() {
         guard self.client != nil else { return }
         
@@ -122,6 +162,9 @@ class RobotViewController: UIViewController {
         self.client.disconnect()
     }
     
+    /**
+     Handles the event when the client disconnects from the video call room
+     */
     private func remoteDisconnected() {
         if (self.remoteVideoTrack != nil) {
             self.remoteVideoTrack.removeRenderer(self.remoteView)

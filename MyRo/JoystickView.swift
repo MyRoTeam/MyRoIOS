@@ -1,7 +1,7 @@
 
 //
 //  JoystickView.swift
-//  NeverGoneBot-iOS
+//  MyRo-iOS
 //
 //  Created by Aadesh Patel on 2/7/16.
 //  Copyright © 2016 Aadesh Patel. All rights reserved.
@@ -9,8 +9,14 @@
 
 import UIKit
 
+/// Joystick UIView subclass
 class JoystickView: UIView {
+    /// Circular UIView that can be dragged around
     var handleView: UIView!
+    
+    /// Animator instance that causes the handleView to snap back to this view's center
+    /// once the gesture event ends
+    var animator: UIDynamicAnimator!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,6 +30,7 @@ class JoystickView: UIView {
         self.baseInit()
     }
 
+    /// Base initialization for an instance of JoystickView
     private func baseInit() {
         self.backgroundColor = UIColor.lightGrayColor()
         
@@ -38,7 +45,11 @@ class JoystickView: UIView {
         self.addSubview(self.handleView)
     }
     
-    var animator: UIDynamicAnimator!
+    /**
+     Handles UIPanGesture movement on JoystickView
+     
+     - parameter gesture: UIPanGestureRecognizer instance the invoked this selector
+     */
     @IBAction func dragHandleView(gesture: UIPanGestureRecognizer) {
         if (gesture.state == .Cancelled ||
             gesture.state == .Failed ||

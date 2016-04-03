@@ -1,6 +1,6 @@
 //
 //  RegisterViewController.swift
-//  NeverGoneBot-iOS
+//  MyRo-iOS
 //
 //  Created by Aadesh Patel on 3/30/16.
 //  Copyright © 2016 Aadesh Patel. All rights reserved.
@@ -8,9 +8,15 @@
 
 import UIKit
 
+/// User registration view controller
 class RegisterViewController: UIViewController {
+    /// Username input text field
     @IBOutlet weak var usernameTextField: NVBTextField!
+    
+    /// Password input text field
     @IBOutlet weak var passwordTextField: NVBTextField!
+    
+    /// Confirm password input text field to compare passwords
     @IBOutlet weak var confirmPasswordTextField: NVBTextField!
     
     override func viewDidLoad() {
@@ -24,6 +30,11 @@ class RegisterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    /**
+     Registers new account in server by sending request parameters based on
+     the username, password, and confirm password text fields
+     */
     @IBAction func register() {
         guard self.usernameTextField.text?.characters.count > 0 && self.passwordTextField.text?.characters.count > 0 && self.confirmPasswordTextField.text?.characters.count > 0 else {
             let alert = UIAlertController(title: "Error", message: "All Fields Required", preferredStyle: .Alert)

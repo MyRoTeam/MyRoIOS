@@ -1,6 +1,6 @@
 //
 //  Robot.swift
-//  NeverGoneBot-iOS
+//  MyRo-iOS
 //
 //  Created by Aadesh Patel on 3/30/16.
 //  Copyright © 2016 Aadesh Patel. All rights reserved.
@@ -8,7 +8,15 @@
 
 import UIKit
 
+/// Class that handles all client-side interactions that involve Robots
 public final class Robot: NSObject, JSONModel, NSCoding {
+    /**
+    Retrieves the current device's robot object from the keychain cache that
+    was created on the handleRobotUdidIfNeeded() call in RobotViewController
+     
+    - Returns: Robot object that corresponds to the current device. If it hasn't
+               been created, it will return nil.
+    */
     public static var currentRobot: Robot! {
         set {
             //KeychainWrapper.sharedKeychain().setData(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: "current_robot")
@@ -34,9 +42,16 @@ public final class Robot: NSObject, JSONModel, NSCoding {
         }
     }
     
+    /// The unique ID of the robot object that corresponds to the MongoDB ID
     public var id: String!
+    
+    /// The display name of the robot
     public var name: String!
+    
+    /// UDID of the robot, which is also the UDID of the current device
     public var udid: String!
+    
+    /// Six digit code required to connect to this robot
     public var code: String!
     
     required public override init() {

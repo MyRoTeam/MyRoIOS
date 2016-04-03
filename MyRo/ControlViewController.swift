@@ -1,6 +1,6 @@
 //
 //  ControlViewController.swift
-//  NeverGoneBot-iOS
+//  MyRo-iOS
 //
 //  Created by Aadesh Patel on 2/7/16.
 //  Copyright © 2016 Aadesh Patel. All rights reserved.
@@ -9,25 +9,54 @@
 import UIKit
 import AVFoundation
 
+/// View controller where all the interaction between a user and robot occurs
 class ControlViewController: UIViewController {
+    /// WebRTC room the user should join for video communication
     var room: String = ""
     
+    /// BLEManager instance for this specific view controller
+    private var manager: BLEManager!
+    
+    /// Robot's video stream view
     @IBOutlet weak var remoteView: RTCEAGLVideoView!
+    
+    /// Current user's video stream view
     @IBOutlet weak var localView: RTCEAGLVideoView!
+    
+    /// Button to toggle audio on/off
     @IBOutlet weak var audioButton: UIButton!
+    
+    /// Button to toggle video between front and back camera
     @IBOutlet weak var videoButton: UIButton!
+    
+    /// Button to leave the current video call room
     @IBOutlet weak var endCallButton: UIButton!
+    
+    /// Joystick view to control robot movements
     @IBOutlet weak var joystickView: JoystickView!
     
+    /// Slider to control robot's speed
+    @IBOutlet weak var speedSlider: UISlider!
+    
+    /// Robot's video stream object
     private var remoteVideoTrack: RTCVideoTrack!
+    
+    /// User's video stream object
     private var localVideoTrack: RTCVideoTrack!
     
+    /// Robot's video stream view size
     private var remoteVideoSize: CGSize!
+    
+    /// User's video stream view size
     private var localVideoSize: CGSize!
     
+    /// If audio is currently on or off
     private var isMute: Bool = false
+    
+    /// If user's video stream is from back camera or not
     private var isVideoBack: Bool = false
     
+    /// WebRTC client object
     private var client: ARDAppClient!
 
     override func viewDidLoad() {
@@ -43,10 +72,13 @@ class ControlViewController: UIViewController {
         self.view.bringSubviewToFront(self.endCallButton)
         self.view.bringSubviewToFront(self.audioButton)
         self.view.bringSubviewToFront(self.videoButton)
-        self.view.bringSubviewToFront(self.joystickView)
+        //self.view.bringSubviewToFront(self.joystickView)
         
-        self.joystickView.layer.masksToBounds = true
-        self.joystickView.layer.cornerRadius = self.joystickView.frame.size.width / 2.0
+        //self.joystickView.layer.masksToBounds = true
+        //self.joystickView.layer.cornerRadius = self.joystickView.frame.size.width / 2.0
+        
+        print("MANAGER")
+        self.manager = BLEManager()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -57,11 +89,10 @@ class ControlViewController: UIViewController {
         self.disconnect()
         self.client = ARDAppClient(delegate: self)
         self.client.serverHostUrl = "https://apprtc.appspot.com"
-        self.client.connectToRoomWithId(/*self.room*/"myro-000002", options: nil)
-        self.client.muteAudioIn()
+        self.client.connectToRoomWithId(self.room, options: nil)
+        //self.client.muteAudioIn()
         
         //SocketService.Socket = SocketIOClient(socketURL: NSURL(string: SocketService.URL)!, options: [.Log(true), .ForcePolling(true), .ConnectParams(["token": User.connectedRobotToken])])
-        //SocketService.connect()        
     }
     
     deinit {
@@ -81,17 +112,28 @@ class ControlViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    /**
+     Toggles the user's audio for the video stream
+     
+     - parameter sender: UIButton that invoked this selector
+     */
     @IBAction func toggleAudio(sender: UIButton) {
-        self.isMute ? self.client.unmuteAudioIn() : self.client.muteAudioIn()
+        //self.isMute ? self.client.unmuteAudioIn() : self.client.muteAudioIn()
         self.isMute = !self.isMute
     }
     
+    /**
+     Toggles user's video stream between front and back camera
+     */
     @IBAction func toggleVideo() {
-        self.isVideoBack ? self.client.swapCameraToFront() : self.client.swapCameraToBack()
+        //self.isVideoBack ? self.client.swapCameraToFront() : self.client.swapCameraToBack()
         self.isVideoBack = !self.isVideoBack
     }
     
+    /**
+     Wrapper function that invokes methods to disconnect the user from the websocket
+     and the video call room
+     */
     @IBAction func endCall() {
         self.disconnect()
         SocketService.disconnect()
@@ -99,6 +141,9 @@ class ControlViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    /**
+     Disconnects the user from the video call room
+     */
     private func disconnect() {
         guard self.client != nil else { return }
         
@@ -116,6 +161,9 @@ class ControlViewController: UIViewController {
         self.client.disconnect()
     }
     
+    /**
+     Handles the event when the robot disconnects from the video call room
+     */
     private func remoteDisconnected() {
         if (self.remoteVideoTrack != nil) {
             self.remoteVideoTrack.removeRenderer(self.remoteView)
@@ -125,10 +173,41 @@ class ControlViewController: UIViewController {
         self.videoView(self.localView, didChangeVideoSize: self.localVideoSize)
     }
     
+    /**
+     Sends data to the robot app via websocket when the user wants to move the robot
+     
+     - parameter sender: JoystickView that invoked this selector
+     */
     @IBAction func joystickMoved(sender: JoystickView) {
         SocketService.publish("myro-instruction", items: "DATA HERE")
-        
     }
+    
+    /*@IBAction func onePressed() {
+        self.manager.sendData(NSData(bytes: [self.speedSlider.value > 0.0 ? "H" : "L"] as [Character], length: 1))
+        self.manager.sendData(NSData(bytes: [9] as [UInt8], length: 1))
+        self.manager.sendData(NSData(bytes: [Int(self.speedSlider.value)] as [Int], length: 1))
+    }*/
+    
+    /// Sends data to the robot to move forward
+    @IBAction func upPressed() {
+        self.manager.sendData(NSData(bytes: [self.speedSlider.value > 0.0 ? "H" : "L"] as [Character], length: 1))
+        self.manager.sendData(NSData(bytes: [11] as [UInt8], length: 1))
+        self.manager.sendData(NSData(bytes: [Int(self.speedSlider.value)] as [Int], length: 1))
+    }
+    
+    /// Sends data to the robot to move backwards
+    @IBAction func downPressed() {
+        self.manager.sendData(NSData(bytes: [self.speedSlider.value > 0.0 ? "H" : "L"] as [Character], length: 1))
+        self.manager.sendData(NSData(bytes: [13] as [UInt8], length: 1))
+        self.manager.sendData(NSData(bytes: [Int(self.speedSlider.value)] as [Int], length: 1))
+    }
+    
+    /*
+    @IBAction func fourPressed() {
+        self.manager.sendData(NSData(bytes: [self.speedSlider.value > 0.0 ? "H" : "L"] as [Character], length: 1))
+        self.manager.sendData(NSData(bytes: [7] as [UInt8], length: 1))
+        self.manager.sendData(NSData(bytes: [Int(self.speedSlider.value)] as [Int], length: 1))
+    }*/
 }
 
 extension ControlViewController: ARDAppClientDelegate {
