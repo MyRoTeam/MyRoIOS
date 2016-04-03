@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="20t-AA-V32">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="T2x-Gz-PwU">
+            <objects>
+                <viewController id="20t-AA-V32" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Fm-3O-qm4"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Rb-cI-8jV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y4k-G3-w1D">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqT-VT-LCr">
+                                <rect key="frame" x="280" y="305" width="40" height="30"/>
+                                <state key="normal" title="Client"/>
+                                <connections>
+                                    <segue destination="4XQ-Mf-OAz" kind="show" id="1ff-eF-92Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zB-Lj-O6C">
+                                <rect key="frame" x="280" y="375" width="41" height="30"/>
+                                <state key="normal" title="Robot"/>
+                                <connections>
+                                    <segue destination="Ns9-q0-9qS" kind="show" id="R2e-Bh-ptc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3zB-Lj-O6C" firstAttribute="centerX" secondItem="y4k-G3-w1D" secondAttribute="centerX" id="YzY-3O-Ymi"/>
+                            <constraint firstItem="uqT-VT-LCr" firstAttribute="centerY" secondItem="y4k-G3-w1D" secondAttribute="centerY" constant="20" id="e6O-7g-6G3"/>
+                            <constraint firstItem="3zB-Lj-O6C" firstAttribute="top" secondItem="uqT-VT-LCr" secondAttribute="bottom" constant="40" id="fKx-6l-CK5"/>
+                            <constraint firstItem="uqT-VT-LCr" firstAttribute="centerX" secondItem="y4k-G3-w1D" secondAttribute="centerX" id="wLw-Mw-zes"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pop-Zi-j1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="282" y="381"/>
+        </scene>
+        <!--LoginViewController-->
+        <scene sceneID="9fa-wg-1SM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Client" referencedIdentifier="LoginViewController" id="4XQ-Mf-OAz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AUG-bo-QBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="796.5" y="287"/>
+        </scene>
+        <!--RobotViewController-->
+        <scene sceneID="z8v-Sr-UN9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Robot" referencedIdentifier="RobotViewController" id="Ns9-q0-9qS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nS8-qr-0tR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="798" y="473"/>
+        </scene>
+    </scenes>
+</document>
