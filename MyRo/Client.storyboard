@@ -5,6 +5,59 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="mYa-Vz-Gf2">
+            <objects>
+                <viewController id="sNk-2C-CaN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bSy-Eh-Qhv"/>
+                        <viewControllerLayoutGuide type="bottom" id="TzY-6X-IVe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2P7-yK-IgE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in with your email address and password, and specify which user you are." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mq-dK-UdW">
+                                <rect key="frame" x="20" y="40" width="560" height="47"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USERNAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNE-MB-fdc">
+                                <rect key="frame" x="20" y="127" width="67" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DxH-5f-xs5">
+                                <rect key="frame" x="20" y="147" width="560" height="30"/>
+                                <color key="backgroundColor" red="0.062745098039215685" green="0.61568627450980395" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Uk4-IZ-r7x"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7mq-dK-UdW" firstAttribute="top" secondItem="bSy-Eh-Qhv" secondAttribute="bottom" constant="20" id="B8l-jk-LU0"/>
+                            <constraint firstItem="DxH-5f-xs5" firstAttribute="top" secondItem="mNE-MB-fdc" secondAttribute="bottom" constant="5" id="EuM-VN-afo"/>
+                            <constraint firstAttribute="trailing" secondItem="7mq-dK-UdW" secondAttribute="trailing" constant="20" id="Kjz-vL-ZEq"/>
+                            <constraint firstItem="mNE-MB-fdc" firstAttribute="top" secondItem="7mq-dK-UdW" secondAttribute="bottom" constant="40" id="V5a-jd-jJo"/>
+                            <constraint firstItem="DxH-5f-xs5" firstAttribute="leading" secondItem="mNE-MB-fdc" secondAttribute="leading" id="Z4s-ds-LdJ"/>
+                            <constraint firstAttribute="trailing" secondItem="DxH-5f-xs5" secondAttribute="trailing" constant="20" id="jyu-wi-bls"/>
+                            <constraint firstItem="mNE-MB-fdc" firstAttribute="leading" secondItem="2P7-yK-IgE" secondAttribute="leading" constant="20" id="mIY-b2-vII"/>
+                            <constraint firstItem="7mq-dK-UdW" firstAttribute="leading" secondItem="2P7-yK-IgE" secondAttribute="leading" constant="20" id="oCE-tM-hec"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uf1-Yf-29I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="251" y="-529"/>
+        </scene>
         <!--LoginViewController-->
         <scene sceneID="vSF-AY-gqG">
             <objects>

@@ -37,25 +37,16 @@ class LoginViewController: UIViewController {
      - parameter sender: Button that caused the login event
      */
     @IBAction func login(sender: UIButton) {
-        UserService.authenticateUser(self.usernameTextField.text,
-            password: self.passwordTextField.text,
-            success: { [weak self] (response: [String : AnyObject]) -> Void in
-                guard let userObj = response["user"] as? [String : AnyObject] else { return }
-                guard let authToken = response["authToken"] as? String else { return }
-
-                User.currentUser = User.fromJSON(userObj)
-                User.authToken = authToken
-                
+        UserService.authenticateUser(self.usernameTextField.text!, password: self.passwordTextField.text!)
+            .then { [weak self] user in
+                User.currentUser = user
                 self?.performSegueWithIdentifier("login", sender: nil)
-            }, failure: { [weak self] (error: NSError) -> Void in
-                print("ERROR: \(error)")
+            }.error { [weak self] (error: NSError) in
                 let alertController = UIAlertController(title: "Authentication Failed", message: "Invalid username/password", preferredStyle: UIAlertControllerStyle.Alert)
-                let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: { (action: UIAlertAction) -> Void in
-                    
-                })
+                let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
                 alertController.addAction(cancelAction)
                 
                 self?.presentViewController(alertController, animated: true, completion: nil)
-        })
+            }
     }
 }

@@ -53,19 +53,14 @@ class RegisterViewController: UIViewController {
         }
         
         let user = User(username: self.usernameTextField.text!)
-        UserService.createUser(user,
-            withPassword: self.passwordTextField.text!,
-            success: { (response: [String : AnyObject]) in
-                print("RESP: \(response)")
-                
-                let alert = UIAlertController(title: "Registered", message: "Registered user account!", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: { (action: UIAlertAction) -> Void in
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                }))
-                
-                self.presentViewController(alert, animated: true, completion: nil)
-            },
-            failure: nil)
+        UserService.createUser(user, withPassword: self.passwordTextField.text!).then { user in
+            let alert = UIAlertController(title: "Registered", message: "Registered user account!", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: { (action: UIAlertAction) -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
 
     /*

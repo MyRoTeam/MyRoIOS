@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C637ABBBAE9CA87EE30A34F1334CD13C0D0358D6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "C637ABBBAE9CA87EE30A34F1334CD13C0D0358D6" : 0,
+    "367DBDCE3D786DBC2DF88686BB44B325B9430D34" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "52B93C7A-011E-44D2-900F-6A5B8401BBF4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "C637ABBBAE9CA87EE30A34F1334CD13C0D0358D6" : "myro-ios\/",
+    "367DBDCE3D786DBC2DF88686BB44B325B9430D34" : "Personal_Github\/AsyncKit\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MyRo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MyRo.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Aadeshp\/AsyncKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "367DBDCE3D786DBC2DF88686BB44B325B9430D34"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MyRoTeam\/MyRoIOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C637ABBBAE9CA87EE30A34F1334CD13C0D0358D6"
+    }
+  ]
+}

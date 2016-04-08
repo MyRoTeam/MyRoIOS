@@ -51,22 +51,26 @@ public class APIClient: NSObject {
      
      - parameter route: API route to send the request to
      - parameter params: Parameters to send with the request
-     - parameter success: Callback that gets invoked if the request is successful
-     - parameter failure: Callback that gets invoked if the request fails
+     
+     - returns: Task of type [String : AnyObject]
      */
-    public static func GET(route: APIRoute, params: APIParameters, success: APISuccessBlock, failure: APIFailureBlock)
+    public static func GET(route: APIRoute, params: APIParameters) -> Task<JSON>
     {
+        let manager = TaskManager<JSON>()
+        
         APIClient.HttpReqManager.GET(APIClient.BaseUrl + route.description,
-            parameters: params as? AnyObject,
-            success: { (operation: AFHTTPRequestOperation, response: AnyObject) -> Void in
-                guard let dict = response as? [String : AnyObject] else {
-                    return
-                }
-                
-                success?(dict)
+                                     parameters: params as? AnyObject,
+                                     success: { (operation: AFHTTPRequestOperation, response: AnyObject) -> Void in
+                                        guard let dict = response as? [String : AnyObject] else {
+                                            return
+                                        }
+                                        
+                                        manager.complete(dict)
             }, failure: { (operation: AFHTTPRequestOperation?, error: NSError) -> Void in
-                failure?(error)
+                manager.completeWithError(error)
         })
+        
+        return manager.task
     }
     
     /**
@@ -74,21 +78,25 @@ public class APIClient: NSObject {
      
      - parameter route: API route to send the request to
      - parameter params: Parameters to send with the request
-     - parameter success: Callback that gets invoked if the request is successful
-     - parameter failure: Callback that gets invoked if the request fails
+     
+     - returns: Task of type [String : AnyObject]
      */
-    public static func POST(route: APIRoute, params: APIParameters, success: APISuccessBlock, failure: APIFailureBlock) {
+    public static func POST(route: APIRoute, params: APIParameters) -> Task<JSON> {
+        let manager = TaskManager<JSON>()
+        
         APIClient.HttpReqManager.POST(APIClient.BaseUrl + route.description,
-            parameters: params!,
-            success: { (operation: AFHTTPRequestOperation, response: AnyObject) -> Void in
-                guard let dict = response as? [String : AnyObject] else {
-                    return
-                }
-                
-                success?(dict)
+                                      parameters: params!,
+                                      success: { (operation: AFHTTPRequestOperation, response: AnyObject) -> Void in
+                                        guard let dict = response as? [String : AnyObject] else {
+                                            return
+                                        }
+                                        
+                                        manager.complete(dict)
             }, failure: { (operation: AFHTTPRequestOperation?, error: NSError) -> Void in
-                failure?(error)
+                manager.completeWithError(error)
         })
+        
+        return manager.task
     }
     
     /**
@@ -132,20 +140,24 @@ public class APIClient: NSObject {
      
      - parameter route: API route to send the request to
      - parameter params: Parameters to send with the request
-     - parameter success: Callback that gets invoked if the request is successful
-     - parameter failure: Callback that gets invoked if the request fails
+     
+     - returns: Task of type [String : AnyObject]
      */
-    public static func PUT(route: APIRoute, params: APIParameters, success: APISuccessBlock, failure: APIFailureBlock) {
+    public static func PUT(route: APIRoute, params: APIParameters) -> Task<JSON> {
+        let manager = TaskManager<JSON>()
+        
         APIClient.HttpReqManager.PUT(APIClient.BaseUrl + route.description,
-            parameters: params!,
-            success: { (operation: AFHTTPRequestOperation, response: AnyObject) -> Void in
-                guard let dict = response as? [String : AnyObject] else {
-                    return
-                }
-                
-                success?(dict)
+                                     parameters: params!,
+                                     success: { (operation: AFHTTPRequestOperation, response: AnyObject) -> Void in
+                                        guard let dict = response as? [String : AnyObject] else {
+                                            return
+                                        }
+                                        
+                                        manager.complete(dict)
             }, failure: { (operation: AFHTTPRequestOperation?, error: NSError) -> Void in
-                failure?(error)
+                manager.completeWithError(error)
         })
+        
+        return manager.task
     }
 }

@@ -38,32 +38,36 @@ public enum RobotServiceRoute: APIRoute {
 
 /// Service class that handles server API requests related to robots
 public class RobotService: NSObject {
+    /// Block that converts Robot JSON to Robot object
+    private static let jsonToRobotBlock = { (json: JSON) -> Robot in
+        return Robot.fromJSON(json)
+    }
+
     /**
     Sends a request to the server to create a new robot object
     
      - parameter robot: Robot object that needs to be saved in the server database
-     - parameter success: Callback that gets invoked if the server successfully saves
-                          the robot object in the database
-     - parameter failure: Callback that gets invoked if the server requests fails
+     
+     - returns: Task containing Robot object created
      */
-    public static func createRobot(robot: Robot, success: APISuccessBlock, failure: APIFailureBlock) {
-        APIClient.POST(RobotServiceRoute.Create,
-                       params: robot.toJSON(),
-                       success: success,
-                       failure: failure)
+    public static func createRobot(robot: Robot) -> Task<Robot> {
+        return APIClient.POST(
+            RobotServiceRoute.Create,
+            params: robot.toJSON()
+        ).then(.Current, self.jsonToRobotBlock)
     }
     
     /**
      Retrieves the specific robot object from the server, based on the unique MongoDB ID supplied
  
      - parameter robotId: Unique robot ID whose robot object needs to be retrieved
-     - parameter success: Callback that gets invoked if a robot object with the supplied robotId exists
-     - parameter failure: Callback that gets invoked if there is no robot object with the supplied robotId
+     
+     - returns: Task containing Robot object retrieved
      */
-    public static func getRobot(robotId: String, success: APISuccessBlock, failure: APIFailureBlock) {
-        APIClient.GET(RobotServiceRoute.Get(robotId),
-                      params: nil,
-                      success: success,
-                      failure: failure)
+    public static func getRobot(robotId: String) -> Task<Robot> {
+        return APIClient.GET(
+            RobotServiceRoute.Get(robotId),
+            params: nil
+        ).then(.Current, self.jsonToRobotBlock)
     }
 }

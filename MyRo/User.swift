@@ -11,9 +11,9 @@ import UIKit
 /// Class that handles all client side interaction involving Users
 public final class User: NSObject, JSONModel, NSCoding {
     /**
-    Retrieves the current user object logged in on the current device from
-    the keychain cache
-    */
+     Retrieves the current user object logged in on the current device from
+     the keychain cache
+     */
     public static var currentUser: User! {
         set {
             NSUserDefaults.standardUserDefaults().setObject(NSKeyedArchiver.archivedDataWithRootObject(newValue), forKey: "current_user")
@@ -38,12 +38,12 @@ public final class User: NSObject, JSONModel, NSCoding {
     }
     
     /**
-    Retrieves the current user's authentication token (saved on successful login),
-    from the keychain cache, required to make server requests that require a logged 
-    in user
+     Retrieves the current user's authentication token (saved on successful login),
+     from the keychain cache, required to make server requests that require a logged
+     in user
      
-    - returns: Current user's authentication token string
-    */
+     - returns: Current user's authentication token string
+     */
     public static var authToken: String! {
         set {
             //KeychainWrapper.sharedKeychain().setData(newValue.dataUsingEncoding(NSUTF8StringEncoding), forKey: "auth_token")
@@ -68,11 +68,11 @@ public final class User: NSObject, JSONModel, NSCoding {
     }
     
     /**
-    Retrieves the token required to connect to a specific robot via websocket channel, from
-    the keychain cache. Received on successful server request to /users/:id/connect/.
+     Retrieves the token required to connect to a specific robot via websocket channel, from
+     the keychain cache. Received on successful server request to /users/:id/connect/.
  
-    - returns: Connected robot's token string
-    */
+     - returns: Connected robot's token string
+     */
     public static var connectedRobotToken: String! {
         set {
             KeychainWrapper.sharedKeychain().setData(newValue.dataUsingEncoding(NSUTF8StringEncoding), forKey: "connected_robot_token")

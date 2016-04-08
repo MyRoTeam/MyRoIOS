@@ -72,6 +72,18 @@
 		5DAC3AF71CAE6A0600487C52 /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC3AF61CAE6A0600487C52 /* BLEManager.swift */; };
 		5DAC3AFA1CAE6A3800487C52 /* BLEHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC3AF91CAE6A3800487C52 /* BLEHandler.swift */; };
 		5DAC3AFC1CAE6C4C00487C52 /* BLEService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC3AFB1CAE6C4C00487C52 /* BLEService.swift */; };
+		5DB955F81CB1DA9B008CF3B1 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB955F11CB1DA9B008CF3B1 /* Executor.swift */; };
+		5DB955F91CB1DA9B008CF3B1 /* AKQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB955F21CB1DA9B008CF3B1 /* AKQueue.swift */; };
+		5DB955FA1CB1DA9B008CF3B1 /* AKSynchronization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB955F31CB1DA9B008CF3B1 /* AKSynchronization.swift */; };
+		5DB955FB1CB1DA9B008CF3B1 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB955F41CB1DA9B008CF3B1 /* Task.swift */; };
+		5DB955FC1CB1DA9B008CF3B1 /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB955F51CB1DA9B008CF3B1 /* TaskManager.swift */; };
+		5DB955FD1CB1DA9B008CF3B1 /* TaskQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB955F61CB1DA9B008CF3B1 /* TaskQueue.swift */; };
+		5DB956031CB1DAA9008CF3B1 /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB956001CB1DAA9008CF3B1 /* Atomic.swift */; };
+		5DB956041CB1DAA9008CF3B1 /* SpinLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB956011CB1DAA9008CF3B1 /* SpinLock.swift */; };
+		5DB956051CB1DAA9008CF3B1 /* AtomicValueWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB956021CB1DAA9008CF3B1 /* AtomicValueWrapper.swift */; };
+		5DB956081CB1F2A8008CF3B1 /* UIColor+ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB956071CB1F2A8008CF3B1 /* UIColor+ColorPalette.swift */; };
+		5DB9560A1CB1F4D1008CF3B1 /* MyRoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB956091CB1F4D1008CF3B1 /* MyRoTextField.swift */; };
+		5DB9560C1CB23684008CF3B1 /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9560B1CB23684008CF3B1 /* TaskTests.swift */; };
 		D3B659F58E805272D56C4280 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C45023C40A2F51E4D30C7A10 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -168,6 +180,18 @@
 		5DAC3AF61CAE6A0600487C52 /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
 		5DAC3AF91CAE6A3800487C52 /* BLEHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEHandler.swift; sourceTree = "<group>"; };
 		5DAC3AFB1CAE6C4C00487C52 /* BLEService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEService.swift; sourceTree = "<group>"; };
+		5DB955F11CB1DA9B008CF3B1 /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
+		5DB955F21CB1DA9B008CF3B1 /* AKQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKQueue.swift; sourceTree = "<group>"; };
+		5DB955F31CB1DA9B008CF3B1 /* AKSynchronization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKSynchronization.swift; sourceTree = "<group>"; };
+		5DB955F41CB1DA9B008CF3B1 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		5DB955F51CB1DA9B008CF3B1 /* TaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		5DB955F61CB1DA9B008CF3B1 /* TaskQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskQueue.swift; sourceTree = "<group>"; };
+		5DB956001CB1DAA9008CF3B1 /* Atomic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
+		5DB956011CB1DAA9008CF3B1 /* SpinLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinLock.swift; sourceTree = "<group>"; };
+		5DB956021CB1DAA9008CF3B1 /* AtomicValueWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomicValueWrapper.swift; sourceTree = "<group>"; };
+		5DB956071CB1F2A8008CF3B1 /* UIColor+ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ColorPalette.swift"; sourceTree = "<group>"; };
+		5DB956091CB1F4D1008CF3B1 /* MyRoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoTextField.swift; sourceTree = "<group>"; };
+		5DB9560B1CB23684008CF3B1 /* TaskTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTests.swift; sourceTree = "<group>"; };
 		A91A157833594B50E74E767F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B6DABCBD6F43FEC6530D36B2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C45023C40A2F51E4D30C7A10 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -299,6 +323,7 @@
 		5D70115A1CB0AF3A006B4075 /* MyRoTests */ = {
 			isa = PBXGroup;
 			children = (
+				5DB9560B1CB23684008CF3B1 /* TaskTests.swift */,
 				5D70116D1CB0BEC1006B4075 /* ModelCoderTests.swift */,
 				5D70116B1CB0BE47006B4075 /* APIClientTests.swift */,
 				5D7011691CB0BD17006B4075 /* APIRouteTests.swift */,
@@ -380,6 +405,8 @@
 		5DAC3AA61CAE258E00487C52 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5DB956061CB1F29A008CF3B1 /* Extensions */,
+				5DB955DB1CB1D9F6008CF3B1 /* AsyncKit */,
 				5DAC3AA91CAE259700487C52 /* KeychainWrapper */,
 				5DAC3AAD1CAE259700487C52 /* JSONModel */,
 				5DAC3AAF1CAE259700487C52 /* Socket */,
@@ -429,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				5DAC3AE91CAE25BD00487C52 /* NVBTextField.swift */,
+				5DB956091CB1F4D1008CF3B1 /* MyRoTextField.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -441,6 +469,38 @@
 				5DAC3AFB1CAE6C4C00487C52 /* BLEService.swift */,
 			);
 			name = BLE;
+			sourceTree = "<group>";
+		};
+		5DB955DB1CB1D9F6008CF3B1 /* AsyncKit */ = {
+			isa = PBXGroup;
+			children = (
+				5DB955FF1CB1DA9F008CF3B1 /* Atomic */,
+				5DB955F11CB1DA9B008CF3B1 /* Executor.swift */,
+				5DB955F21CB1DA9B008CF3B1 /* AKQueue.swift */,
+				5DB955F31CB1DA9B008CF3B1 /* AKSynchronization.swift */,
+				5DB955F41CB1DA9B008CF3B1 /* Task.swift */,
+				5DB955F51CB1DA9B008CF3B1 /* TaskManager.swift */,
+				5DB955F61CB1DA9B008CF3B1 /* TaskQueue.swift */,
+			);
+			name = AsyncKit;
+			sourceTree = "<group>";
+		};
+		5DB955FF1CB1DA9F008CF3B1 /* Atomic */ = {
+			isa = PBXGroup;
+			children = (
+				5DB956001CB1DAA9008CF3B1 /* Atomic.swift */,
+				5DB956011CB1DAA9008CF3B1 /* SpinLock.swift */,
+				5DB956021CB1DAA9008CF3B1 /* AtomicValueWrapper.swift */,
+			);
+			name = Atomic;
+			sourceTree = "<group>";
+		};
+		5DB956061CB1F29A008CF3B1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5DB956071CB1F2A8008CF3B1 /* UIColor+ColorPalette.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -605,9 +665,12 @@
 				5DAC3A801CAE253D00487C52 /* JoystickView.swift in Sources */,
 				5DAC3AE41CAE25AA00487C52 /* SocketParsable.swift in Sources */,
 				5DAC3AE51CAE25AA00487C52 /* SocketStringReader.swift in Sources */,
+				5DB955FB1CB1DA9B008CF3B1 /* Task.swift in Sources */,
 				5DAC3A821CAE253D00487C52 /* RegisterViewController.swift in Sources */,
 				5DAC3ADA1CAE25AA00487C52 /* SocketEnginePollable.swift in Sources */,
 				5DAC3AA51CAE257700487C52 /* AFURLSessionManager.m in Sources */,
+				5DB955F81CB1DA9B008CF3B1 /* Executor.swift in Sources */,
+				5DB955FD1CB1DA9B008CF3B1 /* TaskQueue.swift in Sources */,
 				5DAC3A7E1CAE253D00487C52 /* LoginViewController.swift in Sources */,
 				5DAC3AA21CAE257700487C52 /* AFURLConnectionOperation.m in Sources */,
 				5DAC3A9E1CAE257700487C52 /* AFHTTPRequestOperationManager.m in Sources */,
@@ -615,6 +678,7 @@
 				5DAC3ADD1CAE25AA00487C52 /* SocketEventHandler.swift in Sources */,
 				5DAC3AA01CAE257700487C52 /* AFNetworkReachabilityManager.m in Sources */,
 				5DAC3A871CAE255500487C52 /* Robot.swift in Sources */,
+				5DB956041CB1DAA9008CF3B1 /* SpinLock.swift in Sources */,
 				5DAC3AE61CAE25AA00487C52 /* SocketTypes.swift in Sources */,
 				5DAC3AEB1CAE25BD00487C52 /* NVBTextField.swift in Sources */,
 				5DAC3AA11CAE257700487C52 /* AFSecurityPolicy.m in Sources */,
@@ -622,6 +686,7 @@
 				5DAC3ADE1CAE25AA00487C52 /* SocketFixUTF8.swift in Sources */,
 				5DAC3AF51CAE424B00487C52 /* RobotViewController.swift in Sources */,
 				5DAC3ABB1CAE259700487C52 /* RobotService.swift in Sources */,
+				5DB956081CB1F2A8008CF3B1 /* UIColor+ColorPalette.swift in Sources */,
 				5DAC3AA31CAE257700487C52 /* AFURLRequestSerialization.m in Sources */,
 				5DAC3AB51CAE259700487C52 /* JSONModel.swift in Sources */,
 				5DAC3AD41CAE25AA00487C52 /* SocketAckManager.swift in Sources */,
@@ -636,21 +701,27 @@
 				5C80AA7C1AAB5DF300F21FFA /* main.m in Sources */,
 				5DAC3AFC1CAE6C4C00487C52 /* BLEService.swift in Sources */,
 				5DAC3AE01CAE25AA00487C52 /* SocketIOClientOption.swift in Sources */,
+				5DB956031CB1DAA9008CF3B1 /* Atomic.swift in Sources */,
 				5DAC3AE81CAE25AA00487C52 /* WebSocket.swift in Sources */,
 				5DAC3A7F1CAE253D00487C52 /* ControlViewController.swift in Sources */,
 				5DAC3AD81CAE25AA00487C52 /* SocketEngineClient.swift in Sources */,
 				5DAC3AE31CAE25AA00487C52 /* SocketPacket.swift in Sources */,
 				5DAC3AF71CAE6A0600487C52 /* BLEManager.swift in Sources */,
+				5DB956051CB1DAA9008CF3B1 /* AtomicValueWrapper.swift in Sources */,
 				5DAC3AD61CAE25AA00487C52 /* SocketClientSpec.swift in Sources */,
 				5DAC3AE11CAE25AA00487C52 /* SocketIOClientStatus.swift in Sources */,
 				5DAC3A9F1CAE257700487C52 /* AFHTTPSessionManager.m in Sources */,
 				5DAC3A811CAE253D00487C52 /* RobotConnectionViewController.swift in Sources */,
+				5DB955FA1CB1DA9B008CF3B1 /* AKSynchronization.swift in Sources */,
 				5DAC3AB81CAE259700487C52 /* SocketService.swift in Sources */,
 				5DAC3AE21CAE25AA00487C52 /* SocketLogger.swift in Sources */,
 				5DAC3ADF1CAE25AA00487C52 /* SocketIOClient.swift in Sources */,
 				5DAC3AE71CAE25AA00487C52 /* SwiftRegex.swift in Sources */,
+				5DB955FC1CB1DA9B008CF3B1 /* TaskManager.swift in Sources */,
 				5DAC3A861CAE255500487C52 /* User.swift in Sources */,
 				5DAC3AB91CAE259700487C52 /* APIClient.swift in Sources */,
+				5DB9560A1CB1F4D1008CF3B1 /* MyRoTextField.swift in Sources */,
+				5DB955F91CB1DA9B008CF3B1 /* AKQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +729,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DB9560C1CB23684008CF3B1 /* TaskTests.swift in Sources */,
 				5D70116A1CB0BD17006B4075 /* APIRouteTests.swift in Sources */,
 				5D70115C1CB0AF3A006B4075 /* MyRoTests.swift in Sources */,
 				5D7011681CB0B8F9006B4075 /* KeychainTests.swift in Sources */,

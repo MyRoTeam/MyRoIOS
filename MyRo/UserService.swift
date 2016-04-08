@@ -61,32 +61,38 @@ public enum UserServiceRoute: APIRoute {
 
 /// Service class that handles server API requests related to robots
 public class UserService: NSObject {
+    /// Block that converts User JSON to User object
+    private static let jsonToUserBlock = { (json: JSON) -> User in
+        return User.fromJSON(json)
+    }
+    
     /**
      Sends a request to the server to create a new user object
      
      - parameter user: User object that needs to be saved in the server database
      - parameter password: Password associated with that user object
-     - parameter success: Callback that gets invoked if the server successfully saves
-                          the user object in the database
-     - parameter failure: Callback that gets invoked if the server request fails
+     
+     - returns: Task containing User object created
      */
-    public static func createUser(user: User, withPassword password: String, success: APISuccessBlock, failure: APIFailureBlock) {
-        APIClient.POST(UserServiceRoute.Create,
-            params: ["username": user.username, "password": password],
-            success: success,
-            failure: failure)
+    public static func createUser(user: User, withPassword password: String) -> Task<User> {
+        return APIClient.POST(
+            UserServiceRoute.Create,
+            params: ["username": user.username, "password": password]
+        ).then(.Current, self.jsonToUserBlock)
     }
     
     /**
      Sends a request to the server to update an existing user object
      
      - parameter user: User object that needs to be updated in the database
+     
+     - returns: Task containing User object updated
      */
-    public static func updateUser(user: User) {
-        APIClient.PUT(UserServiceRoute.Update(user.id),
-            params: ["username": user.username],
-            success: nil,
-            failure: nil)
+    public static func updateUser(user: User) -> Task<User> {
+        return APIClient.PUT(
+            UserServiceRoute.Update(user.id),
+            params: ["username": user.username]
+        ).then(.Current, self.jsonToUserBlock)
     }
     
     /**
@@ -94,41 +100,43 @@ public class UserService: NSObject {
      
      - parameter username: User object's username
      - parameter password: User object's password
-     - parameter success: Callback that gets invoked if the credentials are successfully authenticated
-     - parameter failure: Callback that gets invoked if the username is invalid or password is incorrect
+     
+     - returns: Task containing User object authenticated
      */
-    public static func authenticateUser(username: String!, password: String!, success: APISuccessBlock, failure: APIFailureBlock) {
-        APIClient.POST(UserServiceRoute.Authenticate,
-            params: ["username": username, "password": password],
-            success: success,
-            failure: failure)
+    public static func authenticateUser(username: String, password: String) -> Task<User> {
+        return APIClient.POST(
+            UserServiceRoute.Authenticate,
+            params: ["username": username, "password": password]
+        ).then(.Current, self.jsonToUserBlock)
     }
 
     /**
      Retrieves the specific user object from the server, based on the unique MongoDB ID supplied
      
      - parameter userId: Unique user ID whose robot object needs to be retrieved
-     - parameter success: Callback that gets invoked if a user object with the supplied userId exists
-     - parameter failure: Callback that gets invoked if there is no user object with the supplied userId
+     
+     - returns: Task containing User object retrieved
      */
-    public static func getUser(userId: String, success: APISuccessBlock, failure: APIFailureBlock) {
-        APIClient.GET(UserServiceRoute.Get(userId),
-            params: nil,
-            success: success,
-            failure: failure)
+    public static func getUser(userId: String) -> Task<User> {
+        return APIClient.GET(
+            UserServiceRoute.Get(userId),
+            params: nil
+        ).then(.Current, self.jsonToUserBlock)
     }
     
     /**
      Attempts to connect current user to robot based on the provided alphanumeric code
      
      - parameter code: Alphanumeric code for a specific robot
-     - parameter success: Callback that gets invoked if user successfully connected to robot
-     - parameter failure: Callback that gets invoked if user failed to connect to robot 
+     
+     - returns: Task containing robot's authentication token
      */
-    public static func connectToRobot(code: String, success: APISuccessBlock, failure: APIFailureBlock) {
-        APIClient.POST(UserServiceRoute.Connect(User.currentUser.id),
-                       params: ["code": code],
-                       success: success,
-                       failure: failure)
+    public static func connectToRobot(code: String) -> Task<String?> {
+        return APIClient.POST(
+            UserServiceRoute.Connect(User.currentUser.id),
+            params: ["code": code]
+        ).then(.Current) { json -> String? in
+            return json["robotToken"] as? String
+        }
     }
 }

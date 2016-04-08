@@ -11,11 +11,11 @@ import UIKit
 /// Class that handles all client-side interactions that involve Robots
 public final class Robot: NSObject, JSONModel, NSCoding {
     /**
-    Retrieves the current device's robot object from the keychain cache that
-    was created on the handleRobotUdidIfNeeded() call in RobotViewController
+     Retrieves the current device's robot object from the keychain cache that
+     was created on the handleRobotUdidIfNeeded() call in RobotViewController
      
-    - Returns: Robot object that corresponds to the current device. If it hasn't
-               been created, it will return nil.
+     - Returns: Robot object that corresponds to the current device. If it hasn't
+                been created, it will return nil.
     */
     public static var currentRobot: Robot! {
         set {

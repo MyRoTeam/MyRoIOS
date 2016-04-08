@@ -61,8 +61,7 @@ class RobotViewController: UIViewController {
         
         SocketService.connect()
         SocketService.subscribe("myro instruction", callback: { (response: [AnyObject], emitter: SocketAckEmitter) in
-            print("GOT IT")
-            print("RETRIEVED: \(response)")
+            print("RECEIVED: \(response)")
             guard let str = response as? String, let data = str.dataUsingEncoding(NSUTF8StringEncoding) else { return }
             
             //BLEManager.sharedManager.sendData(data)
@@ -114,12 +113,9 @@ class RobotViewController: UIViewController {
         let robot = Robot()
         robot.name = "Robot Name"
         robot.udid = uuid
-        RobotService.createRobot(robot,
-            success: { (response: [String : AnyObject]) in
-                Robot.currentRobot = Robot.fromJSON(response)
-                success?(response)
-            },
-            failure: failure)
+        RobotService.createRobot(robot).then { robot in
+            Robot.currentRobot = robot
+        }
     }
     
     /**
