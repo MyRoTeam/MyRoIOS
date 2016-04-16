@@ -14,6 +14,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    //all global variables
     // Initialize WebRTC SSL Encryption
     [RTCPeerConnectionFactory initializeSSL];
 

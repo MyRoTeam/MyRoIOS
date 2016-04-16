@@ -81,6 +81,8 @@ public class UserService: NSObject {
         ).then(.Current, self.jsonToUserBlock)
     }
     
+    
+    
     /**
      Sends a request to the server to update an existing user object
      

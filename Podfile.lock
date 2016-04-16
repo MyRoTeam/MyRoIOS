@@ -13,4 +13,6 @@ SPEC CHECKSUMS:
   libjingle_peerconnection: 3458f646ddd61f08a9f3a0c43fb01fff5c165eb8
   SocketRocket: 2c51efccd2d73c99a923407ca4b06e7e9da95dbf
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: ebd67b38ffc5d62ee9e0cc8a61fb8b72d053c085
+
+COCOAPODS: 1.0.0.beta.6
