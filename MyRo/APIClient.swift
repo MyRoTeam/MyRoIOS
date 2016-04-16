@@ -73,6 +73,30 @@ public class APIClient: NSObject {
         return manager.task
     }
     
+    
+    public static func GET(url: NSString, path: NSString, params: [String: AnyObject]) -> Task<JSON> {
+        
+        let manager = TaskManager<JSON>()
+        
+        APIClient.HttpReqManager.GET(APIClient.BaseUrl + (path as String), parameters: params as? AnyObject, success: { (operation: AFHTTPRequestOperation, response: AnyObject) ->
+            
+            Void in guard let dict = response as? [String : AnyObject] else {
+                
+                return
+                
+            }
+            
+            manager.complete(dict)
+            
+        }) { (operation: AFHTTPRequestOperation?, error: NSError) -> Void in
+            
+            manager.completeWithError(error)
+            
+        }
+        
+        return manager.task
+    }
+    
     /**
      Sends POST API request to the server
      

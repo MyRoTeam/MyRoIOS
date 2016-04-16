@@ -13,5 +13,6 @@
 
 #import <libjingle_peerconnection/RTCEAGLVideoView.h>
 #import <AppRTC/ARDAppClient.h>
+#import <Firebase/Firebase.h>
 
 #endif

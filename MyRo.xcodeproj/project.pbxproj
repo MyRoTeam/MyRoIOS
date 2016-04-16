@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E85284A1CC2B96700ADF8BA /* DiaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8528491CC2B96700ADF8BA /* DiaryTableViewController.swift */; };
+		2EA928BC1CC2ED0000A8007F /* Instruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA928BB1CC2ED0000A8007F /* Instruction.swift */; };
+		2EF161401CC2D9CA002C3192 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1613F1CC2D9CA002C3192 /* DataService.swift */; };
 		5C80AA7C1AAB5DF300F21FFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C80AA7B1AAB5DF300F21FFA /* main.m */; };
 		5C80AA7F1AAB5DF300F21FFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C80AA7E1AAB5DF300F21FFA /* AppDelegate.m */; };
 		5C80AA851AAB5DF300F21FFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C80AA831AAB5DF300F21FFA /* Main.storyboard */; };
@@ -98,6 +101,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E8528491CC2B96700ADF8BA /* DiaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryTableViewController.swift; sourceTree = "<group>"; };
+		2EA928BB1CC2ED0000A8007F /* Instruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instruction.swift; sourceTree = "<group>"; };
+		2EF1613F1CC2D9CA002C3192 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		5C80AA761AAB5DF300F21FFA /* MyRo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C80AA7A1AAB5DF300F21FFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C80AA7B1AAB5DF300F21FFA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -225,6 +231,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2E85284B1CC2D7B900ADF8BA /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				2EF1613F1CC2D9CA002C3192 /* DataService.swift */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
 		5C80AA6D1AAB5DF300F21FFA = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +262,7 @@
 		5C80AA781AAB5DF300F21FFA /* MyRo */ = {
 			isa = PBXGroup;
 			children = (
+				2E85284B1CC2D7B900ADF8BA /* Firebase */,
 				5DAC3AF81CAE6A2E00487C52 /* BLE */,
 				5DAC3AEA1CAE25BD00487C52 /* UI */,
 				5DAC3AA61CAE258E00487C52 /* Helpers */,
@@ -337,6 +352,7 @@
 				5DAC3A7C1CAE253D00487C52 /* RobotConnectionViewController.swift */,
 				5DAC3A7D1CAE253D00487C52 /* RegisterViewController.swift */,
 				5DAC3AEC1CAE25E200487C52 /* Client.storyboard */,
+				2E8528491CC2B96700ADF8BA /* DiaryTableViewController.swift */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -355,6 +371,7 @@
 			children = (
 				5DAC3A841CAE255500487C52 /* User.swift */,
 				5DAC3A851CAE255500487C52 /* Robot.swift */,
+				2EA928BB1CC2ED0000A8007F /* Instruction.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -516,6 +533,7 @@
 				5C80AA741AAB5DF300F21FFA /* Resources */,
 				CF1290D59CD57F805638F57A /* 📦 Embed Pods Frameworks */,
 				4BDFE01F433A68A007681885 /* 📦 Copy Pods Resources */,
+				AB6308C956F385FDDFEFFE69 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -621,6 +639,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyRo/Pods-MyRo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AB6308C956F385FDDFEFFE69 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyRo/Pods-MyRo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CF1290D59CD57F805638F57A /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -672,6 +705,7 @@
 				5DB955F81CB1DA9B008CF3B1 /* Executor.swift in Sources */,
 				5DB955FD1CB1DA9B008CF3B1 /* TaskQueue.swift in Sources */,
 				5DAC3A7E1CAE253D00487C52 /* LoginViewController.swift in Sources */,
+				2E85284A1CC2B96700ADF8BA /* DiaryTableViewController.swift in Sources */,
 				5DAC3AA21CAE257700487C52 /* AFURLConnectionOperation.m in Sources */,
 				5DAC3A9E1CAE257700487C52 /* AFHTTPRequestOperationManager.m in Sources */,
 				5DAC3AB41CAE259700487C52 /* KeychainWrapper.m in Sources */,
@@ -694,6 +728,7 @@
 				5DAC3AB71CAE259700487C52 /* JSONModelOperator.swift in Sources */,
 				5DAC3ADB1CAE25AA00487C52 /* SocketEngineSpec.swift in Sources */,
 				5DAC3AD31CAE25AA00487C52 /* SocketAckEmitter.swift in Sources */,
+				2EA928BC1CC2ED0000A8007F /* Instruction.swift in Sources */,
 				5DAC3ADC1CAE25AA00487C52 /* SocketEngineWebsocket.swift in Sources */,
 				5DAC3AD71CAE25AA00487C52 /* SocketEngine.swift in Sources */,
 				5DAC3AA41CAE257700487C52 /* AFURLResponseSerialization.m in Sources */,
@@ -709,6 +744,7 @@
 				5DAC3AF71CAE6A0600487C52 /* BLEManager.swift in Sources */,
 				5DB956051CB1DAA9008CF3B1 /* AtomicValueWrapper.swift in Sources */,
 				5DAC3AD61CAE25AA00487C52 /* SocketClientSpec.swift in Sources */,
+				2EF161401CC2D9CA002C3192 /* DataService.swift in Sources */,
 				5DAC3AE11CAE25AA00487C52 /* SocketIOClientStatus.swift in Sources */,
 				5DAC3A9F1CAE257700487C52 /* AFHTTPSessionManager.m in Sources */,
 				5DAC3A811CAE253D00487C52 /* RobotConnectionViewController.swift in Sources */,

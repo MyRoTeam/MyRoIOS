@@ -49,7 +49,8 @@ public class RobotService: NSObject {
      - parameter robot: Robot object that needs to be saved in the server database
      
      - returns: Task containing Robot object created
-     */
+     
+     **/
     public static func createRobot(robot: Robot) -> Task<Robot> {
         return APIClient.POST(
             RobotServiceRoute.Create,

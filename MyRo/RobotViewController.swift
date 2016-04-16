@@ -39,6 +39,39 @@ class RobotViewController: UIViewController {
         self.remoteView.delegate = self
         
         self.view.bringSubviewToFront(self.endButton)
+        
+        
+        DataService.dataService.INS_REF.observeEventType(.Value, withBlock: { snapshot in
+            
+            
+                print(snapshot.value)
+
+            
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                
+                for snap in snapshots {
+                    
+                    if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
+                        
+                        let key = snap.key
+                        
+                        let instruction = Instruction(key: key, dictionary: postDictionary)
+                        
+                        //send over to robot via bluetooth
+                        
+                    }
+                    
+                    
+                }
+                
+                
+            }
+            
+        
+            }
+        )
+        
+        
     }
 
     //private var manager: BLEManager!
