@@ -108,11 +108,13 @@ public class APIClient: NSObject {
      - parameter success: Callback that gets invoked if the request is successful
      - parameter failure: Callback that gets invoked if the request fails
      */
-    public static func POST(route: APIRoute, params: APIParameters, headerParams: [String : String]?, success: APISuccessBlock, failure: APIFailureBlock) {
+    public static func POST(route: APIRoute, params: APIParameters, headerParams: [String : String]?) -> Task<JSON> {
+        let manager = TaskManager<JSON>()
+        
         let prevRequestSerializer = APIClient.HttpReqManager.requestSerializer
         
         if let header = headerParams {
-            guard let requestSerializer = APIClient.HttpReqManager.requestSerializer.mutableCopy() as? AFHTTPRequestSerializer else { return }
+            guard let requestSerializer = APIClient.HttpReqManager.requestSerializer.mutableCopy() as? AFHTTPRequestSerializer else { return manager.task}
             for (k, v) in header {
                 requestSerializer.setValue(v, forHTTPHeaderField: k)
             }
@@ -127,12 +129,13 @@ public class APIClient: NSObject {
                                             return
                                         }
                                         
-                                        success?(dict)
+                                        manager.complete(dict)
             }, failure: { (operation: AFHTTPRequestOperation?, error: NSError) -> Void in
-                failure?(error)
+                manager.completeWithError(error)
         })
         
         APIClient.HttpReqManager.requestSerializer = prevRequestSerializer
+        return manager.task
     }
     
     /**

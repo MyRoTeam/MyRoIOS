@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31B3B7151CC2E6B000CF2246 /* CloudVision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B3B7141CC2E6B000CF2246 /* CloudVision.swift */; };
 		5C80AA7C1AAB5DF300F21FFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C80AA7B1AAB5DF300F21FFA /* main.m */; };
 		5C80AA7F1AAB5DF300F21FFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C80AA7E1AAB5DF300F21FFA /* AppDelegate.m */; };
 		5C80AA851AAB5DF300F21FFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C80AA831AAB5DF300F21FFA /* Main.storyboard */; };
@@ -98,6 +99,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31B3B7141CC2E6B000CF2246 /* CloudVision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudVision.swift; sourceTree = "<group>"; };
 		5C80AA761AAB5DF300F21FFA /* MyRo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C80AA7A1AAB5DF300F21FFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C80AA7B1AAB5DF300F21FFA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -225,9 +227,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		31B3B7131CC2E66100CF2246 /* CloudVision */ = {
+			isa = PBXGroup;
+			children = (
+				31B3B7141CC2E6B000CF2246 /* CloudVision.swift */,
+			);
+			name = CloudVision;
+			sourceTree = "<group>";
+		};
 		5C80AA6D1AAB5DF300F21FFA = {
 			isa = PBXGroup;
 			children = (
+				31B3B7131CC2E66100CF2246 /* CloudVision */,
 				5C80AA781AAB5DF300F21FFA /* MyRo */,
 				5D70115A1CB0AF3A006B4075 /* MyRoTests */,
 				5C80AA771AAB5DF300F21FFA /* Products */,
@@ -697,6 +708,7 @@
 				5DAC3ADC1CAE25AA00487C52 /* SocketEngineWebsocket.swift in Sources */,
 				5DAC3AD71CAE25AA00487C52 /* SocketEngine.swift in Sources */,
 				5DAC3AA41CAE257700487C52 /* AFURLResponseSerialization.m in Sources */,
+				31B3B7151CC2E6B000CF2246 /* CloudVision.swift in Sources */,
 				5DAC3AFA1CAE6A3800487C52 /* BLEHandler.swift in Sources */,
 				5C80AA7C1AAB5DF300F21FFA /* main.m in Sources */,
 				5DAC3AFC1CAE6C4C00487C52 /* BLEService.swift in Sources */,
