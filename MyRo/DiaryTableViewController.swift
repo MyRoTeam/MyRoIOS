@@ -20,7 +20,40 @@ class DiaryTableViewController: UITableViewController {
         
         
         super.viewDidLoad()
+        
+        
+        DataService.dataService.IMG_REF.observeEventType(.Value, withBlock: { snapshot in
+            
+            
+            print(snapshot.value)
+            
+            
+            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+                
+                for snap in snapshots {
+                    
+                    
+                    let decodedData = NSData(base64EncodedString: snapshot.value as! String, options: NSDataBase64DecodingOptions())
+                        
+                    let decodedImage = UIImage(data: decodedData!)
+                        
+                        
+                    self.data?.addObject(decodedImage!)
+                    
+                    
+                    
+                }
+                
+                self.tableView.reloadData()
+                
+                
+            }
+            
+            
+            }
+        )
 
+        
         
         
     }
