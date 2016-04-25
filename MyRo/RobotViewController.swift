@@ -42,11 +42,7 @@ class RobotViewController: UIViewController {
         
         
         DataService.dataService.INS_REF.observeEventType(.Value, withBlock: { snapshot in
-            
-            
                 print(snapshot.value)
-
-            
             if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
                 
                 for snap in snapshots {
@@ -92,13 +88,13 @@ class RobotViewController: UIViewController {
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
-        SocketService.connect()
+        /*SocketService.connect()
         SocketService.subscribe("myro instruction", callback: { (response: [AnyObject], emitter: SocketAckEmitter) in
             print("RECEIVED: \(response)")
             guard let str = response as? String, let data = str.dataUsingEncoding(NSUTF8StringEncoding) else { return }
             
             //BLEManager.sharedManager.sendData(data)
-        })
+        })*/
         
         
         //self.manager = BLEManager()
@@ -111,8 +107,8 @@ class RobotViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.disconnect()
-        SocketService.disconnect()
+        //self.disconnect()
+        //SocketService.disconnect()
     }
     
     override func didReceiveMemoryWarning() {
@@ -121,8 +117,8 @@ class RobotViewController: UIViewController {
     }
     
     deinit {
-        self.disconnect()
-        SocketService.disconnect()
+        //self.disconnect()
+        //SocketService.disconnect()
     }
     
     /**
@@ -172,8 +168,8 @@ class RobotViewController: UIViewController {
      and the video call room
      */
     @IBAction func endCall() {
-        self.disconnect()
-        SocketService.disconnect()
+        //self.disconnect()
+        //SocketService.disconnect()
     }
     
     /**

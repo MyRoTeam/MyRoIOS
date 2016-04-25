@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import SpriteKit
 
 /// View controller where all the interaction between a user and robot occurs
 class ControlViewController: UIViewController {
@@ -38,6 +39,11 @@ class ControlViewController: UIViewController {
     /// Slider to control robot's speed
     @IBOutlet weak var speedSlider: UISlider!
     
+    /// Button to take a snapshot of the robot's view
+    @IBOutlet weak var cameraButton: UIButton!
+    
+    @IBOutlet weak var joystickSKView: SKView!
+    
     /// Robot's video stream object
     private var remoteVideoTrack: RTCVideoTrack!
     
@@ -62,6 +68,11 @@ class ControlViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let scene = JoystickScene(size: self.joystickSKView.frame.size)
+        scene.scaleMode = SKSceneScaleMode.AspectFill
+        scene.joystickDelegate = self
+        self.joystickSKView.presentScene(scene)
+        
         self.remoteView.delegate = self
         self.localView.delegate = self
         
@@ -70,14 +81,14 @@ class ControlViewController: UIViewController {
         
         self.view.bringSubviewToFront(self.localView)
         self.view.bringSubviewToFront(self.endCallButton)
-        self.view.bringSubviewToFront(self.audioButton)
-        self.view.bringSubviewToFront(self.videoButton)
+        self.view.bringSubviewToFront(self.cameraButton)
+        //self.view.bringSubviewToFront(self.audioButton)
+        //self.view.bringSubviewToFront(self.videoButton)
         //self.view.bringSubviewToFront(self.joystickView)
         
         //self.joystickView.layer.masksToBounds = true
         //self.joystickView.layer.cornerRadius = self.joystickView.frame.size.width / 2.0
         
-        print("MANAGER")
         self.manager = BLEManager()
     }
     
@@ -89,27 +100,42 @@ class ControlViewController: UIViewController {
         self.disconnect()
         self.client = ARDAppClient(delegate: self)
         self.client.serverHostUrl = "https://apprtc.appspot.com"
-        self.client.connectToRoomWithId(self.room, options: nil)
+        
+        //****************************************
+        //     UNCOMMENT BELOW LINE
+        //****************************************
+        //self.client.connectToRoomWithId("test13", options: nil)
         //self.client.muteAudioIn()
         
         //SocketService.Socket = SocketIOClient(socketURL: NSURL(string: SocketService.URL)!, options: [.Log(true), .ForcePolling(true), .ConnectParams(["token": User.connectedRobotToken])])
     }
     
     deinit {
-        self.disconnect()
-        SocketService.disconnect()
+        //self.disconnect()
+        //SocketService.disconnect()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        self.disconnect()
-        SocketService.disconnect()
+        //self.disconnect()
+        //SocketService.disconnect()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.cameraButton.layer.masksToBounds = true
+        self.cameraButton.layer.cornerRadius = self.cameraButton.bounds.size.width / 2.0
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Landscape
     }
     
     /**
@@ -170,7 +196,7 @@ class ControlViewController: UIViewController {
         }
         
         self.remoteVideoTrack = nil
-        self.videoView(self.localView, didChangeVideoSize: self.localVideoSize)
+        //self.videoView(self.localView, didChangeVideoSize: self.localVideoSize)
     }
     
     /**
@@ -202,12 +228,16 @@ class ControlViewController: UIViewController {
         self.manager.sendData(NSData(bytes: [Int(self.speedSlider.value)] as [Int], length: 1))
     }
     
-    /*
-    @IBAction func fourPressed() {
-        self.manager.sendData(NSData(bytes: [self.speedSlider.value > 0.0 ? "H" : "L"] as [Character], length: 1))
-        self.manager.sendData(NSData(bytes: [7] as [UInt8], length: 1))
-        self.manager.sendData(NSData(bytes: [Int(self.speedSlider.value)] as [Int], length: 1))
-    }*/
+    @IBAction func takePicture() {
+        UIGraphicsBeginImageContextWithOptions(self.remoteView.bounds.size, true, 0.0)
+        self.remoteView.drawViewHierarchyInRect(self.view.bounds, afterScreenUpdates: true)
+        let snapshotImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let popupVC = DiaryEntryPopupViewController(nibName: "DiaryEntryPopupViewController", bundle: nil)
+        popupVC.contentImage = snapshotImage
+        self.presentPopupViewController(popupVC, animated: true, completion: nil)
+    }
 }
 
 extension ControlViewController: ARDAppClientDelegate {
@@ -299,5 +329,13 @@ extension ControlViewController: RTCEAGLVideoViewDelegate {
                // self.localView.layer.cornerRadius = self.localView.frame.size.width / 2.0
             }
         }
+    }
+}
+
+extension ControlViewController: JoystickDelegate {
+    func joystickDidMove(joystickView: JoystickView) {
+        print("ANGLE: \(joystickView.angle)")
+        print("X: \(joystickView.x)")
+        print("Y: \(joystickView.y)")
     }
 }

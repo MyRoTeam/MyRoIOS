@@ -1,77 +1,109 @@
-
 //
 //  JoystickView.swift
-//  MyRo-iOS
+//  MyRo
 //
-//  Created by Aadesh Patel on 2/7/16.
-//  Copyright © 2016 Aadesh Patel. All rights reserved.
+//  Created by Aadesh Patel on 4/25/16.
+//  Copyright © 2016 MyRo. All rights reserved.
 //
 
-import UIKit
+import SpriteKit
 
-/// Joystick UIView subclass
-class JoystickView: UIView {
-    /// Circular UIView that can be dragged around
-    var handleView: UIView!
+public class JoystickView: SKShapeNode {
+    private(set) public var x: CGFloat!
+    private(set) public var y: CGFloat!
+    private(set) public var angle: CGFloat!
     
-    /// Animator instance that causes the handleView to snap back to this view's center
-    /// once the gesture event ends
-    var animator: UIDynamicAnimator!
+    private var node: SKShapeNode!
+    private var touch: UITouch!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private var maxDistance: CGFloat = 35.0
+    
+    private var baseRadius: CGFloat = 40.0
+    private var baseColor: UIColor = UIColor.lightGrayColor()
+    
+    private var joystickRadius: CGFloat = 15.0
+    private var joystickColor: UIColor = UIColor.grayColor()
+    
+    public override init() {
+        super.init()
         
         self.baseInit()
     }
-
-    required init?(coder aDecoder: NSCoder) {
+    
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.baseInit()
     }
-
-    /// Base initialization for an instance of JoystickView
+    
     private func baseInit() {
-        self.backgroundColor = UIColor.lightGrayColor()
+        self.userInteractionEnabled = true
         
-        self.handleView = UIView(frame: CGRectMake(CGRectGetMidX(self.bounds) - (self.bounds.size.width / 6.0), CGRectGetMidY(self.bounds) - (self.bounds.size.height / 6.0), self.bounds.size.width / 3.0, self.bounds.size.height / 3.0))
-        self.handleView.layer.cornerRadius = self.handleView.frame.size.width / 2.0
-        self.handleView.backgroundColor = UIColor.grayColor()
+        let baseDiameter = self.baseRadius * 2.0
+        var circlePath = CGPathCreateMutable()
+        CGPathAddEllipseInRect(circlePath, nil, CGRectMake(self.position.x - self.baseRadius, self.position.y - self.baseRadius, baseDiameter, baseDiameter))
+        self.path = circlePath
+        self.fillColor = self.baseColor
+        self.lineWidth = 0.0
         
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(dragHandleView(_:)))
-        self.handleView.userInteractionEnabled = true
-        self.handleView.addGestureRecognizer(panGesture)
-        
-        self.addSubview(self.handleView)
+        let joystickDiameter = self.joystickRadius * 2.0
+        self.node = SKShapeNode()
+        circlePath = CGPathCreateMutable()
+        CGPathAddEllipseInRect(circlePath, nil, CGRectMake(self.position.x - self.joystickRadius, self.position.y - self.joystickRadius, joystickDiameter, joystickDiameter))
+        self.node.path = circlePath
+        self.node.fillColor = self.joystickColor
+        self.node.lineWidth = 0.0
+        self.node.position = self.position
+        self.node.zPosition = 1.0
+        self.addChild(self.node)
     }
     
-    /**
-     Handles UIPanGesture movement on JoystickView
-     
-     - parameter gesture: UIPanGestureRecognizer instance the invoked this selector
-     */
-    @IBAction func dragHandleView(gesture: UIPanGestureRecognizer) {
-        if (gesture.state == .Cancelled ||
-            gesture.state == .Failed ||
-            gesture.state == .Ended) {
-            self.animator = UIDynamicAnimator(referenceView: self)
-            let snap = UISnapBehavior(item: self.handleView, snapToPoint: CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds)))
-            snap.damping = 0.7
-            animator.addBehavior(snap)
-            //animator.removeAllBehaviors()
-            return
+    public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches, withEvent: event)
+        
+        guard self.touch == nil else { return }
+        self.touch = touches.first
+    }
+    
+    public override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesMoved(touches, withEvent: event)
+        
+        guard self.touch != nil else { return }
+        
+        let point = self.touch.locationInNode(self.parent!)
+        
+        var x = point.x
+        var y = point.y
+        
+        if ((pow(x - self.position.x, 2) + pow(y - self.position.y, 2)) > pow(self.maxDistance, 2)) {
+            self.angle = CGFloat(atan2f(Float(y - self.position.y), Float(x - self.position.x)))
+            x = self.position.x + self.maxDistance * cos(self.angle)
+            y = self.position.y + self.maxDistance * sin(self.angle)
         }
         
-        let translation = gesture.translationInView(self)
+        self.node.position = self.convertPoint(CGPointMake(x, y), fromNode: self.parent!)
+        self.x = (x - self.position.x) / self.maxDistance
+        self.y = (y - self.position.y) / self.maxDistance
+    }
+    
+    public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesEnded(touches, withEvent: event)
         
-        let newX = gesture.view!.center.x + translation.x
-        let newY = gesture.view!.center.y + translation.y
+        guard touches.contains(self.touch) else { return }
+        self.reset()
+    }
+    
+    public override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        super.touchesCancelled(touches, withEvent: event)
         
-        if (!(pow(newX - CGRectGetMidX(self.bounds), 2) + pow(newY - CGRectGetMidY(self.bounds), 2) < pow(self.bounds.size.width / 2.0, 2))) {
-            return
-        }
-        
-        gesture.view!.center = CGPointMake(newX, newY)
-        gesture.setTranslation(CGPointZero, inView: self)
+        guard ((touches?.contains(self.touch)) != nil) else { return }
+        self.reset()
+    }
+    
+    private func reset() {
+        self.touch = nil
+        self.x = 0.0
+        self.y = 0.0
+        self.node.position = CGPointMake(0.0, 0.0)
     }
 }
