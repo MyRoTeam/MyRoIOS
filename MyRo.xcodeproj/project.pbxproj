@@ -16,6 +16,9 @@
 		5C80AA871AAB5DF300F21FFA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C80AA861AAB5DF300F21FFA /* Images.xcassets */; };
 		5C80AA8A1AAB5DF300F21FFA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C80AA881AAB5DF300F21FFA /* LaunchScreen.xib */; };
 		5D5172BE1CCDE1CC00A96F5F /* RobotInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5172BD1CCDE1CC00A96F5F /* RobotInstruction.swift */; };
+		5D5172C11CCEA2C000A96F5F /* CloudVisionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5172C01CCEA2C000A96F5F /* CloudVisionService.swift */; };
+		5D5172C31CCEA41F00A96F5F /* UIImage+Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5172C21CCEA41F00A96F5F /* UIImage+Encode.swift */; };
+		5D5172C51CCEB04400A96F5F /* CloudVisionTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5172C41CCEB04400A96F5F /* CloudVisionTag.swift */; };
 		5D70115C1CB0AF3A006B4075 /* MyRoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D70115B1CB0AF3A006B4075 /* MyRoTests.swift */; };
 		5D7011641CB0AF7D006B4075 /* JSONModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7011631CB0AF7D006B4075 /* JSONModelTests.swift */; };
 		5D7011661CB0B46E006B4075 /* JSONMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7011651CB0B46E006B4075 /* JSONMapTests.swift */; };
@@ -132,6 +135,9 @@
 		5C80AA861AAB5DF300F21FFA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5C80AA891AAB5DF300F21FFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5D5172BD1CCDE1CC00A96F5F /* RobotInstruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotInstruction.swift; sourceTree = "<group>"; };
+		5D5172C01CCEA2C000A96F5F /* CloudVisionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudVisionService.swift; sourceTree = "<group>"; };
+		5D5172C21CCEA41F00A96F5F /* UIImage+Encode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Encode.swift"; sourceTree = "<group>"; };
+		5D5172C41CCEB04400A96F5F /* CloudVisionTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudVisionTag.swift; sourceTree = "<group>"; };
 		5D7011591CB0AF39006B4075 /* MyRoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D70115B1CB0AF3A006B4075 /* MyRoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoTests.swift; sourceTree = "<group>"; };
 		5D70115D1CB0AF3A006B4075 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -300,6 +306,7 @@
 		5C80AA781AAB5DF300F21FFA /* MyRo */ = {
 			isa = PBXGroup;
 			children = (
+				5D5172BF1CCEA27D00A96F5F /* CloudVision */,
 				2E85284B1CC2D7B900ADF8BA /* Firebase */,
 				5DAC3AF81CAE6A2E00487C52 /* BLE */,
 				5DAC3AEA1CAE25BD00487C52 /* UI */,
@@ -365,6 +372,14 @@
 			name = Socket.io;
 			sourceTree = "<group>";
 		};
+		5D5172BF1CCEA27D00A96F5F /* CloudVision */ = {
+			isa = PBXGroup;
+			children = (
+				5D5172C01CCEA2C000A96F5F /* CloudVisionService.swift */,
+			);
+			name = CloudVision;
+			sourceTree = "<group>";
+		};
 		5D70115A1CB0AF3A006B4075 /* MyRoTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +433,7 @@
 				2EA928BB1CC2ED0000A8007F /* Instruction.swift */,
 				5DF89CAF1CCD80290016D9DD /* DiaryEntry.swift */,
 				5D5172BD1CCDE1CC00A96F5F /* RobotInstruction.swift */,
+				5D5172C41CCEB04400A96F5F /* CloudVisionTag.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -556,6 +572,7 @@
 			isa = PBXGroup;
 			children = (
 				5DB956071CB1F2A8008CF3B1 /* UIColor+ColorPalette.swift */,
+				5D5172C21CCEA41F00A96F5F /* UIImage+Encode.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -796,6 +813,7 @@
 				5DAC3AE61CAE25AA00487C52 /* SocketTypes.swift in Sources */,
 				5DF89CAD1CCD7A130016D9DD /* DiaryTableViewCell.swift in Sources */,
 				5DF89CD11CCDA2E80016D9DD /* DiaryEntryPopupViewController.swift in Sources */,
+				5D5172C51CCEB04400A96F5F /* CloudVisionTag.swift in Sources */,
 				5DAC3AEB1CAE25BD00487C52 /* NVBTextField.swift in Sources */,
 				5DAC3AA11CAE257700487C52 /* AFSecurityPolicy.m in Sources */,
 				5DAC3AD91CAE25AA00487C52 /* SocketEnginePacketType.swift in Sources */,
@@ -819,6 +837,7 @@
 				5DAC3AA41CAE257700487C52 /* AFURLResponseSerialization.m in Sources */,
 				5DAC3AFA1CAE6A3800487C52 /* BLEHandler.swift in Sources */,
 				5C80AA7C1AAB5DF300F21FFA /* main.m in Sources */,
+				5D5172C31CCEA41F00A96F5F /* UIImage+Encode.swift in Sources */,
 				5DAC3AFC1CAE6C4C00487C52 /* BLEService.swift in Sources */,
 				5DAC3AE01CAE25AA00487C52 /* SocketIOClientOption.swift in Sources */,
 				5DB956031CB1DAA9008CF3B1 /* Atomic.swift in Sources */,
@@ -830,6 +849,7 @@
 				5DAC3AF71CAE6A0600487C52 /* BLEManager.swift in Sources */,
 				5DB956051CB1DAA9008CF3B1 /* AtomicValueWrapper.swift in Sources */,
 				5DAC3AD61CAE25AA00487C52 /* SocketClientSpec.swift in Sources */,
+				5D5172C11CCEA2C000A96F5F /* CloudVisionService.swift in Sources */,
 				2EF161401CC2D9CA002C3192 /* DataService.swift in Sources */,
 				5DAC3AE11CAE25AA00487C52 /* SocketIOClientStatus.swift in Sources */,
 				5DAC3A9F1CAE257700487C52 /* AFHTTPSessionManager.m in Sources */,

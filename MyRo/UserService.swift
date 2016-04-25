@@ -11,7 +11,7 @@ import UIKit
 /// Enum that handles server API request routes related to users
 public enum UserServiceRoute: APIRoute {
     /// Base sub route of the user API service
-    private static let baseRoute = "users/"
+    private static let baseRoute = "\(APIClient.BaseUrl)/users/"
     
     /// Route to create a new user
     case Create

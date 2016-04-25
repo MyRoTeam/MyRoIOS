@@ -11,7 +11,7 @@ import UIKit
 /// Enum that handles server API request routes related to robots
 public enum RobotServiceRoute: APIRoute {
     /// Base sub route of the robot API service
-    private static let baseRoute = "robots/"
+    private static let baseRoute = "\(APIClient.BaseUrl)/robots/"
     
     /// Route to create a new robot
     case Create

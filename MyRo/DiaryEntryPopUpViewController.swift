@@ -37,6 +37,20 @@ public class DiaryEntryPopupViewController: UIViewController {
         
         self.contentImageView.image = self.contentImage
         self.dateTextField.text = self.now.dateString("hh:mm a")
+        
+        CloudVisionService.getTags(forImage: self.contentImage!).then(.Current) { (json) -> [String] in
+            guard let responses = json["responses"] as? [AnyObject] else { return [String]() }
+            guard let response = responses[0] as? [String : AnyObject] else { return [String]() }
+            guard let annotations = response["labelAnnotations"] as? [[String : AnyObject]] else { return [String]() }
+            
+            let tags = annotations.map { CloudVisionTag.fromJSON($0) }.filter { $0.score > CloudVisionTag.scoreThreshold }.map { $0.desc! }
+            
+            return tags
+        }.then { tags in
+            self.tagsTextField.text = tags.joinWithSeparator(",")
+        }.error { (err: NSError) in
+            print("Cloud Vision Error: \(err.description)")
+        }
     }
 
     override public func didReceiveMemoryWarning() {

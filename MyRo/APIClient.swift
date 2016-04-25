@@ -44,7 +44,7 @@ public class APIClient: NSObject {
     }
     
     /// Base URL of the API Server
-    private static let BaseUrl = "https://pure-fortress-98966.herokuapp.com/"
+    public static let BaseUrl = "https://pure-fortress-98966.herokuapp.com"
     
     /**
      Sends GET API request to the server
@@ -58,7 +58,7 @@ public class APIClient: NSObject {
     {
         let manager = TaskManager<JSON>()
         
-        APIClient.HttpReqManager.GET(APIClient.BaseUrl + route.description,
+        APIClient.HttpReqManager.GET(route.description,
                                      parameters: params as? AnyObject,
                                      success: { (operation: AFHTTPRequestOperation, response: AnyObject) -> Void in
                                         guard let dict = response as? [String : AnyObject] else {
@@ -78,7 +78,7 @@ public class APIClient: NSObject {
         
         let manager = TaskManager<JSON>()
         
-        APIClient.HttpReqManager.GET(APIClient.BaseUrl + (path as String), parameters: params as? AnyObject, success: { (operation: AFHTTPRequestOperation, response: AnyObject) ->
+        APIClient.HttpReqManager.GET(path as String, parameters: params as? AnyObject, success: { (operation: AFHTTPRequestOperation, response: AnyObject) ->
             
             Void in guard let dict = response as? [String : AnyObject] else {
                 
@@ -108,7 +108,7 @@ public class APIClient: NSObject {
     public static func POST(route: APIRoute, params: APIParameters) -> Task<JSON> {
         let manager = TaskManager<JSON>()
         
-        APIClient.HttpReqManager.POST(APIClient.BaseUrl + route.description,
+        APIClient.HttpReqManager.POST(route.description,
                                       parameters: params!,
                                       success: { (operation: AFHTTPRequestOperation, response: AnyObject) -> Void in
                                         guard let dict = response as? [String : AnyObject] else {
@@ -132,11 +132,16 @@ public class APIClient: NSObject {
      - parameter success: Callback that gets invoked if the request is successful
      - parameter failure: Callback that gets invoked if the request fails
      */
-    public static func POST(route: APIRoute, params: APIParameters, headerParams: [String : String]?, success: APISuccessBlock, failure: APIFailureBlock) {
+    public static func POST(route: APIRoute, params: APIParameters, headerParams: [String : String]?) -> Task<JSON> {
+        let manager = TaskManager<JSON>()
+        
         let prevRequestSerializer = APIClient.HttpReqManager.requestSerializer
         
         if let header = headerParams {
-            guard let requestSerializer = APIClient.HttpReqManager.requestSerializer.mutableCopy() as? AFHTTPRequestSerializer else { return }
+            let requestSerializer = AFJSONRequestSerializer()
+            requestSerializer.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            requestSerializer.setValue("application/json", forHTTPHeaderField: "Accept")
+            //guard let requestSerializer = APIClient.HttpReqManager.requestSerializer.mutableCopy() as? AFHTTPRequestSerializer else { return Task<JSON>() }
             for (k, v) in header {
                 requestSerializer.setValue(v, forHTTPHeaderField: k)
             }
@@ -144,19 +149,21 @@ public class APIClient: NSObject {
             APIClient.HttpReqManager.requestSerializer = requestSerializer
         }
         
-        APIClient.HttpReqManager.POST(APIClient.BaseUrl + route.description,
+        APIClient.HttpReqManager.POST(route.description,
                                       parameters: params!,
                                       success: { (operation: AFHTTPRequestOperation, response: AnyObject) -> Void in
                                         guard let dict = response as? [String : AnyObject] else {
                                             return
                                         }
                                         
-                                        success?(dict)
+                                        manager.complete(dict)
             }, failure: { (operation: AFHTTPRequestOperation?, error: NSError) -> Void in
-                failure?(error)
+                manager.completeWithError(error)
         })
         
         APIClient.HttpReqManager.requestSerializer = prevRequestSerializer
+        
+        return manager.task
     }
     
     /**
@@ -170,7 +177,7 @@ public class APIClient: NSObject {
     public static func PUT(route: APIRoute, params: APIParameters) -> Task<JSON> {
         let manager = TaskManager<JSON>()
         
-        APIClient.HttpReqManager.PUT(APIClient.BaseUrl + route.description,
+        APIClient.HttpReqManager.PUT(route.description,
                                      parameters: params!,
                                      success: { (operation: AFHTTPRequestOperation, response: AnyObject) -> Void in
                                         guard let dict = response as? [String : AnyObject] else {
