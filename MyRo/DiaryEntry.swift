@@ -22,6 +22,6 @@ public final class DiaryEntry: NSObject, JSONModel {
         self.tags ~> jsonMap["tags"]
         self.date ~> (jsonMap["date"], DateCoder(format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"))
         self.location ~> jsonMap["location"]
-        self.image ~> (jsonMap["image"], ImageBase64Coder())
+        self.image ~> (jsonMap["image"], ImageBase64Coder(compressionRate: 0.5))
     }
 }

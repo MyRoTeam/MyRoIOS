@@ -162,7 +162,7 @@ class ControlViewController: UIViewController {
      */
     @IBAction func endCall() {
         self.disconnect()
-        SocketService.disconnect()
+        //SocketService.disconnect()
 
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -205,7 +205,7 @@ class ControlViewController: UIViewController {
      - parameter sender: JoystickView that invoked this selector
      */
     @IBAction func joystickMoved(sender: JoystickView) {
-        SocketService.publish("myro-instruction", items: "DATA HERE")
+        //SocketService.publish("myro-instruction", items: "DATA HERE")
     }
     
     /*@IBAction func onePressed() {
@@ -334,8 +334,13 @@ extension ControlViewController: RTCEAGLVideoViewDelegate {
 
 extension ControlViewController: JoystickDelegate {
     func joystickDidMove(joystickView: JoystickView) {
-        print("ANGLE: \(joystickView.angle)")
-        print("X: \(joystickView.x)")
-        print("Y: \(joystickView.y)")
+        if (joystickView.direction != nil) {
+            print("HYP: \(joystickView.hyp)")
+            print("DIR: \(joystickView.direction.rawValue)")
+            
+            let dataStr = "X\(joystickView.hyp)Y\(joystickView.direction.rawValue)"
+            guard let data = dataStr.dataUsingEncoding(NSUTF8StringEncoding) else { return }
+            self.manager.sendData(data)
+        }
     }
 }

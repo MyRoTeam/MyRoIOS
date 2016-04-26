@@ -12,7 +12,10 @@ public class ImageBase64Coder: JSONCoder {
     public typealias Obj = UIImage
     public typealias JSON = String
     
-    public init() {
+    private let compressionRate: CGFloat!
+    
+    public init(compressionRate: CGFloat) {
+        self.compressionRate = compressionRate
     }
     
     public func decode(value: AnyObject?) -> Obj? {
@@ -25,7 +28,7 @@ public class ImageBase64Coder: JSONCoder {
     public func encode(value: Obj?) -> JSON? {
         guard let image = value else { return nil }
         
-        guard let data = UIImageJPEGRepresentation(image, 0.5) else { return nil }
+        guard let data = UIImageJPEGRepresentation(image, self.compressionRate) else { return nil }
         let base64String = data.base64EncodedStringWithOptions([])
         
         return base64String
