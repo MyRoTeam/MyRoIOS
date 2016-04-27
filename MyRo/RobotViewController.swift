@@ -33,6 +33,9 @@ class RobotViewController: UIViewController {
     /// WebRTC client object
     private var client: ARDAppClient!
     
+    /// Bluetooth Manager
+    private let manager = BLEManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,33 +44,22 @@ class RobotViewController: UIViewController {
         self.view.bringSubviewToFront(self.endButton)
         
         
-        DataService.dataService.INS_REF.observeEventType(.Value, withBlock: { snapshot in
-                print(snapshot.value)
+        DataService.dataService.INS_REF.observeEventType(.ChildAdded, withBlock: { snapshot in
+            print(snapshot.value)
             if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
-                
                 for snap in snapshots {
+                    guard let instruction = snap.value as? String else { continue }
                     
-                    if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
-                        
+                    guard let data = instruction.dataUsingEncoding(NSUTF8StringEncoding) else { return }
+                    self.manager.sendData(data)
+                    
+                    /*if let postDictionary = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
-                        
                         let instruction = Instruction(key: key, dictionary: postDictionary)
-                        
-                        //send over to robot via bluetooth
-                        
-                    }
-                    
-                    
+                    }*/
                 }
-                
-                
             }
-            
-        
-            }
-        )
-        
-        
+        })
     }
 
     //private var manager: BLEManager!

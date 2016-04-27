@@ -16,7 +16,7 @@ class ControlViewController: UIViewController {
     var room: String = ""
     
     /// BLEManager instance for this specific view controller
-    private var manager: BLEManager!
+    //private var manager: BLEManager!
     
     /// Robot's video stream view
     @IBOutlet weak var remoteView: RTCEAGLVideoView!
@@ -89,7 +89,7 @@ class ControlViewController: UIViewController {
         //self.joystickView.layer.masksToBounds = true
         //self.joystickView.layer.cornerRadius = self.joystickView.frame.size.width / 2.0
         
-        self.manager = BLEManager()
+        //self.manager = BLEManager()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -216,16 +216,16 @@ class ControlViewController: UIViewController {
     
     /// Sends data to the robot to move forward
     @IBAction func upPressed() {
-        self.manager.sendData(NSData(bytes: [self.speedSlider.value > 0.0 ? "H" : "L"] as [Character], length: 1))
+        /*self.manager.sendData(NSData(bytes: [self.speedSlider.value > 0.0 ? "H" : "L"] as [Character], length: 1))
         self.manager.sendData(NSData(bytes: [11] as [UInt8], length: 1))
-        self.manager.sendData(NSData(bytes: [Int(self.speedSlider.value)] as [Int], length: 1))
+        self.manager.sendData(NSData(bytes: [Int(self.speedSlider.value)] as [Int], length: 1))*/
     }
     
     /// Sends data to the robot to move backwards
     @IBAction func downPressed() {
-        self.manager.sendData(NSData(bytes: [self.speedSlider.value > 0.0 ? "H" : "L"] as [Character], length: 1))
+        /*self.manager.sendData(NSData(bytes: [self.speedSlider.value > 0.0 ? "H" : "L"] as [Character], length: 1))
         self.manager.sendData(NSData(bytes: [13] as [UInt8], length: 1))
-        self.manager.sendData(NSData(bytes: [Int(self.speedSlider.value)] as [Int], length: 1))
+        self.manager.sendData(NSData(bytes: [Int(self.speedSlider.value)] as [Int], length: 1))*/
     }
     
     @IBAction func takePicture() {
@@ -339,8 +339,10 @@ extension ControlViewController: JoystickDelegate {
             print("DIR: \(joystickView.direction.rawValue)")
             
             let dataStr = "X\(joystickView.hyp)Y\(joystickView.direction.rawValue)"
-            guard let data = dataStr.dataUsingEncoding(NSUTF8StringEncoding) else { return }
-            self.manager.sendData(data)
+            DataService.dataService.sendInstruction(dataStr)
+            
+            //guard let data = dataStr.dataUsingEncoding(NSUTF8StringEncoding) else { return }
+            //self.manager.sendData(data)
         }
     }
 }

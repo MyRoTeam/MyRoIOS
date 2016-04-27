@@ -43,6 +43,11 @@ class DataService {
         newInstruction.setValue(instruction.toJSON())
     }
     
+    func sendInstruction(instruction: String) {
+        let newInstruction = INS_REF.childByAutoId()
+        newInstruction.setValue(instruction)
+    }
+    
     func saveDiaryEntry(entry: DiaryEntry) {
         let newEntry = DIARY_ENTRY_REF.childByAutoId()
         newEntry.setValue(entry.toJSON())
