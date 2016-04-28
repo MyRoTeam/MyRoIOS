@@ -338,7 +338,7 @@ extension ControlViewController: JoystickDelegate {
             print("HYP: \(joystickView.hyp)")
             print("DIR: \(joystickView.direction.rawValue)")
             
-            let dataStr = "X\(joystickView.hyp)Y\(joystickView.direction.rawValue)"
+            let dataStr = "X\(joystickView.direction.rawValue)Y\(joystickView.hyp)"
             DataService.dataService.sendInstruction(dataStr)
             
             //guard let data = dataStr.dataUsingEncoding(NSUTF8StringEncoding) else { return }
