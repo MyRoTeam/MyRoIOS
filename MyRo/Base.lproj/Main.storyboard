@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="20t-AA-V32">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X2P-cq-95N">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="Vz5-Bo-DDz">
+            <objects>
+                <navigationController id="X2P-cq-95N" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sKy-EC-1Pr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="20t-AA-V32" kind="relationship" relationship="rootViewController" id="5mV-wU-gp4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LHH-0e-bJH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-537" y="381"/>
+        </scene>
+        <!--MyRo-->
         <scene sceneID="T2x-Gz-PwU">
             <objects>
                 <viewController id="20t-AA-V32" sceneMemberID="viewController">
@@ -17,58 +35,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqT-VT-LCr">
-                                <rect key="frame" x="280" y="305" width="40" height="30"/>
-                                <state key="normal" title="Client"/>
-                                <connections>
-                                    <segue destination="4XQ-Mf-OAz" kind="show" id="DWO-t7-qTl"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zB-Lj-O6C">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="I AM A" translatesAutoresizingMaskIntoConstraints="NO" id="IaF-tV-84f">
+                                <rect key="frame" x="0.0" y="28" width="600" height="572"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zB-Lj-O6C" userLabel="Robot Button">
                                 <rect key="frame" x="280" y="375" width="41" height="30"/>
-                                <state key="normal" title="Robot"/>
+                                <state key="normal" image="Robot Button"/>
                                 <connections>
                                     <segue destination="Ns9-q0-9qS" kind="show" id="R2e-Bh-ptc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqT-VT-LCr" userLabel="User Button">
+                                <rect key="frame" x="280" y="305" width="40" height="30"/>
+                                <state key="normal" image="User Button"/>
+                                <connections>
+                                    <segue destination="4XQ-Mf-OAz" kind="show" id="DWO-t7-qTl"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3zB-Lj-O6C" firstAttribute="centerX" secondItem="y4k-G3-w1D" secondAttribute="centerX" id="YzY-3O-Ymi"/>
-                            <constraint firstItem="uqT-VT-LCr" firstAttribute="centerY" secondItem="y4k-G3-w1D" secondAttribute="centerY" constant="20" id="e6O-7g-6G3"/>
-                            <constraint firstItem="3zB-Lj-O6C" firstAttribute="top" secondItem="uqT-VT-LCr" secondAttribute="bottom" constant="40" id="fKx-6l-CK5"/>
-                            <constraint firstItem="uqT-VT-LCr" firstAttribute="centerX" secondItem="y4k-G3-w1D" secondAttribute="centerX" id="wLw-Mw-zes"/>
+                            <constraint firstItem="3zB-Lj-O6C" firstAttribute="leading" secondItem="y4k-G3-w1D" secondAttribute="leadingMargin" constant="17" id="2Ng-z6-xwn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uqT-VT-LCr" secondAttribute="trailing" constant="16" id="BoU-ie-KKj">
+                                <variation key="heightClass=regular-widthClass=compact" constant="12"/>
+                            </constraint>
+                            <constraint firstItem="4Rb-cI-8jV" firstAttribute="top" secondItem="3zB-Lj-O6C" secondAttribute="bottom" constant="5" id="Pbp-pa-9p9"/>
+                            <constraint firstItem="IaF-tV-84f" firstAttribute="leading" secondItem="y4k-G3-w1D" secondAttribute="leadingMargin" constant="-24" id="UQ5-n8-hFu">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-28"/>
+                            </constraint>
+                            <constraint firstItem="IaF-tV-84f" firstAttribute="top" secondItem="1Fm-3O-qm4" secondAttribute="bottom" constant="8" id="YI8-R9-6Ad">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-36"/>
+                            </constraint>
+                            <constraint firstItem="4Rb-cI-8jV" firstAttribute="top" secondItem="IaF-tV-84f" secondAttribute="bottom" id="a7d-DN-KBC"/>
+                            <constraint firstItem="uqT-VT-LCr" firstAttribute="leading" secondItem="y4k-G3-w1D" secondAttribute="leadingMargin" constant="15" id="aRa-wv-kaH">
+                                <variation key="heightClass=regular-widthClass=compact" constant="11"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="IaF-tV-84f" secondAttribute="trailing" constant="-24" id="heN-nA-6Oh">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-28"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="3zB-Lj-O6C" secondAttribute="trailing" constant="16" id="svX-Aj-eXd"/>
+                            <constraint firstItem="uqT-VT-LCr" firstAttribute="top" secondItem="1Fm-3O-qm4" secondAttribute="bottom" constant="15" id="xug-m9-u32"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UQ5-n8-hFu"/>
+                                <exclude reference="YI8-R9-6Ad"/>
+                                <exclude reference="heN-nA-6Oh"/>
+                                <exclude reference="BoU-ie-KKj"/>
+                                <exclude reference="aRa-wv-kaH"/>
+                                <exclude reference="xug-m9-u32"/>
+                                <exclude reference="2Ng-z6-xwn"/>
+                                <exclude reference="svX-Aj-eXd"/>
+                                <exclude reference="Pbp-pa-9p9"/>
+                                <exclude reference="a7d-DN-KBC"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="UQ5-n8-hFu"/>
+                                <include reference="YI8-R9-6Ad"/>
+                                <include reference="heN-nA-6Oh"/>
+                                <include reference="BoU-ie-KKj"/>
+                                <include reference="aRa-wv-kaH"/>
+                                <include reference="xug-m9-u32"/>
+                                <include reference="2Ng-z6-xwn"/>
+                                <include reference="svX-Aj-eXd"/>
+                                <include reference="Pbp-pa-9p9"/>
+                                <include reference="a7d-DN-KBC"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="MyRo" id="nja-z7-oZZ"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pop-Zi-j1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="282" y="381"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="htb-k9-MTO">
-            <objects>
-                <viewController id="5nv-1U-MCd" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8i2-jU-Y9f"/>
-                        <viewControllerLayoutGuide type="bottom" id="4Ka-qL-TH0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="s08-SU-E0i">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0fv-Pd-Hbg" customClass="MyRoTextField" customModule="MyRo" customModuleProvider="target">
-                                <rect key="frame" x="292" y="308" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fYE-oj-sTh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="285" y="1052"/>
+            <point key="canvasLocation" x="281.25" y="380.625"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="9fa-wg-1SM">
@@ -87,4 +129,9 @@
             <point key="canvasLocation" x="798" y="473"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="I AM A" width="375" height="667"/>
+        <image name="Robot Button" width="330" height="280"/>
+        <image name="User Button" width="330" height="280"/>
+    </resources>
 </document>

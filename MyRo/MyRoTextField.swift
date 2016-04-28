@@ -12,7 +12,7 @@ class MyRoTextField: UITextField {
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
-        self.addBottomBorder()
+        //self.addBottomBorder()
     }
     
     private func addBottomBorder() {

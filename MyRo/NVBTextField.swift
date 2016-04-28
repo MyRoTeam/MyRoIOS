@@ -13,19 +13,19 @@ class NVBTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.addBottomBorder()
+        //self.addBottomBorder()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        self.addBottomBorder()
+        //self.addBottomBorder()
     }
     
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
-        self.addBottomBorder()
+        //self.addBottomBorder()
     }
     
     /// Adds bottom border to text field
