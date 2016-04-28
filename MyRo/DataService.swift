@@ -46,6 +46,7 @@ class DataService {
     func sendInstruction(instruction: String) {
         let newInstruction = INS_REF.childByAutoId()
         newInstruction.setValue(instruction)
+        newInstruction.removeValue()
     }
     
     func saveDiaryEntry(entry: DiaryEntry) {

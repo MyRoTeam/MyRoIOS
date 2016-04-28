@@ -407,7 +407,6 @@
 				5DB955DB1CB1D9F6008CF3B1 /* AsyncKit */,
 				5DAC3AA91CAE259700487C52 /* KeychainWrapper */,
 				5DAC3AAD1CAE259700487C52 /* JSONModel */,
-				5DAC3AAF1CAE259700487C52 /* Socket */,
 				5DAC3AB31CAE259700487C52 /* API */,
 			);
 			name = Helpers;
@@ -432,13 +431,6 @@
 				5D5172C81CCEDA0900A96F5F /* JSON.swift */,
 			);
 			name = JSONModel;
-			sourceTree = "<group>";
-		};
-		5DAC3AAF1CAE259700487C52 /* Socket */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Socket;
 			sourceTree = "<group>";
 		};
 		5DAC3AB31CAE259700487C52 /* API */ = {
@@ -590,7 +582,7 @@
 				TargetAttributes = {
 					5C80AA751AAB5DF300F21FFA = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = BJ4G7D5DP5;
+						DevelopmentTeam = ZR774UBSWC;
 					};
 					5D7011581CB0AF39006B4075 = {
 						CreatedOnToolsVersion = 7.3;

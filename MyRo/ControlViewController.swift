@@ -204,7 +204,7 @@ class ControlViewController: UIViewController {
      
      - parameter sender: JoystickView that invoked this selector
      */
-    @IBAction func joystickMoved(sender: JoystickView) {
+    /*@IBAction func joystickMoved(sender: JoystickView) {
         //SocketService.publish("myro-instruction", items: "DATA HERE")
     }
     
@@ -226,7 +226,7 @@ class ControlViewController: UIViewController {
         /*self.manager.sendData(NSData(bytes: [self.speedSlider.value > 0.0 ? "H" : "L"] as [Character], length: 1))
         self.manager.sendData(NSData(bytes: [13] as [UInt8], length: 1))
         self.manager.sendData(NSData(bytes: [Int(self.speedSlider.value)] as [Int], length: 1))*/
-    }
+    }*/
     
     @IBAction func takePicture() {
         UIGraphicsBeginImageContextWithOptions(self.remoteView.bounds.size, true, 0.0)
@@ -335,10 +335,11 @@ extension ControlViewController: RTCEAGLVideoViewDelegate {
 extension ControlViewController: JoystickDelegate {
     func joystickDidMove(joystickView: JoystickView) {
         if (joystickView.direction != nil) {
-            print("HYP: \(joystickView.hyp)")
+            let speed = joystickView.hyp * 255.0
+            print("SPEED: \(speed)")
             print("DIR: \(joystickView.direction.rawValue)")
             
-            let dataStr = "X\(joystickView.direction.rawValue)Y\(joystickView.hyp)"
+            let dataStr = "X\(joystickView.direction.rawValue)Y\(speed)"
             DataService.dataService.sendInstruction(dataStr)
             
             //guard let data = dataStr.dataUsingEncoding(NSUTF8StringEncoding) else { return }
