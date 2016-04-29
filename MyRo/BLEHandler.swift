@@ -63,6 +63,7 @@ class BLEHandler: NSObject, CBCentralManagerDelegate {
         print("BLE discovered: \(peripheral.name) : \(RSSI)")
         
         if ((self.peripheral == nil || self.peripheral.state == .Disconnected) && peripheral.name == "HMSoft") {
+            print("\(peripheral.name) found")
             self.peripheral = peripheral
             //self.service = BLEService(peripheral: peripheral)
             central.connectPeripheral(peripheral, options: nil)

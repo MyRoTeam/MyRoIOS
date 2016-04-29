@@ -37,6 +37,9 @@ public class JoystickScene: SKScene {
     }
     
     public override func update(currentTime: NSTimeInterval) {
-        self.joystickDelegate?.joystickDidMove(self.joystickView)
+        if (self.joystickView.changed) {
+            self.joystickDelegate?.joystickDidMove(self.joystickView)
+            self.joystickView.changed = false
+        }
     }
 }

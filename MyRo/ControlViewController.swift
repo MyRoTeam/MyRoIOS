@@ -68,6 +68,8 @@ class ControlViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        MqttManager.sharedManager.connect()
+        
         let scene = JoystickScene(size: self.joystickSKView.frame.size)
         scene.scaleMode = SKSceneScaleMode.AspectFill
         scene.joystickDelegate = self
@@ -104,7 +106,7 @@ class ControlViewController: UIViewController {
         //****************************************
         //     UNCOMMENT BELOW LINE
         //****************************************
-        //self.client.connectToRoomWithId("test13", options: nil)
+        //self.client.connectToRoomWithId("test-12345", options: nil)
         //self.client.muteAudioIn()
         
         //SocketService.Socket = SocketIOClient(socketURL: NSURL(string: SocketService.URL)!, options: [.Log(true), .ForcePolling(true), .ConnectParams(["token": User.connectedRobotToken])])
@@ -204,7 +206,7 @@ class ControlViewController: UIViewController {
      
      - parameter sender: JoystickView that invoked this selector
      */
-    @IBAction func joystickMoved(sender: JoystickView) {
+    /*@IBAction func joystickMoved(sender: JoystickView) {
         //SocketService.publish("myro-instruction", items: "DATA HERE")
     }
     
@@ -226,7 +228,7 @@ class ControlViewController: UIViewController {
         /*self.manager.sendData(NSData(bytes: [self.speedSlider.value > 0.0 ? "H" : "L"] as [Character], length: 1))
         self.manager.sendData(NSData(bytes: [13] as [UInt8], length: 1))
         self.manager.sendData(NSData(bytes: [Int(self.speedSlider.value)] as [Int], length: 1))*/
-    }
+    }*/
     
     @IBAction func takePicture() {
         UIGraphicsBeginImageContextWithOptions(self.remoteView.bounds.size, true, 0.0)
@@ -335,11 +337,13 @@ extension ControlViewController: RTCEAGLVideoViewDelegate {
 extension ControlViewController: JoystickDelegate {
     func joystickDidMove(joystickView: JoystickView) {
         if (joystickView.direction != nil) {
-            print("HYP: \(joystickView.hyp)")
+            let speed = joystickView.hyp * 255.0
+            print("SPEED: \(speed)")
             print("DIR: \(joystickView.direction.rawValue)")
             
-            let dataStr = "X\(joystickView.direction.rawValue)Y\(joystickView.hyp)"
-            DataService.dataService.sendInstruction(dataStr)
+            let dataStr = "X\(joystickView.direction.rawValue)Y\(speed)"
+            MqttManager.sharedManager.publish("myro/instruction", message: dataStr)
+            //DataService.dataService.sendInstruction(dataStr)
             
             //guard let data = dataStr.dataUsingEncoding(NSUTF8StringEncoding) else { return }
             //self.manager.sendData(data)

@@ -58,7 +58,8 @@ public enum JoystickDirection: RawRepresentable {
 }
 
 public class JoystickView: SKShapeNode {
-    private(set) public var hyp: CGFloat!
+    public var changed: Bool = false
+    private(set) public var hyp: CGFloat = 0.0
     private(set) public var direction: JoystickDirection!
     private(set) public var x: CGFloat!
     private(set) public var y: CGFloat!
@@ -133,7 +134,6 @@ public class JoystickView: SKShapeNode {
             //self.direction = JoystickDirection(angle: Double(self.angle))
         }
         
-        
         self.angle = CGFloat(atan2f(Float(y - self.position.y), Float(x - self.position.x)))
         self.direction = JoystickDirection(angle: Double(self.angle))
         
@@ -141,6 +141,8 @@ public class JoystickView: SKShapeNode {
         self.x = (x - self.position.x) / self.maxDistance
         self.y = (y - self.position.y) / self.maxDistance
         self.hyp = sqrt(pow(self.x, 2) + pow(self.y, 2))
+        
+        self.changed = true
     }
     
     public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

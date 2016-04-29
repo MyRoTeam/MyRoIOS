@@ -15,4 +15,7 @@
 #import <AppRTC/ARDAppClient.h>
 #import <Firebase/Firebase.h>
 
+#import "MQTTClient.h"
+#import "MQTTSessionManager.h"
+
 #endif

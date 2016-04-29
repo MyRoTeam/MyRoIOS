@@ -39,16 +39,30 @@ class RobotViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //DataService.dataService.INS_REF.removeValue()
+        MqttManager.sharedManager = MqttManager(subscriptions: ["myro/instruction"])
+        MqttManager.sharedManager.connect()
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: #selector(didReceiveInstruction(_:)),
+            name: MqttManager.NotificationKey.MQTTDidReceiveNotification,
+            object: nil)
+        
         self.remoteView.delegate = self
         
         self.view.bringSubviewToFront(self.endButton)
         
-        
-        DataService.dataService.INS_REF.observeEventType(.ChildAdded, withBlock: { snapshot in
-            print(snapshot.value)
-            if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
+        DataService.dataService.INS_REF.observeEventType(.ChildRemoved, withBlock: { snapshot in
+            print("OBSERVE: \(snapshot.value)")
+            
+            guard let instruction = snapshot.value as? String else { return }
+            guard let data = instruction.dataUsingEncoding(NSUTF8StringEncoding) else { return }
+            self.manager.sendData(data)
+            
+            /*if let snapshots = snapshot.children.allObjects as? [FDataSnapshot] {
                 for snap in snapshots {
                     guard let instruction = snap.value as? String else { continue }
+                    print("instruction: \(instruction)")
                     
                     guard let data = instruction.dataUsingEncoding(NSUTF8StringEncoding) else { return }
                     self.manager.sendData(data)
@@ -58,8 +72,16 @@ class RobotViewController: UIViewController {
                         let instruction = Instruction(key: key, dictionary: postDictionary)
                     }*/
                 }
-            }
+            }*/
         })
+    }
+    
+    @IBAction func didReceiveInstruction(notif: NSNotification) {
+        guard let instruction = notif.object as? String else { return }
+        
+        print("INSTRUC: \(instruction)")
+        guard let data = instruction.dataUsingEncoding(NSUTF8StringEncoding) else { return }
+        self.manager.sendData(data)
     }
 
     //private var manager: BLEManager!
@@ -99,6 +121,8 @@ class RobotViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        
         //self.disconnect()
         //SocketService.disconnect()
     }
@@ -124,7 +148,6 @@ class RobotViewController: UIViewController {
     */
     private func handleRobotUdidIfNeeded(success: APISuccessBlock, failure: APIFailureBlock) {
         guard Robot.currentRobot == nil else {
-            print("HERE")
             success?([:])
             return
         }
