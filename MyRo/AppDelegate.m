@@ -8,6 +8,8 @@
 #import "AppDelegate.h"
 #import "RTCPeerConnectionFactory.h"
 
+@import GoogleMaps;
+
 
 @implementation AppDelegate
 
@@ -17,6 +19,10 @@
     //all global variables
     // Initialize WebRTC SSL Encryption
     [RTCPeerConnectionFactory initializeSSL];
+    
+    NSString *googleMapsApiKey = @"AIzaSyBpCSpX-lnnvj0KNptrYpd-IQaWVaZqXKU";
+    
+    [GMSServices provideAPIKey:googleMapsApiKey];
 
     return YES;
 }

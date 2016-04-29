@@ -15,4 +15,6 @@
 #import <AppRTC/ARDAppClient.h>
 #import <Firebase/Firebase.h>
 
+#import <GoogleMaps/GoogleMaps.h>
+
 #endif
