@@ -39,6 +39,15 @@ class RobotViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //DataService.dataService.INS_REF.removeValue()
+        MqttManager.sharedManager = MqttManager(subscriptions: ["myro/instruction"])
+        MqttManager.sharedManager.connect()
+        NSNotificationCenter.defaultCenter().addObserver(
+            self,
+            selector: #selector(didReceiveInstruction(_:)),
+            name: MqttManager.NotificationKey.MQTTDidReceiveNotification,
+            object: nil)
+        
         self.remoteView.delegate = self
         
         self.view.bringSubviewToFront(self.endButton)
@@ -65,6 +74,14 @@ class RobotViewController: UIViewController {
                 }
             }*/
         })
+    }
+    
+    @IBAction func didReceiveInstruction(notif: NSNotification) {
+        guard let instruction = notif.object as? String else { return }
+        
+        print("INSTRUC: \(instruction)")
+        guard let data = instruction.dataUsingEncoding(NSUTF8StringEncoding) else { return }
+        self.manager.sendData(data)
     }
 
     //private var manager: BLEManager!
@@ -103,6 +120,8 @@ class RobotViewController: UIViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
         
         //self.disconnect()
         //SocketService.disconnect()

@@ -41,6 +41,7 @@ class DataService {
     func sendInstruction(instruction: RobotInstruction) {
         let newInstruction = INS_REF.childByAutoId()
         newInstruction.setValue(instruction.toJSON())
+        newInstruction.removeValue()
     }
     
     func sendInstruction(instruction: String) {

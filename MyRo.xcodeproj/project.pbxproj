@@ -27,6 +27,22 @@
 		5D70116A1CB0BD17006B4075 /* APIRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7011691CB0BD17006B4075 /* APIRouteTests.swift */; };
 		5D70116C1CB0BE47006B4075 /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D70116B1CB0BE47006B4075 /* APIClientTests.swift */; };
 		5D70116E1CB0BEC1006B4075 /* ModelCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D70116D1CB0BEC1006B4075 /* ModelCoderTests.swift */; };
+		5D7A99BA1CD2DAA200BD276B /* MQTTCFSocketTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A99991CD2DAA200BD276B /* MQTTCFSocketTransport.m */; };
+		5D7A99BB1CD2DAA200BD276B /* MQTTSSLSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A999A1CD2DAA200BD276B /* MQTTSSLSecurityPolicy.m */; };
+		5D7A99BC1CD2DAA200BD276B /* MQTTCFSocketDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A999C1CD2DAA200BD276B /* MQTTCFSocketDecoder.m */; };
+		5D7A99BD1CD2DAA200BD276B /* MQTTCFSocketEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A999E1CD2DAA200BD276B /* MQTTCFSocketEncoder.m */; };
+		5D7A99BE1CD2DAA200BD276B /* MQTTCoreDataPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A99A21CD2DAA200BD276B /* MQTTCoreDataPersistence.m */; };
+		5D7A99BF1CD2DAA200BD276B /* MQTTDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A99A41CD2DAA200BD276B /* MQTTDecoder.m */; };
+		5D7A99C01CD2DAA200BD276B /* MQTTInMemoryPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A99A61CD2DAA200BD276B /* MQTTInMemoryPersistence.m */; };
+		5D7A99C11CD2DAA200BD276B /* MQTTMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A99A81CD2DAA200BD276B /* MQTTMessage.m */; };
+		5D7A99C21CD2DAA200BD276B /* MQTTSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A99AB1CD2DAA200BD276B /* MQTTSession.m */; };
+		5D7A99C31CD2DAA200BD276B /* MQTTSessionLegacy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A99AD1CD2DAA200BD276B /* MQTTSessionLegacy.m */; };
+		5D7A99C41CD2DAA200BD276B /* MQTTSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A99AF1CD2DAA200BD276B /* MQTTSessionManager.m */; };
+		5D7A99C51CD2DAA200BD276B /* MQTTSessionSynchron.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A99B11CD2DAA200BD276B /* MQTTSessionSynchron.m */; };
+		5D7A99C61CD2DAA200BD276B /* MQTTSSLSecurityPolicyDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A99B41CD2DAA200BD276B /* MQTTSSLSecurityPolicyDecoder.m */; };
+		5D7A99C71CD2DAA200BD276B /* MQTTSSLSecurityPolicyEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A99B61CD2DAA200BD276B /* MQTTSSLSecurityPolicyEncoder.m */; };
+		5D7A99C81CD2DAA200BD276B /* MQTTSSLSecurityPolicyTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A99B81CD2DAA200BD276B /* MQTTSSLSecurityPolicyTransport.m */; };
+		5D7A99CA1CD2DB1B00BD276B /* MqttManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7A99C91CD2DB1B00BD276B /* MqttManager.swift */; };
 		5DAC3A7E1CAE253D00487C52 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC3A791CAE253D00487C52 /* LoginViewController.swift */; };
 		5DAC3A7F1CAE253D00487C52 /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC3A7A1CAE253D00487C52 /* ControlViewController.swift */; };
 		5DAC3A811CAE253D00487C52 /* RobotConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC3A7C1CAE253D00487C52 /* RobotConnectionViewController.swift */; };
@@ -126,6 +142,40 @@
 		5D7011691CB0BD17006B4075 /* APIRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRouteTests.swift; sourceTree = "<group>"; };
 		5D70116B1CB0BE47006B4075 /* APIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
 		5D70116D1CB0BEC1006B4075 /* ModelCoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelCoderTests.swift; sourceTree = "<group>"; };
+		5D7A99991CD2DAA200BD276B /* MQTTCFSocketTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTCFSocketTransport.m; sourceTree = "<group>"; };
+		5D7A999A1CD2DAA200BD276B /* MQTTSSLSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTSSLSecurityPolicy.m; sourceTree = "<group>"; };
+		5D7A999B1CD2DAA200BD276B /* MQTTCFSocketDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTCFSocketDecoder.h; sourceTree = "<group>"; };
+		5D7A999C1CD2DAA200BD276B /* MQTTCFSocketDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTCFSocketDecoder.m; sourceTree = "<group>"; };
+		5D7A999D1CD2DAA200BD276B /* MQTTCFSocketEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTCFSocketEncoder.h; sourceTree = "<group>"; };
+		5D7A999E1CD2DAA200BD276B /* MQTTCFSocketEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTCFSocketEncoder.m; sourceTree = "<group>"; };
+		5D7A999F1CD2DAA200BD276B /* MQTTCFSocketTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTCFSocketTransport.h; sourceTree = "<group>"; };
+		5D7A99A01CD2DAA200BD276B /* MQTTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTClient.h; sourceTree = "<group>"; };
+		5D7A99A11CD2DAA200BD276B /* MQTTCoreDataPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTCoreDataPersistence.h; sourceTree = "<group>"; };
+		5D7A99A21CD2DAA200BD276B /* MQTTCoreDataPersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTCoreDataPersistence.m; sourceTree = "<group>"; };
+		5D7A99A31CD2DAA200BD276B /* MQTTDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTDecoder.h; sourceTree = "<group>"; };
+		5D7A99A41CD2DAA200BD276B /* MQTTDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTDecoder.m; sourceTree = "<group>"; };
+		5D7A99A51CD2DAA200BD276B /* MQTTInMemoryPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTInMemoryPersistence.h; sourceTree = "<group>"; };
+		5D7A99A61CD2DAA200BD276B /* MQTTInMemoryPersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTInMemoryPersistence.m; sourceTree = "<group>"; };
+		5D7A99A71CD2DAA200BD276B /* MQTTMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTMessage.h; sourceTree = "<group>"; };
+		5D7A99A81CD2DAA200BD276B /* MQTTMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTMessage.m; sourceTree = "<group>"; };
+		5D7A99A91CD2DAA200BD276B /* MQTTPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTPersistence.h; sourceTree = "<group>"; };
+		5D7A99AA1CD2DAA200BD276B /* MQTTSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSession.h; sourceTree = "<group>"; };
+		5D7A99AB1CD2DAA200BD276B /* MQTTSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTSession.m; sourceTree = "<group>"; };
+		5D7A99AC1CD2DAA200BD276B /* MQTTSessionLegacy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSessionLegacy.h; sourceTree = "<group>"; };
+		5D7A99AD1CD2DAA200BD276B /* MQTTSessionLegacy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTSessionLegacy.m; sourceTree = "<group>"; };
+		5D7A99AE1CD2DAA200BD276B /* MQTTSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSessionManager.h; sourceTree = "<group>"; };
+		5D7A99AF1CD2DAA200BD276B /* MQTTSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTSessionManager.m; sourceTree = "<group>"; };
+		5D7A99B01CD2DAA200BD276B /* MQTTSessionSynchron.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSessionSynchron.h; sourceTree = "<group>"; };
+		5D7A99B11CD2DAA200BD276B /* MQTTSessionSynchron.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTSessionSynchron.m; sourceTree = "<group>"; };
+		5D7A99B21CD2DAA200BD276B /* MQTTSSLSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSSLSecurityPolicy.h; sourceTree = "<group>"; };
+		5D7A99B31CD2DAA200BD276B /* MQTTSSLSecurityPolicyDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSSLSecurityPolicyDecoder.h; sourceTree = "<group>"; };
+		5D7A99B41CD2DAA200BD276B /* MQTTSSLSecurityPolicyDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTSSLSecurityPolicyDecoder.m; sourceTree = "<group>"; };
+		5D7A99B51CD2DAA200BD276B /* MQTTSSLSecurityPolicyEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSSLSecurityPolicyEncoder.h; sourceTree = "<group>"; };
+		5D7A99B61CD2DAA200BD276B /* MQTTSSLSecurityPolicyEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTSSLSecurityPolicyEncoder.m; sourceTree = "<group>"; };
+		5D7A99B71CD2DAA200BD276B /* MQTTSSLSecurityPolicyTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSSLSecurityPolicyTransport.h; sourceTree = "<group>"; };
+		5D7A99B81CD2DAA200BD276B /* MQTTSSLSecurityPolicyTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTSSLSecurityPolicyTransport.m; sourceTree = "<group>"; };
+		5D7A99B91CD2DAA200BD276B /* MQTTTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTTransport.h; sourceTree = "<group>"; };
+		5D7A99C91CD2DB1B00BD276B /* MqttManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MqttManager.swift; sourceTree = "<group>"; };
 		5DAC3A791CAE253D00487C52 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5DAC3A7A1CAE253D00487C52 /* ControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
 		5DAC3A7C1CAE253D00487C52 /* RobotConnectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotConnectionViewController.swift; sourceTree = "<group>"; };
@@ -323,6 +373,46 @@
 			path = MyRoTests;
 			sourceTree = "<group>";
 		};
+		5D7A99981CD2DA9A00BD276B /* MQTTClient */ = {
+			isa = PBXGroup;
+			children = (
+				5D7A99991CD2DAA200BD276B /* MQTTCFSocketTransport.m */,
+				5D7A999A1CD2DAA200BD276B /* MQTTSSLSecurityPolicy.m */,
+				5D7A999B1CD2DAA200BD276B /* MQTTCFSocketDecoder.h */,
+				5D7A999C1CD2DAA200BD276B /* MQTTCFSocketDecoder.m */,
+				5D7A999D1CD2DAA200BD276B /* MQTTCFSocketEncoder.h */,
+				5D7A999E1CD2DAA200BD276B /* MQTTCFSocketEncoder.m */,
+				5D7A999F1CD2DAA200BD276B /* MQTTCFSocketTransport.h */,
+				5D7A99A01CD2DAA200BD276B /* MQTTClient.h */,
+				5D7A99A11CD2DAA200BD276B /* MQTTCoreDataPersistence.h */,
+				5D7A99A21CD2DAA200BD276B /* MQTTCoreDataPersistence.m */,
+				5D7A99A31CD2DAA200BD276B /* MQTTDecoder.h */,
+				5D7A99A41CD2DAA200BD276B /* MQTTDecoder.m */,
+				5D7A99A51CD2DAA200BD276B /* MQTTInMemoryPersistence.h */,
+				5D7A99A61CD2DAA200BD276B /* MQTTInMemoryPersistence.m */,
+				5D7A99A71CD2DAA200BD276B /* MQTTMessage.h */,
+				5D7A99A81CD2DAA200BD276B /* MQTTMessage.m */,
+				5D7A99A91CD2DAA200BD276B /* MQTTPersistence.h */,
+				5D7A99AA1CD2DAA200BD276B /* MQTTSession.h */,
+				5D7A99AB1CD2DAA200BD276B /* MQTTSession.m */,
+				5D7A99AC1CD2DAA200BD276B /* MQTTSessionLegacy.h */,
+				5D7A99AD1CD2DAA200BD276B /* MQTTSessionLegacy.m */,
+				5D7A99AE1CD2DAA200BD276B /* MQTTSessionManager.h */,
+				5D7A99AF1CD2DAA200BD276B /* MQTTSessionManager.m */,
+				5D7A99B01CD2DAA200BD276B /* MQTTSessionSynchron.h */,
+				5D7A99B11CD2DAA200BD276B /* MQTTSessionSynchron.m */,
+				5D7A99B21CD2DAA200BD276B /* MQTTSSLSecurityPolicy.h */,
+				5D7A99B31CD2DAA200BD276B /* MQTTSSLSecurityPolicyDecoder.h */,
+				5D7A99B41CD2DAA200BD276B /* MQTTSSLSecurityPolicyDecoder.m */,
+				5D7A99B51CD2DAA200BD276B /* MQTTSSLSecurityPolicyEncoder.h */,
+				5D7A99B61CD2DAA200BD276B /* MQTTSSLSecurityPolicyEncoder.m */,
+				5D7A99B71CD2DAA200BD276B /* MQTTSSLSecurityPolicyTransport.h */,
+				5D7A99B81CD2DAA200BD276B /* MQTTSSLSecurityPolicyTransport.m */,
+				5D7A99B91CD2DAA200BD276B /* MQTTTransport.h */,
+			);
+			name = MQTTClient;
+			sourceTree = "<group>";
+		};
 		5DAC3A771CAE251A00487C52 /* Client */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,6 +458,7 @@
 		5DAC3A881CAE255C00487C52 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				5D7A99981CD2DA9A00BD276B /* MQTTClient */,
 				5DAC3A891CAE256000487C52 /* AFNetworking */,
 			);
 			name = External;
@@ -407,6 +498,7 @@
 				5DB955DB1CB1D9F6008CF3B1 /* AsyncKit */,
 				5DAC3AA91CAE259700487C52 /* KeychainWrapper */,
 				5DAC3AAD1CAE259700487C52 /* JSONModel */,
+				5D7A99C91CD2DB1B00BD276B /* MqttManager.swift */,
 				5DAC3AB31CAE259700487C52 /* API */,
 			);
 			name = Helpers;
@@ -703,6 +795,8 @@
 			files = (
 				5DAC3ABA1CAE259700487C52 /* UserService.swift in Sources */,
 				5D5172C91CCEDA0900A96F5F /* JSON.swift in Sources */,
+				5D7A99BD1CD2DAA200BD276B /* MQTTCFSocketEncoder.m in Sources */,
+				5D7A99C11CD2DAA200BD276B /* MQTTMessage.m in Sources */,
 				5DAC3AB61CAE259700487C52 /* JSONMap.swift in Sources */,
 				5DF89CC31CCD810D0016D9DD /* EasyDateShared.swift in Sources */,
 				5DF89CD61CCDD7E70016D9DD /* JoystickScene.swift in Sources */,
@@ -712,6 +806,7 @@
 				5DAC3A821CAE253D00487C52 /* RegisterViewController.swift in Sources */,
 				5DAC3AA51CAE257700487C52 /* AFURLSessionManager.m in Sources */,
 				5DB955F81CB1DA9B008CF3B1 /* Executor.swift in Sources */,
+				5D7A99BB1CD2DAA200BD276B /* MQTTSSLSecurityPolicy.m in Sources */,
 				5DB955FD1CB1DA9B008CF3B1 /* TaskQueue.swift in Sources */,
 				5DAC3A7E1CAE253D00487C52 /* LoginViewController.swift in Sources */,
 				2E85284A1CC2B96700ADF8BA /* DiaryTableViewController.swift in Sources */,
@@ -730,7 +825,9 @@
 				5DAC3AEB1CAE25BD00487C52 /* NVBTextField.swift in Sources */,
 				5DAC3AA11CAE257700487C52 /* AFSecurityPolicy.m in Sources */,
 				5DAC3AF51CAE424B00487C52 /* RobotViewController.swift in Sources */,
+				5D7A99C81CD2DAA200BD276B /* MQTTSSLSecurityPolicyTransport.m in Sources */,
 				5DAC3ABB1CAE259700487C52 /* RobotService.swift in Sources */,
+				5D7A99CA1CD2DB1B00BD276B /* MqttManager.swift in Sources */,
 				5DB956081CB1F2A8008CF3B1 /* UIColor+ColorPalette.swift in Sources */,
 				5DF89CC51CCD810D0016D9DD /* NSDateFormatter+EasyDate.swift in Sources */,
 				5DAC3AA31CAE257700487C52 /* AFURLRequestSerialization.m in Sources */,
@@ -740,31 +837,42 @@
 				5DAC3AB71CAE259700487C52 /* JSONModelOperator.swift in Sources */,
 				5DF89CB71CCD80EC0016D9DD /* DateCoder.swift in Sources */,
 				2EA928BC1CC2ED0000A8007F /* Instruction.swift in Sources */,
+				5D7A99C71CD2DAA200BD276B /* MQTTSSLSecurityPolicyEncoder.m in Sources */,
 				5DAC3AA41CAE257700487C52 /* AFURLResponseSerialization.m in Sources */,
 				5DAC3AFA1CAE6A3800487C52 /* BLEHandler.swift in Sources */,
+				5D7A99C31CD2DAA200BD276B /* MQTTSessionLegacy.m in Sources */,
 				5C80AA7C1AAB5DF300F21FFA /* main.m in Sources */,
 				5D5172C31CCEA41F00A96F5F /* UIImage+Encode.swift in Sources */,
 				5DAC3AFC1CAE6C4C00487C52 /* BLEService.swift in Sources */,
 				5DB956031CB1DAA9008CF3B1 /* Atomic.swift in Sources */,
+				5D7A99BC1CD2DAA200BD276B /* MQTTCFSocketDecoder.m in Sources */,
 				5DAC3A7F1CAE253D00487C52 /* ControlViewController.swift in Sources */,
 				5DF89CC41CCD810D0016D9DD /* Int+EasyDate.swift in Sources */,
 				5DAC3AF71CAE6A0600487C52 /* BLEManager.swift in Sources */,
+				5D7A99C61CD2DAA200BD276B /* MQTTSSLSecurityPolicyDecoder.m in Sources */,
 				5DB956051CB1DAA9008CF3B1 /* AtomicValueWrapper.swift in Sources */,
 				5D5172C11CCEA2C000A96F5F /* CloudVisionService.swift in Sources */,
 				2EF161401CC2D9CA002C3192 /* DataService.swift in Sources */,
 				5DAC3A9F1CAE257700487C52 /* AFHTTPSessionManager.m in Sources */,
+				5D7A99C21CD2DAA200BD276B /* MQTTSession.m in Sources */,
 				5DAC3A811CAE253D00487C52 /* RobotConnectionViewController.swift in Sources */,
+				5D7A99BA1CD2DAA200BD276B /* MQTTCFSocketTransport.m in Sources */,
 				5DF89CC21CCD810D0016D9DD /* String+EasyDate.swift in Sources */,
+				5D7A99BF1CD2DAA200BD276B /* MQTTDecoder.m in Sources */,
 				5DF89CB61CCD80EC0016D9DD /* EnumCoder.swift in Sources */,
 				5DF89CB01CCD80290016D9DD /* DiaryEntry.swift in Sources */,
 				5DB955FA1CB1DA9B008CF3B1 /* AKSynchronization.swift in Sources */,
 				5DF89CC11CCD810D0016D9DD /* EasyDate.swift in Sources */,
+				5D7A99C01CD2DAA200BD276B /* MQTTInMemoryPersistence.m in Sources */,
 				5DF89CC61CCD810D0016D9DD /* NSDate+EasyDate.swift in Sources */,
 				5DB955FC1CB1DA9B008CF3B1 /* TaskManager.swift in Sources */,
 				5DAC3A861CAE255500487C52 /* User.swift in Sources */,
+				5D7A99C51CD2DAA200BD276B /* MQTTSessionSynchron.m in Sources */,
 				5DAC3AB91CAE259700487C52 /* APIClient.swift in Sources */,
 				5DF89CB51CCD80EC0016D9DD /* JSONCoder.swift in Sources */,
+				5D7A99C41CD2DAA200BD276B /* MQTTSessionManager.m in Sources */,
 				5DB9560A1CB1F4D1008CF3B1 /* MyRoTextField.swift in Sources */,
+				5D7A99BE1CD2DAA200BD276B /* MQTTCoreDataPersistence.m in Sources */,
 				5DB955F91CB1DA9B008CF3B1 /* AKQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

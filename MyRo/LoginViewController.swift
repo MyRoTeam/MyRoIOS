@@ -22,6 +22,8 @@ class LoginViewController: UIViewController {
         
         //SocketService.connect()
         //SocketService.publish("myro instruction", items: "Test123")
+        
+        DataService.dataService.INS_REF.removeValue()
     }
 
     override func didReceiveMemoryWarning() {

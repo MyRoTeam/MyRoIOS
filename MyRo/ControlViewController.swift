@@ -68,6 +68,8 @@ class ControlViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        MqttManager.sharedManager.connect()
+        
         let scene = JoystickScene(size: self.joystickSKView.frame.size)
         scene.scaleMode = SKSceneScaleMode.AspectFill
         scene.joystickDelegate = self
@@ -104,7 +106,7 @@ class ControlViewController: UIViewController {
         //****************************************
         //     UNCOMMENT BELOW LINE
         //****************************************
-        //self.client.connectToRoomWithId("test13", options: nil)
+        //self.client.connectToRoomWithId("test-12345", options: nil)
         //self.client.muteAudioIn()
         
         //SocketService.Socket = SocketIOClient(socketURL: NSURL(string: SocketService.URL)!, options: [.Log(true), .ForcePolling(true), .ConnectParams(["token": User.connectedRobotToken])])
@@ -340,7 +342,8 @@ extension ControlViewController: JoystickDelegate {
             print("DIR: \(joystickView.direction.rawValue)")
             
             let dataStr = "X\(joystickView.direction.rawValue)Y\(speed)"
-            DataService.dataService.sendInstruction(dataStr)
+            MqttManager.sharedManager.publish("myro/instruction", message: dataStr)
+            //DataService.dataService.sendInstruction(dataStr)
             
             //guard let data = dataStr.dataUsingEncoding(NSUTF8StringEncoding) else { return }
             //self.manager.sendData(data)
