@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xIv-H0-VoW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xIv-H0-VoW">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Ogh-XI-yjw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pJn-1N-wPL">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Client BG" translatesAutoresizingMaskIntoConstraints="NO" id="fcK-0o-X2t">
@@ -49,14 +50,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserImg" translatesAutoresizingMaskIntoConstraints="NO" id="kXP-8d-A96">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYM-66-5ZU">
+                            <button opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYM-66-5ZU">
                                 <rect key="frame" x="281" y="380" width="38" height="30"/>
                                 <state key="normal" image="Client Login Button"/>
                                 <connections>
                                     <action selector="login:" destination="xIv-H0-VoW" eventType="touchUpInside" id="KQe-Db-RgD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Hl-Xv-YDT">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Hl-Xv-YDT">
                                 <rect key="frame" x="273" y="430" width="55" height="30"/>
                                 <state key="normal" title="Sign up now!"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
@@ -75,7 +76,7 @@
                                     <rect key="frame" x="57" y="440" width="158" height="18"/>
                                 </variation>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="goO-x3-n1R" customClass="NVBTextField" customModule="MyRo" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="goO-x3-n1R" customClass="NVBTextField" customModule="MyRo" customModuleProvider="target">
                                 <rect key="frame" x="20" y="320" width="560" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="BYK-u5-EWW"/>
@@ -95,7 +96,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dDQ-us-WMz" customClass="NVBTextField" customModule="MyRo" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dDQ-us-WMz" customClass="NVBTextField" customModule="MyRo" customModuleProvider="target">
                                 <rect key="frame" x="20" y="260" width="560" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
@@ -180,9 +181,13 @@
                                 <exclude reference="cC0-DG-UdB"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="fkL-aJ-B4t"/>
+                                <exclude reference="nFa-6G-q9M"/>
                                 <exclude reference="eQr-QX-rtG"/>
                                 <exclude reference="hqk-2Z-wqe"/>
                                 <exclude reference="l8C-JS-Zvl"/>
+                                <exclude reference="jaf-oR-Eyb"/>
+                                <exclude reference="rXL-fE-i3e"/>
                                 <exclude reference="DqH-8Q-QHO"/>
                                 <exclude reference="gOJ-NT-cX8"/>
                                 <exclude reference="sYC-ia-1VE"/>
@@ -190,8 +195,6 @@
                                 <exclude reference="UTM-wg-VZi"/>
                                 <exclude reference="ZG7-mj-XLA"/>
                                 <exclude reference="ss6-4k-wh6"/>
-                                <exclude reference="jaf-oR-Eyb"/>
-                                <exclude reference="rXL-fE-i3e"/>
                                 <exclude reference="ZT7-aU-yu6"/>
                                 <exclude reference="rQt-4p-l92"/>
                                 <exclude reference="6R4-6K-ZEG"/>
@@ -200,8 +203,6 @@
                                 <exclude reference="Kln-Af-hnK"/>
                                 <exclude reference="L4h-di-emu"/>
                                 <exclude reference="QFP-3G-KFa"/>
-                                <exclude reference="fkL-aJ-B4t"/>
-                                <exclude reference="nFa-6G-q9M"/>
                                 <exclude reference="3ZD-DR-SOm"/>
                                 <exclude reference="JIm-GH-oVZ"/>
                                 <exclude reference="Kw3-zG-LGN"/>
@@ -218,9 +219,13 @@
                                 <include reference="cC0-DG-UdB"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="fkL-aJ-B4t"/>
+                                <include reference="nFa-6G-q9M"/>
                                 <include reference="eQr-QX-rtG"/>
                                 <include reference="hqk-2Z-wqe"/>
                                 <include reference="l8C-JS-Zvl"/>
+                                <include reference="jaf-oR-Eyb"/>
+                                <include reference="rXL-fE-i3e"/>
                                 <include reference="DqH-8Q-QHO"/>
                                 <include reference="gOJ-NT-cX8"/>
                                 <include reference="sYC-ia-1VE"/>
@@ -228,8 +233,6 @@
                                 <include reference="UTM-wg-VZi"/>
                                 <include reference="ZG7-mj-XLA"/>
                                 <include reference="ss6-4k-wh6"/>
-                                <include reference="jaf-oR-Eyb"/>
-                                <include reference="rXL-fE-i3e"/>
                                 <include reference="ZT7-aU-yu6"/>
                                 <include reference="rQt-4p-l92"/>
                                 <include reference="6R4-6K-ZEG"/>
@@ -238,8 +241,6 @@
                                 <include reference="Kln-Af-hnK"/>
                                 <include reference="L4h-di-emu"/>
                                 <include reference="QFP-3G-KFa"/>
-                                <include reference="fkL-aJ-B4t"/>
-                                <include reference="nFa-6G-q9M"/>
                                 <include reference="3ZD-DR-SOm"/>
                                 <include reference="JIm-GH-oVZ"/>
                                 <include reference="Kw3-zG-LGN"/>
@@ -269,7 +270,7 @@
                         <viewControllerLayoutGuide type="bottom" id="8D4-zl-61t"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SGz-9G-eoi">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Client BG" translatesAutoresizingMaskIntoConstraints="NO" id="fcC-zW-Hk6">
@@ -292,7 +293,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Laj-DK-RbI">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Laj-DK-RbI">
                                 <rect key="frame" x="238" y="340" width="124" height="30"/>
                                 <state key="normal" image="Connect Button"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
@@ -300,7 +301,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="connectToRobot" destination="VNE-ec-lHu" eventType="touchUpInside" id="Rg3-vj-oLQ"/>
-                                    <segue destination="hhR-ng-XcW" kind="show" identifier="showControlVC" id="u8d-Cg-wNg"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TRW-1D-bxz">
@@ -325,7 +325,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Robot Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8e7-5C-1D8" customClass="NVBTextField" customModule="MyRo" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Robot Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8e7-5C-1D8" customClass="NVBTextField" customModule="MyRo" customModuleProvider="target">
                                 <rect key="frame" x="20" y="280" width="560" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="78n-Cw-9A3"/>
@@ -401,14 +401,14 @@
                                 <exclude reference="H7B-u0-8dA"/>
                                 <exclude reference="kex-GQ-pb0"/>
                                 <exclude reference="tRq-2r-gf4"/>
+                                <exclude reference="GqR-lg-zEh"/>
+                                <exclude reference="b1Y-DL-sGp"/>
                                 <exclude reference="EJb-bM-Ggu"/>
                                 <exclude reference="XBo-le-6Xi"/>
                                 <exclude reference="ZSD-zE-9sM"/>
                                 <exclude reference="CMu-Ty-HcD"/>
                                 <exclude reference="LeT-tL-PYr"/>
                                 <exclude reference="UX8-sg-eHh"/>
-                                <exclude reference="GqR-lg-zEh"/>
-                                <exclude reference="b1Y-DL-sGp"/>
                                 <exclude reference="6rD-OS-YD6"/>
                                 <exclude reference="BxW-jQ-o1Z"/>
                                 <exclude reference="Yft-pW-337"/>
@@ -430,14 +430,14 @@
                                 <include reference="H7B-u0-8dA"/>
                                 <include reference="kex-GQ-pb0"/>
                                 <include reference="tRq-2r-gf4"/>
+                                <include reference="GqR-lg-zEh"/>
+                                <include reference="b1Y-DL-sGp"/>
                                 <include reference="EJb-bM-Ggu"/>
                                 <include reference="XBo-le-6Xi"/>
                                 <include reference="ZSD-zE-9sM"/>
                                 <include reference="CMu-Ty-HcD"/>
                                 <include reference="LeT-tL-PYr"/>
                                 <include reference="UX8-sg-eHh"/>
-                                <include reference="GqR-lg-zEh"/>
-                                <include reference="b1Y-DL-sGp"/>
                                 <include reference="6rD-OS-YD6"/>
                                 <include reference="BxW-jQ-o1Z"/>
                                 <include reference="Yft-pW-337"/>
@@ -452,6 +452,7 @@
                     <tabBarItem key="tabBarItem" title="Connect To Robot" id="xzN-Xp-wgt"/>
                     <connections>
                         <outlet property="robotCodeTextField" destination="8e7-5C-1D8" id="iKJ-Ie-ArQ"/>
+                        <segue destination="hhR-ng-XcW" kind="show" identifier="showControlVC" id="Uhs-0b-KdL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uyl-kL-lcl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -481,15 +482,15 @@
             <objects>
                 <tableViewController id="sie-jR-vub" customClass="DiaryTableViewController" customModule="MyRo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="IbT-uY-zVF">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Eay-1h-R9g">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eay-1h-R9g" id="4Xj-50-Cli">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -514,7 +515,7 @@
                         <viewControllerLayoutGuide type="bottom" id="3ax-Ih-frj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mbH-qE-oMc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pNW-l5-PHO" customClass="RTCEAGLVideoView">
@@ -530,7 +531,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAl-KV-Cgf">
-                                <rect key="frame" x="510" y="60" width="50" height="50"/>
+                                <rect key="frame" x="285" y="60" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Vno-Fw-I5C"/>
                                     <constraint firstAttribute="height" constant="50" id="aQg-d8-ppa"/>
@@ -543,7 +544,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3GJ-wb-NBp">
-                                <rect key="frame" x="40" y="461" width="50" height="50"/>
+                                <rect key="frame" x="40" y="528" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Q51-jW-cdc"/>
                                     <constraint firstAttribute="height" constant="50" id="uiL-WA-DeW"/>
@@ -557,8 +558,8 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCp-AT-E66" customClass="SKView">
-                                <rect key="frame" x="480" y="431" width="100" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="255" y="498" width="100" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="BEb-xi-eBo"/>
                                     <constraint firstAttribute="height" constant="100" id="RQF-bW-Jhd"/>
@@ -603,7 +604,7 @@
                         <viewControllerLayoutGuide type="bottom" id="u0D-gT-yK7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pAc-K8-F65">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Client BG" translatesAutoresizingMaskIntoConstraints="NO" id="vwe-nk-P7j">
@@ -628,8 +629,8 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MQx-FH-HDB" customClass="NVBTextField" customModule="MyRo" customModuleProvider="target">
-                                <rect key="frame" x="20" y="40" width="560" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MQx-FH-HDB" customClass="NVBTextField" customModule="MyRo" customModuleProvider="target">
+                                <rect key="frame" x="20" y="40" width="560" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="h5Y-8m-y2n"/>
                                 </constraints>
@@ -647,8 +648,8 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dmJ-8G-bCv" customClass="NVBTextField" customModule="MyRo" customModuleProvider="target">
-                                <rect key="frame" x="20" y="160" width="560" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dmJ-8G-bCv" customClass="NVBTextField" customModule="MyRo" customModuleProvider="target">
+                                <rect key="frame" x="20" y="160" width="560" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="QpB-EU-5rb"/>
                                 </constraints>
@@ -666,7 +667,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C30-6W-cun">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C30-6W-cun">
                                 <rect key="frame" x="273" y="220" width="55" height="30"/>
                                 <state key="normal" image="Submit Button"/>
                                 <connections>
@@ -683,8 +684,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserImg" translatesAutoresizingMaskIntoConstraints="NO" id="3Om-6V-pc4">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U3U-ug-MFe" customClass="NVBTextField" customModule="MyRo" customModuleProvider="target">
-                                <rect key="frame" x="20" y="100" width="560" height="40"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U3U-ug-MFe" customClass="NVBTextField" customModule="MyRo" customModuleProvider="target">
+                                <rect key="frame" x="20" y="100" width="560" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="d1m-qT-yAt"/>
                                 </constraints>
@@ -763,12 +764,12 @@
                                 <exclude reference="5M1-7P-949"/>
                                 <exclude reference="Xmg-xq-qxk"/>
                                 <exclude reference="gAF-NA-M2c"/>
-                                <exclude reference="HtM-4R-s3f"/>
-                                <exclude reference="cIR-hs-QtX"/>
-                                <exclude reference="qus-Bc-o0W"/>
                                 <exclude reference="TOy-R7-ZSM"/>
                                 <exclude reference="l6v-bb-ZjW"/>
                                 <exclude reference="mo7-nJ-hv2"/>
+                                <exclude reference="HtM-4R-s3f"/>
+                                <exclude reference="cIR-hs-QtX"/>
+                                <exclude reference="qus-Bc-o0W"/>
                                 <exclude reference="JyZ-Y9-5pN"/>
                                 <exclude reference="jsF-mE-7GL"/>
                                 <exclude reference="Bf1-MW-6yf"/>
@@ -799,12 +800,12 @@
                                 <include reference="5M1-7P-949"/>
                                 <include reference="Xmg-xq-qxk"/>
                                 <include reference="gAF-NA-M2c"/>
-                                <include reference="HtM-4R-s3f"/>
-                                <include reference="cIR-hs-QtX"/>
-                                <include reference="qus-Bc-o0W"/>
                                 <include reference="TOy-R7-ZSM"/>
                                 <include reference="l6v-bb-ZjW"/>
                                 <include reference="mo7-nJ-hv2"/>
+                                <include reference="HtM-4R-s3f"/>
+                                <include reference="cIR-hs-QtX"/>
+                                <include reference="qus-Bc-o0W"/>
                                 <include reference="JyZ-Y9-5pN"/>
                                 <include reference="jsF-mE-7GL"/>
                                 <include reference="Bf1-MW-6yf"/>

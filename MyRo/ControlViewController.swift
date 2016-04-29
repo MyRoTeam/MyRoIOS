@@ -68,6 +68,9 @@ class ControlViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //let value = UIInterfaceOrientation.LandscapeRight.rawValue
+        //UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        
         MqttManager.sharedManager.connect()
         
         let scene = JoystickScene(size: self.joystickSKView.frame.size)
@@ -106,7 +109,7 @@ class ControlViewController: UIViewController {
         //****************************************
         //     UNCOMMENT BELOW LINE
         //****************************************
-        //self.client.connectToRoomWithId("test-12345", options: nil)
+        self.client.connectToRoomWithId("test-12345", options: nil)
         //self.client.muteAudioIn()
         
         //SocketService.Socket = SocketIOClient(socketURL: NSURL(string: SocketService.URL)!, options: [.Log(true), .ForcePolling(true), .ConnectParams(["token": User.connectedRobotToken])])
@@ -140,6 +143,14 @@ class ControlViewController: UIViewController {
         return UIInterfaceOrientationMask.Landscape
     }
     
+    override func preferredInterfaceOrientationForPresentation() -> UIInterfaceOrientation {
+        return UIInterfaceOrientation.LandscapeRight
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
     /**
      Toggles the user's audio for the video stream
      
@@ -163,10 +174,15 @@ class ControlViewController: UIViewController {
      and the video call room
      */
     @IBAction func endCall() {
+        print("END CALL")
         self.disconnect()
         //SocketService.disconnect()
 
         self.dismissViewControllerAnimated(true, completion: nil)
+        //self.navigationController?.popViewControllerAnimated(true)
+        
+        //let value = UIInterfaceOrientation.Portrait.rawValue
+        //UIDevice.currentDevice().setValue(value, forKey: "orientation")
     }
     
     /**

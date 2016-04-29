@@ -24,7 +24,7 @@ class RobotConnectionViewController: UIViewController {
     /// Attempts to connect to robot based on the code supplied by the user
     @IBAction func connectToRobot() {
         guard let code = self.robotCodeTextField.text else { return }
-        self.performSegueWithIdentifier("showControlVC", sender: self)
+        //self.performSegueWithIdentifier("showControlVC", sender: self)
 
         /*UserService.connectToRobot(code,
             success: { (response: [String : AnyObject]) in
