@@ -1,8 +1,8 @@
 //
 //  MqttManager.swift
-//  Wink
+//  MyRo
 //
-//  Created by Aadesh Patel on 3/15/16.
+//  Created by Aadesh Patel.
 //  Copyright © 2016 Aadesh Patel. All rights reserved.
 //
 

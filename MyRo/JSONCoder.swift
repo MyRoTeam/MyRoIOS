@@ -1,6 +1,6 @@
 //
 //  JSONCoder.swift
-//  Wink
+//  MyRo
 //
 //  Created by Aadesh Patel on 4/11/16.
 //  Copyright © 2016 Aadesh Patel. All rights reserved.

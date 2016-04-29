@@ -349,6 +349,14 @@
 			name = App;
 			sourceTree = "<group>";
 		};
+		5D2938E81CD3056300C7F99E /* MqttManager */ = {
+			isa = PBXGroup;
+			children = (
+				5D7A99C91CD2DB1B00BD276B /* MqttManager.swift */,
+			);
+			name = MqttManager;
+			sourceTree = "<group>";
+		};
 		5D5172BF1CCEA27D00A96F5F /* CloudVision */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,12 +501,12 @@
 		5DAC3AA61CAE258E00487C52 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5D2938E81CD3056300C7F99E /* MqttManager */,
 				5DF89CB81CCD80EF0016D9DD /* EasyDate */,
 				5DB956061CB1F29A008CF3B1 /* Extensions */,
 				5DB955DB1CB1D9F6008CF3B1 /* AsyncKit */,
 				5DAC3AA91CAE259700487C52 /* KeychainWrapper */,
 				5DAC3AAD1CAE259700487C52 /* JSONModel */,
-				5D7A99C91CD2DB1B00BD276B /* MqttManager.swift */,
 				5DAC3AB31CAE259700487C52 /* API */,
 			);
 			name = Helpers;
