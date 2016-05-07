@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// JSONCoder subclass for Image Base64 String conversion
 public class ImageBase64Coder: JSONCoder {
     public typealias Obj = UIImage
     public typealias JSON = String

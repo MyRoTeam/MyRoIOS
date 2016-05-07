@@ -38,8 +38,16 @@ class LoginViewController: UIViewController {
      - parameter sender: Button that caused the login event
      */
     @IBAction func login(sender: UIButton) {
+        //MqttManager.sharedManager = MqttManager(subscriptions: ["myro/robot_location"])
+        //self.performSegueWithIdentifier("login", sender: nil)
+        
+        //MqttManager.sharedManager.connect()
+        
         UserService.authenticateUser(self.usernameTextField.text!, password: self.passwordTextField.text!)
             .then { [weak self] user in
+                MqttManager.sharedManager = MqttManager(subscriptions: ["myro/robot_location"])
+                MqttManager.sharedManager.connect()
+                
                 User.currentUser = user
                 self?.performSegueWithIdentifier("login", sender: nil)
             }.error { [weak self] (error: NSError) in

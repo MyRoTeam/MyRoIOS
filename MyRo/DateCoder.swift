@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// JSONCoder subclass for NSDate
 public class DateCoder: JSONCoder {
     public typealias Obj = NSDate
     public typealias JSON = String

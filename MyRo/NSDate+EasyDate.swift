@@ -6,6 +6,7 @@
 //  Copyright © 2016 Aadesh Patel. All rights reserved.
 //
 
+/// Enum to retrieve the string for the appropriate "Time Ago"
 internal enum TimeAgo: CustomStringConvertible {
     case Future
     case JustNow
@@ -62,6 +63,8 @@ extension NSDate {
     private static let secsInMonth = secsInDay * 31
     private static let secsInYear = secsInDay * 365
     
+    /// Returns the time ago string for this date, using the current date as
+    /// the reference date
     public var timeAgoString: String {
         let seconds = -Int(self.timeIntervalSinceNow)
         var timeAgo = TimeAgo.JustNow
@@ -89,6 +92,7 @@ extension NSDate {
         return timeAgo.description
     }
     
+    /// Returns this date as a string, using the date format provided
     public func dateString(format: String = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'") -> String? {
         let formatter = EasyDateShared.sharedDateFormatter
         formatter.dateFormat = format
@@ -101,6 +105,7 @@ extension NSDate {
         self.init(timeIntervalSinceNow: date.timeIntervalSinceNow)
     }
     
+    /// If this date references today or not
     private func isToday() -> Bool {
         let now = NSDate()
         EasyDateShared.sharedDateFormatter.dateFormat = "yyyy-MM-dd"
@@ -108,6 +113,7 @@ extension NSDate {
         return EasyDateShared.sharedDateFormatter.stringFromDate(self) == EasyDateShared.sharedDateFormatter.stringFromDate(now)
     }
     
+    /// If this date references yesterday or not
     private func isYesterday() -> Bool {
         let yesterday = 1.days.ago()
         EasyDateShared.sharedDateFormatter.dateFormat = "yyyy-MM-dd"

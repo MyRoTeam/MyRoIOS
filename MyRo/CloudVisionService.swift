@@ -6,6 +6,7 @@
 //  Copyright © 2016 MyRo. All rights reserved.
 //
 
+/// Handles API routes for Google Vision API
 public enum CloudVisionRoute: APIRoute {
     private static let baseUrl = "https://vision.googleapis.com/v1/"
     
@@ -23,9 +24,17 @@ public enum CloudVisionRoute: APIRoute {
     }
 }
 
+/// Wrapper service of Google Vision API
 public class CloudVisionService: NSObject {
     internal static let apiKey = "AIzaSyBw0yRa0ioJHJzz69Bv6INifZTo1kl_ut8"
     
+    /**
+     Retrieves the tags from the Google Vision API for the image provided
+     
+     - parameter image: Image to retrieve tags for
+     
+     - returns: Task wrapper of the JSON result of the API request
+     */
     public static func getTags(forImage image: UIImage) -> Task<JSON> {
         guard let base64String = image.base64EncodeString else { return Task<JSON>() }
         

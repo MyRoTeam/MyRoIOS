@@ -38,9 +38,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="I AM A" translatesAutoresizingMaskIntoConstraints="NO" id="IaF-tV-84f">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kj-uq-dxt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kj-uq-dxt" userLabel="Robot Button">
                                 <rect key="frame" x="0.0" y="387" width="375" height="280"/>
                                 <state key="normal" image="Robot Button"/>
+                                <connections>
+                                    <segue destination="Ns9-q0-9qS" kind="show" id="alJ-Qy-AdX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uqT-VT-LCr" userLabel="User Button">
                                 <rect key="frame" x="15" y="78" width="345" height="280"/>

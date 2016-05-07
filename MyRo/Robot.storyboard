@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="j56-uk-5mf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="j56-uk-5mf">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -15,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="tYe-G7-tmU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kY4-r7-9jR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Robot Login BG" translatesAutoresizingMaskIntoConstraints="NO" id="dwD-QM-Pdf">
@@ -178,25 +179,25 @@
                                 <exclude reference="CMz-VF-nWm"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="KFy-bx-pAu"/>
-                                <exclude reference="VJY-xa-OIL"/>
-                                <exclude reference="yBT-YW-1Fl"/>
+                                <exclude reference="1RP-RD-2e7"/>
+                                <exclude reference="Vd8-3X-bPD"/>
+                                <exclude reference="rFH-58-pR7"/>
+                                <exclude reference="Das-Vo-39B"/>
+                                <exclude reference="LGj-mx-9ry"/>
+                                <exclude reference="bU6-nf-rIK"/>
+                                <exclude reference="TGx-62-6CV"/>
+                                <exclude reference="iRp-BX-hhi"/>
+                                <exclude reference="8b7-uh-FES"/>
+                                <exclude reference="INB-YH-cxX"/>
+                                <exclude reference="ZzI-wB-0fG"/>
                                 <exclude reference="4jj-US-xMs"/>
                                 <exclude reference="Qag-eD-9cu"/>
                                 <exclude reference="OPe-t7-98C"/>
                                 <exclude reference="l0y-Ij-BtI"/>
                                 <exclude reference="rLg-Zh-J7U"/>
-                                <exclude reference="TGx-62-6CV"/>
-                                <exclude reference="iRp-BX-hhi"/>
-                                <exclude reference="Das-Vo-39B"/>
-                                <exclude reference="LGj-mx-9ry"/>
-                                <exclude reference="bU6-nf-rIK"/>
-                                <exclude reference="8b7-uh-FES"/>
-                                <exclude reference="INB-YH-cxX"/>
-                                <exclude reference="ZzI-wB-0fG"/>
-                                <exclude reference="1RP-RD-2e7"/>
-                                <exclude reference="Vd8-3X-bPD"/>
-                                <exclude reference="rFH-58-pR7"/>
+                                <exclude reference="KFy-bx-pAu"/>
+                                <exclude reference="VJY-xa-OIL"/>
+                                <exclude reference="yBT-YW-1Fl"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -211,25 +212,25 @@
                                 <include reference="CMz-VF-nWm"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="KFy-bx-pAu"/>
-                                <include reference="VJY-xa-OIL"/>
-                                <include reference="yBT-YW-1Fl"/>
+                                <include reference="1RP-RD-2e7"/>
+                                <include reference="Vd8-3X-bPD"/>
+                                <include reference="rFH-58-pR7"/>
+                                <include reference="Das-Vo-39B"/>
+                                <include reference="LGj-mx-9ry"/>
+                                <include reference="bU6-nf-rIK"/>
+                                <include reference="TGx-62-6CV"/>
+                                <include reference="iRp-BX-hhi"/>
+                                <include reference="8b7-uh-FES"/>
+                                <include reference="INB-YH-cxX"/>
+                                <include reference="ZzI-wB-0fG"/>
                                 <include reference="4jj-US-xMs"/>
                                 <include reference="Qag-eD-9cu"/>
                                 <include reference="OPe-t7-98C"/>
                                 <include reference="l0y-Ij-BtI"/>
                                 <include reference="rLg-Zh-J7U"/>
-                                <include reference="TGx-62-6CV"/>
-                                <include reference="iRp-BX-hhi"/>
-                                <include reference="Das-Vo-39B"/>
-                                <include reference="LGj-mx-9ry"/>
-                                <include reference="bU6-nf-rIK"/>
-                                <include reference="8b7-uh-FES"/>
-                                <include reference="INB-YH-cxX"/>
-                                <include reference="ZzI-wB-0fG"/>
-                                <include reference="1RP-RD-2e7"/>
-                                <include reference="Vd8-3X-bPD"/>
-                                <include reference="rFH-58-pR7"/>
+                                <include reference="KFy-bx-pAu"/>
+                                <include reference="VJY-xa-OIL"/>
+                                <include reference="yBT-YW-1Fl"/>
                             </mask>
                         </variation>
                     </view>
@@ -248,6 +249,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ksR-9p-g9u"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4mh-ul-9Rc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Robot Login BG" translatesAutoresizingMaskIntoConstraints="NO" id="X8L-59-YsJ">
@@ -320,9 +322,12 @@
                                 <exclude reference="prQ-M3-ysk"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="By3-1i-shD"/>
                                 <exclude reference="KfS-PT-Nrs"/>
                                 <exclude reference="djX-K9-oz0"/>
                                 <exclude reference="fIB-TZ-C4z"/>
+                                <exclude reference="ZvR-YD-Cub"/>
+                                <exclude reference="i8t-ay-PdF"/>
                                 <exclude reference="92f-nl-AnM"/>
                                 <exclude reference="joC-e9-Ehy"/>
                                 <exclude reference="luY-Vz-PWM"/>
@@ -330,9 +335,6 @@
                                 <exclude reference="IzR-yl-vDn"/>
                                 <exclude reference="X0E-ii-YBm"/>
                                 <exclude reference="v6X-l5-Mod"/>
-                                <exclude reference="ZvR-YD-Cub"/>
-                                <exclude reference="i8t-ay-PdF"/>
-                                <exclude reference="By3-1i-shD"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -343,9 +345,12 @@
                                 <include reference="prQ-M3-ysk"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="By3-1i-shD"/>
                                 <include reference="KfS-PT-Nrs"/>
                                 <include reference="djX-K9-oz0"/>
                                 <include reference="fIB-TZ-C4z"/>
+                                <include reference="ZvR-YD-Cub"/>
+                                <include reference="i8t-ay-PdF"/>
                                 <include reference="92f-nl-AnM"/>
                                 <include reference="joC-e9-Ehy"/>
                                 <include reference="luY-Vz-PWM"/>
@@ -353,9 +358,6 @@
                                 <include reference="IzR-yl-vDn"/>
                                 <include reference="X0E-ii-YBm"/>
                                 <include reference="v6X-l5-Mod"/>
-                                <include reference="ZvR-YD-Cub"/>
-                                <include reference="i8t-ay-PdF"/>
-                                <include reference="By3-1i-shD"/>
                             </mask>
                         </variation>
                     </view>
@@ -374,15 +376,15 @@
                         <viewControllerLayoutGuide type="bottom" id="FqQ-Ka-25d"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="AyG-cf-VgI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgu-Yt-jWZ" customClass="RTCEAGLVideoView">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zU6-lk-fE9">
-                                        <rect key="frame" x="285" y="530" width="30" height="30"/>
-                                        <state key="normal" title="End">
+                                        <rect key="frame" x="160" y="597" width="56" height="30"/>
+                                        <state key="normal" title="End Call">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>

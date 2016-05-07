@@ -8,6 +8,14 @@
 
 import Foundation
 
+/**
+ Function that runs a block in a default priority background thread, and returns
+ the result of the block wrapped around a Task object
+ 
+ - parameter block: Block to execute asynchronously
+ 
+ - returns: Task wrapper object of the result of the block
+ */
 public func task<T>(block: () -> T) -> Task<T> {
     let manager: TaskManager<T> = TaskManager()
     
@@ -18,7 +26,9 @@ public func task<T>(block: () -> T) -> Task<T> {
     return manager.task
 }
 
+/// Wrapper class so that any data type can be treated as an object
 public class TaskResultWrapper<T> {
+    /// Actual data this class is wrapped around
     private var result: T!
     
     public init(result: T) {
@@ -113,9 +123,15 @@ public enum TaskResult<T> {
     }
 }
 
+/// Core class that handles all callbacks based on the type of completion
 public class Task<T> {
+    /// Result data that this Task object is holding
     private var result: TaskResult<T>!
+    
+    /// Queue of callbacks to be invoked
     private var callbackQueue: TaskQueue<((TaskResult<T>) -> Void)>?
+    
+    /// List of callbacks to be invoked
     private var callbacks: [(TaskResult<T>) -> Void]!
     //private var errorBlock: ((NSError) -> Void)!
     
@@ -123,12 +139,24 @@ public class Task<T> {
         self.callbacks = []
     }
     
+    /**
+     Successfully completes this task successfully with the result provided
+     
+     - parameter result: Result of this task's execution
+     */
     public func completeWithResult(result: TaskResult<T>) {
         self.completeWithBlock({ () -> TaskResult<T> in
             return result
         })
     }
     
+    /**
+     Executes the block provided, and successfully completes the task
+     with the result of the block
+     
+     - parameter block: Block to be executed and successfully complete this
+                        task with
+     */
     private func completeWithBlock(block: (() -> TaskResult<T>)) {
         synchronized(self) {
             if (self.result != nil) {
@@ -142,6 +170,17 @@ public class Task<T> {
         }
     }
     
+    /**
+     Executes the block provided after this task is completed successfully. If it is not
+     completed successfully (completed by error or exception), then the block provided will
+     **NOT** be executed
+     
+     - parameter executorType: Thread to execute the block in. Defaults to the main thread
+     - parameter block: Block to execute after this task completes successfully
+     
+     - returns: Another Task object wrapped around the result of the block executed, so that
+                "then" blocks can be chained
+     */
     public func then<K>(executorType: ExecutorType = ExecutorType.Main, _ block: ((T) -> K)) -> Task<K> {
         let executor: Executor = Executor(type: executorType)
         
@@ -150,6 +189,15 @@ public class Task<T> {
         }
     }
     
+    /**
+     Private function that does the same as the then method, except the block returns a 
+     TaskResult object
+     
+     - parameter executor: Provider of the type of thread to execute the block in
+     - parameter block: Block to execute after this task completes successfully
+     
+     - returns: Another Task object wrapped around the TaskResult of the block executed
+     */
     private func thenWithResultBlock<K>(executor: Executor, _ block: (T) -> TaskResult<K>) -> Task<K> {
         return self.taskForBlock(executor) { (result: TaskResult<T>) -> TaskResult<K> in
             switch(result) {
@@ -165,6 +213,13 @@ public class Task<T> {
         }
     }
     
+    /**
+     Executes the block provided only if this task fails with an error
+     
+     - parameter block: Block to be executed if this task fails with an error
+     
+     - returns: Another Task object to allow chaining
+     */
     public func error(block: (NSError) -> Void) -> Task<T> {
         self.queueTaskCallback { (result: TaskResult<T>) -> Void in
             if (result.error != nil) {
@@ -175,6 +230,13 @@ public class Task<T> {
         return self
     }
     
+    /**
+     Executes the block provided only if this task fails with an exception
+     
+     - parameter block: Block to be executed if this task fails with an exception
+     
+     - returns: Another Task object to allow chaining
+     */
     public func error(block: (NSException) -> Void) -> Task<T> {
         self.queueTaskCallback { (result: TaskResult<T>) -> Void in
             if (result.exception != nil) {
@@ -185,6 +247,14 @@ public class Task<T> {
         return self
     }
     
+    /**
+     **ALWAYS** executes the block provided at the end, regardless of the 
+     outcome of this task
+     
+     - parameter block: Block to execute no matter of the outcome of the task
+     
+     - returns: Another Task object to allow chaining
+     */
     public func finally(block: () -> Void) -> Task<T> {
         self.queueTaskCallback { (_: TaskResult<T>) -> Void in
             block()
@@ -193,6 +263,14 @@ public class Task<T> {
         return self
     }
     
+    /**
+     Generates and returns a Task object for the block provided
+     
+     - parameter executor: Provider of the type of thread to execute the block in
+     - parameter block: Block to execute if this task completes successfully
+     
+     - returns: Another Task object wrapped around the result of the block
+     */
     private func taskForBlock<K>(executor: Executor, _ block: (TaskResult<T>) -> TaskResult<K>) -> Task<K> {
         
         let taskManager: TaskManager<K> = TaskManager<K>()
@@ -208,6 +286,11 @@ public class Task<T> {
         return taskManager.task
     }
     
+    /**
+     Enqueues the callback function to the queue of callbacks
+     
+     - parameter callback: Callback to queue
+     */
     private func queueTaskCallback(callback: (TaskResult<T>) -> Void) {
         synchronized(self) {
             if (self.result != nil) {

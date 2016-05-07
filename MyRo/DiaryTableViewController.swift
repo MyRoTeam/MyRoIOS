@@ -10,9 +10,17 @@ import UIKit
 
 class DiaryTableViewController: UITableViewController {
     //private let data: NSMutableArray? = nil
+    
+    /// All diary entires
     private var entries = [DiaryEntry]()
+    
+    /// Diary entires filtered by tag, based on what user typed in search bar
     private var filteredEntries = [DiaryEntry]()
+    
+    /// Search controller for displaying filtered diary entries
     private let searchController = UISearchController(searchResultsController: nil)
+    
+    /// Background view when user views the image fullscreen
     private let fadeBackgroundView: UIView = {
         let view = UIView(frame: UIScreen.mainScreen().bounds)
         view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
@@ -20,9 +28,14 @@ class DiaryTableViewController: UITableViewController {
         return view
     }()
     
+    /// Fullscreen imageview
     private lazy var fullscreenImageView = UIImageView()
+    
+    /// Previous frame of image before displaying fullscreen. Used to return to that frame after
+    /// user dismisses fullscreen mode
     private var originalFrame = CGRectZero
     
+    /// Determines if the current list of diary entries are filtered or not
     private var isFiltered: Bool {
         return self.searchController.active && self.searchController.searchBar.text?.characters.count > 0
     }
@@ -138,6 +151,7 @@ class DiaryTableViewController: UITableViewController {
             }, completion: nil)
     }
     
+    /// Dismisses the image from fullscreen mode
     @IBAction func dismissImage() {
         guard let indexPath = self.tableView.indexPathForSelectedRow else { return }
         guard let cell = self.tableView.cellForRowAtIndexPath(indexPath) as? DiaryTableViewCell else { return }
@@ -157,6 +171,8 @@ class DiaryTableViewController: UITableViewController {
         })
     }
     
+    /// Filters the diary entries displayed based on the search query, which is compared
+    /// with every diary entry's tags
     internal func filterContent(searchText: String) {
         let lowerSearchText = searchText.lowercaseString
         self.filteredEntries = self.entries.filter { entry in

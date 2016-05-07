@@ -27,6 +27,14 @@ public class Executor {
         let _ = self.executionBlock(block)
     }
     
+    /**
+     Wraps the block provided within a new block, depending on what kind of queue
+     to execute the block in
+     
+     - parameter block: Block to be wrapped within this executor's queue
+     
+     - returns: Block that will execute the block provided within this executor's queue
+     */
     public func executionBlock<T>(block: (T) -> Void) -> ((T) -> Void) {
         let wrappedBlock = { (t: T) -> Void in
             block(t)
@@ -40,6 +48,15 @@ public class Executor {
         }
     }
     
+    /**
+     Creates and returns a new block that executes the provided block asynchronously
+     in the queue provided
+     
+     - parameter queue: Queue to execute the block in
+     - parameter block: Block to execute
+     
+     - returns: Block whose contents is the queue asynchronously executing the block
+     */
     private func createDispatchBlock<T>(queue: AKQueue, block: (T) -> Void) -> ((T) -> Void)
     {
         let wrappedBlock = { (t: T) -> Void in

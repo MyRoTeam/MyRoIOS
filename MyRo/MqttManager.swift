@@ -8,16 +8,20 @@
 
 import UIKit
 
+/// Wrapper class of MQTTClient
 public class MqttManager: NSObject {
+    /// Static shared manager
     public static var sharedManager = MqttManager()
     
+    /// NSNotificationCenter keys for connect, disconnect, and receive
     public struct NotificationKey {
         public static let MQTTDidConnectNotification = "MQTTDidConnectNotification"
         public static let MQTTDidDisconnectNotification = "MQTTDidDisconnectNotification"
         public static let MQTTDidReceiveNotification = "MQTTDidReceiveNotification"
     }
     
-    internal static let mqttHost = "ec2-52-90-110-163.compute-1.amazonaws.com"
+    /// Mqtt server config settings
+    internal static let mqttHost = "ec2-54-85-194-33.compute-1.amazonaws.com"
     internal static let mqttPort = 1883
     internal static let mqttSSLPort = 8883
     internal static let mqttClientId = "myro-\(arc4random_uniform(1000))"
@@ -59,6 +63,7 @@ public class MqttManager: NSObject {
         self.manager.removeObserver(self, forKeyPath: "state")
     }
     
+    /// Attempts to connect to the real time server
     public func connect() {
         self.manager.connectTo(
             MqttManager.mqttHost,
@@ -81,10 +86,18 @@ public class MqttManager: NSObject {
         self.manager.connectToLast()
     }
     
+    /// Disconnects from the real time server
     public func disconnect() {
         self.manager.disconnect()
     }
     
+    /**
+     Sends the message provided to all subscribers of the topic provided
+     
+     - parameter topic: Topic to send message to
+     - parameter message: Message to send
+     - parameter retain: Whether or not to permanently save the message in the database
+     */
     public func publish(topic: String, message: String, retain: Bool = false) {
         self.manager.sendData(
             message.dataUsingEncoding(NSUTF8StringEncoding),
@@ -93,16 +106,35 @@ public class MqttManager: NSObject {
             retain: retain)
     }
     
+    /**
+     Sends the message provided to all subscribers of the topic provided
+     
+     - parameter topic: Topic to send message to
+     - parameter message: Message to send
+     - parameter retain: Whether or not to permanently save the message in the database
+     */
+    public func publish(topic: String, data: NSData, retain: Bool = false) {
+        self.manager.sendData(
+            data,
+            topic: topic,
+            qos: .AtMostOnce,
+            retain: retain)
+    }
+    
+    /// Subscribes to the topic provided
     public func subscribe(topic: String) {
         self.manager.session.subscribeToTopic(topic, atLevel: .AtMostOnce)
     }
     
+    /// Returns if the manager is currently connected to the real time server or not
     public func isConnected() -> Bool {
         return self.manager.state == .Connected
     }
 }
 
 extension MqttManager: MQTTSessionManagerDelegate {
+    /// Protocol delegate method invoked when a message is received from the 
+    /// real time server
     public func handleMessage(data: NSData!, onTopic topic: String!, retained: Bool) {
         print("Did Receive Message")
         
@@ -128,6 +160,7 @@ extension MqttManager {
             //self.subscribe("match_found/\(User.currentUser.id.longLongValue)")
             //self.subscribe("chat/+/\(User.currentUser.id.longLongValue)")
             
+        
             //MqttManager.sharedManager.subscribe("match/\(User.currentUser.id.longLongValue)")
             NSNotificationCenter.defaultCenter().postNotificationName(MqttManager.NotificationKey.MQTTDidConnectNotification, object: nil)
             break

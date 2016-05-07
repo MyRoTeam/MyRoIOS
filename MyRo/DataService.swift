@@ -8,23 +8,23 @@
 
 import Foundation
 
-
+/// Wrapper class of Firebase services
 class DataService {
     static let dataService = DataService()
     
+    /// Firebase base url reference
     private let _BASE_REF = Firebase(url: "https://myro.firebaseio.com")
-    private let _INS_REF = Firebase(url: "https://myro.firebaseio.com/instructions")
+    
+    /// Firebase image reference
     private let _IMG_REF = Firebase(url: "https://myro.firebaseio.com/images")
+    
+    /// Firebase diary entries reference
     private let _DIARY_ENTRY_REF = Firebase(url: "https://myro.firebaseio.com/diary_entries")
     
     var BASE_REF: Firebase {
         return _BASE_REF
     }
 
-    var INS_REF : Firebase {
-        return _INS_REF
-    }
-    
     var IMG_REF : Firebase {
         return _IMG_REF
     }
@@ -38,18 +38,11 @@ class DataService {
         newInstruction.setValue(ins)
     }*/
     
-    func sendInstruction(instruction: RobotInstruction) {
-        let newInstruction = INS_REF.childByAutoId()
-        newInstruction.setValue(instruction.toJSON())
-        newInstruction.removeValue()
-    }
-    
-    func sendInstruction(instruction: String) {
-        let newInstruction = INS_REF.childByAutoId()
-        newInstruction.setValue(instruction)
-        newInstruction.removeValue()
-    }
-    
+    /**
+     Saves the diary entry to firebase
+     
+     - parameter entry: Diary entry to save to firebase
+     */
     func saveDiaryEntry(entry: DiaryEntry) {
         let newEntry = DIARY_ENTRY_REF.childByAutoId()
         newEntry.setValue(entry.toJSON())

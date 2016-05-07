@@ -15,6 +15,14 @@ class RobotConnectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @IBAction func dismissKeyboard() {
+        self.view.endEditing(true)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,24 +31,29 @@ class RobotConnectionViewController: UIViewController {
     
     /// Attempts to connect to robot based on the code supplied by the user
     @IBAction func connectToRobot() {
-        guard let code = self.robotCodeTextField.text else { return }
-        //self.performSegueWithIdentifier("showControlVC", sender: self)
-
-        /*UserService.connectToRobot(code,
-            success: { (response: [String : AnyObject]) in
-                guard let robotToken = response["robotToken"] as? String else { return }
-                
-                User.connectedRobotToken = robotToken
-                print("TOKEN: \(User.connectedRobotToken)")
-                
-                self.performSegueWithIdentifier("showControlVC", sender: self)
-            }, failure: { (error: NSError) -> Void in
-                let alert = UIAlertController(title: "Error", message: "Invalid Robot Token", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-            })*/
+        guard let code = self.robotCodeTextField.text where code == "code123" else {
+            let alert = UIAlertController(title: "Error", message: "Invalid Robot Token", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            return
+        }
         
-        if code == "code123" {
+        /*UserService.connectToRobot(code,
+         success: { (response: [String : AnyObject]) in
+         guard let robotToken = response["robotToken"] as? String else { return }
+         
+         User.connectedRobotToken = robotToken
+         print("TOKEN: \(User.connectedRobotToken)")
+         
+         self.performSegueWithIdentifier("showControlVC", sender: self)
+         }, failure: { (error: NSError) -> Void in
+         let alert = UIAlertController(title: "Error", message: "Invalid Robot Token", preferredStyle: .Alert)
+         alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+         self.presentViewController(alert, animated: true, completion: nil)
+         })*/
+        
+        if (code == "code123") {
             self.performSegueWithIdentifier("showControlVC", sender: self)
         }
     }

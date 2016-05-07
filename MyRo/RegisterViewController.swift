@@ -45,7 +45,7 @@ class RegisterViewController: UIViewController {
         }
         
         guard self.passwordTextField.text == self.confirmPasswordTextField.text else {
-            let alert = UIAlertController(title: "Error", message: "All Fields Required", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Passwords Don't Match", message: "Passwords Must Match", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
             

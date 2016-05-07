@@ -6,6 +6,7 @@
 //  Copyright © 2016 Aadesh Patel. All rights reserved.
 //
 
+/// JSONCoder subclass for Enums
 public class EnumCoder<T: RawRepresentable>: JSONCoder {
     public typealias Obj = T
     public typealias JSON = T.RawValue

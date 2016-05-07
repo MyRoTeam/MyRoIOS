@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Model for sending instructions to the robot via the real time broker
 public final class RobotInstruction: NSObject, JSONModel {
     /// Speed represented as a decimal between 0.0 and 1.0
     /// - 0.0 - No movement

@@ -15,6 +15,9 @@
 		5C80AA851AAB5DF300F21FFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C80AA831AAB5DF300F21FFA /* Main.storyboard */; };
 		5C80AA871AAB5DF300F21FFA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C80AA861AAB5DF300F21FFA /* Images.xcassets */; };
 		5C80AA8A1AAB5DF300F21FFA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C80AA881AAB5DF300F21FFA /* LaunchScreen.xib */; };
+		5D2938EA1CD3A48D00C7F99E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2938E91CD3A48D00C7F99E /* MapViewController.swift */; };
+		5D2938EC1CD3C10800C7F99E /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2938EB1CD3C10800C7F99E /* PlacesService.swift */; };
+		5D2938EE1CD3C17200C7F99E /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2938ED1CD3C17200C7F99E /* Landmark.swift */; };
 		5D5172BE1CCDE1CC00A96F5F /* RobotInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5172BD1CCDE1CC00A96F5F /* RobotInstruction.swift */; };
 		5D5172C11CCEA2C000A96F5F /* CloudVisionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5172C01CCEA2C000A96F5F /* CloudVisionService.swift */; };
 		5D5172C31CCEA41F00A96F5F /* UIImage+Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5172C21CCEA41F00A96F5F /* UIImage+Encode.swift */; };
@@ -84,6 +87,10 @@
 		5DB956081CB1F2A8008CF3B1 /* UIColor+ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB956071CB1F2A8008CF3B1 /* UIColor+ColorPalette.swift */; };
 		5DB9560A1CB1F4D1008CF3B1 /* MyRoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB956091CB1F4D1008CF3B1 /* MyRoTextField.swift */; };
 		5DB9560C1CB23684008CF3B1 /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9560B1CB23684008CF3B1 /* TaskTests.swift */; };
+		5DCF82521CDC2D76006956A4 /* MyRoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF82511CDC2D76006956A4 /* MyRoUITests.swift */; };
+		5DCF825A1CDC2D8A006956A4 /* InitialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF82591CDC2D8A006956A4 /* InitialUITests.swift */; };
+		5DCF825C1CDC2DB2006956A4 /* LoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF825B1CDC2DB2006956A4 /* LoginUITests.swift */; };
+		5DCF825E1CDC2DD3006956A4 /* RobotConnectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF825D1CDC2DD3006956A4 /* RobotConnectionUITests.swift */; };
 		5DF89CAD1CCD7A130016D9DD /* DiaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF89CAB1CCD7A130016D9DD /* DiaryTableViewCell.swift */; };
 		5DF89CAE1CCD7A130016D9DD /* DiaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DF89CAC1CCD7A130016D9DD /* DiaryTableViewCell.xib */; };
 		5DF89CB01CCD80290016D9DD /* DiaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF89CAF1CCD80290016D9DD /* DiaryEntry.swift */; };
@@ -103,11 +110,19 @@
 		5DF89CD21CCDA2E80016D9DD /* DiaryEntryPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DF89CD01CCDA2E80016D9DD /* DiaryEntryPopupViewController.xib */; };
 		5DF89CD41CCDD0670016D9DD /* JoystickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF89CD31CCDD0670016D9DD /* JoystickView.swift */; };
 		5DF89CD61CCDD7E70016D9DD /* JoystickScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF89CD51CCDD7E70016D9DD /* JoystickScene.swift */; };
+		92FB53A891C67170AF987707 /* libPods-MyRoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0182E33EF022AA9A295A240 /* libPods-MyRoTests.a */; };
 		CCFADCE7DC68915A974ED1B3 /* libPods-MyRo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E257C9292EC4A0C1C589EDBE /* libPods-MyRo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		5D70115E1CB0AF3A006B4075 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C80AA6E1AAB5DF300F21FFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C80AA751AAB5DF300F21FFA;
+			remoteInfo = MyRo;
+		};
+		5DCF82541CDC2D76006956A4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5C80AA6E1AAB5DF300F21FFA /* Project object */;
 			proxyType = 1;
@@ -128,6 +143,9 @@
 		5C80AA841AAB5DF300F21FFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C80AA861AAB5DF300F21FFA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5C80AA891AAB5DF300F21FFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		5D2938E91CD3A48D00C7F99E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		5D2938EB1CD3C10800C7F99E /* PlacesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
+		5D2938ED1CD3C17200C7F99E /* Landmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 		5D5172BD1CCDE1CC00A96F5F /* RobotInstruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotInstruction.swift; sourceTree = "<group>"; };
 		5D5172C01CCEA2C000A96F5F /* CloudVisionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudVisionService.swift; sourceTree = "<group>"; };
 		5D5172C21CCEA41F00A96F5F /* UIImage+Encode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Encode.swift"; sourceTree = "<group>"; };
@@ -229,6 +247,12 @@
 		5DB956071CB1F2A8008CF3B1 /* UIColor+ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ColorPalette.swift"; sourceTree = "<group>"; };
 		5DB956091CB1F4D1008CF3B1 /* MyRoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoTextField.swift; sourceTree = "<group>"; };
 		5DB9560B1CB23684008CF3B1 /* TaskTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTests.swift; sourceTree = "<group>"; };
+		5DCF824F1CDC2D76006956A4 /* MyRoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DCF82511CDC2D76006956A4 /* MyRoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoUITests.swift; sourceTree = "<group>"; };
+		5DCF82531CDC2D76006956A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DCF82591CDC2D8A006956A4 /* InitialUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialUITests.swift; sourceTree = "<group>"; };
+		5DCF825B1CDC2DB2006956A4 /* LoginUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUITests.swift; sourceTree = "<group>"; };
+		5DCF825D1CDC2DD3006956A4 /* RobotConnectionUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotConnectionUITests.swift; sourceTree = "<group>"; };
 		5DF89CAB1CCD7A130016D9DD /* DiaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryTableViewCell.swift; sourceTree = "<group>"; };
 		5DF89CAC1CCD7A130016D9DD /* DiaryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiaryTableViewCell.xib; sourceTree = "<group>"; };
 		5DF89CAF1CCD80290016D9DD /* DiaryEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
@@ -249,6 +273,9 @@
 		5DF89CD31CCDD0670016D9DD /* JoystickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoystickView.swift; sourceTree = "<group>"; };
 		5DF89CD51CCDD7E70016D9DD /* JoystickScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoystickScene.swift; sourceTree = "<group>"; };
 		6A4386554F8D5CA4126F796B /* Pods-MyRo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyRo/Pods-MyRo.release.xcconfig"; sourceTree = "<group>"; };
+		77D48274E558AAF99B0B8197 /* Pods-MyRoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyRoTests/Pods-MyRoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BAE9C0FF3D324719E30091E7 /* Pods-MyRoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyRoTests/Pods-MyRoTests.release.xcconfig"; sourceTree = "<group>"; };
+		C0182E33EF022AA9A295A240 /* libPods-MyRoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyRoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B447DA07371DA1E9CF9FAE /* Pods-MyRo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyRo/Pods-MyRo.debug.xcconfig"; sourceTree = "<group>"; };
 		E257C9292EC4A0C1C589EDBE /* libPods-MyRo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyRo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -266,6 +293,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92FB53A891C67170AF987707 /* libPods-MyRoTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DCF824C1CDC2D76006956A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +312,8 @@
 			children = (
 				D2B447DA07371DA1E9CF9FAE /* Pods-MyRo.debug.xcconfig */,
 				6A4386554F8D5CA4126F796B /* Pods-MyRo.release.xcconfig */,
+				77D48274E558AAF99B0B8197 /* Pods-MyRoTests.debug.xcconfig */,
+				BAE9C0FF3D324719E30091E7 /* Pods-MyRoTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -294,6 +331,7 @@
 			children = (
 				5C80AA781AAB5DF300F21FFA /* MyRo */,
 				5D70115A1CB0AF3A006B4075 /* MyRoTests */,
+				5DCF82501CDC2D76006956A4 /* MyRoUITests */,
 				5C80AA771AAB5DF300F21FFA /* Products */,
 				17E86DF132AD8E9F24C4A7EC /* Pods */,
 				A04A228C92FB1AE852FBDCE9 /* Frameworks */,
@@ -305,6 +343,7 @@
 			children = (
 				5C80AA761AAB5DF300F21FFA /* MyRo.app */,
 				5D7011591CB0AF39006B4075 /* MyRoTests.xctest */,
+				5DCF824F1CDC2D76006956A4 /* MyRoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -437,6 +476,7 @@
 				5DF89CD01CCDA2E80016D9DD /* DiaryEntryPopupViewController.xib */,
 				5DF89CD31CCDD0670016D9DD /* JoystickView.swift */,
 				5DF89CD51CCDD7E70016D9DD /* JoystickScene.swift */,
+				5D2938E91CD3A48D00C7F99E /* MapViewController.swift */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -459,6 +499,7 @@
 				5DF89CAF1CCD80290016D9DD /* DiaryEntry.swift */,
 				5D5172BD1CCDE1CC00A96F5F /* RobotInstruction.swift */,
 				5D5172C41CCEB04400A96F5F /* CloudVisionTag.swift */,
+				5D2938ED1CD3C17200C7F99E /* Landmark.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -539,6 +580,7 @@
 				5DAC3AB01CAE259700487C52 /* APIClient.swift */,
 				5DAC3AB11CAE259700487C52 /* UserService.swift */,
 				5DAC3AB21CAE259700487C52 /* RobotService.swift */,
+				5D2938EB1CD3C10800C7F99E /* PlacesService.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -595,6 +637,18 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		5DCF82501CDC2D76006956A4 /* MyRoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5DCF825D1CDC2DD3006956A4 /* RobotConnectionUITests.swift */,
+				5DCF825B1CDC2DB2006956A4 /* LoginUITests.swift */,
+				5DCF82591CDC2D8A006956A4 /* InitialUITests.swift */,
+				5DCF82511CDC2D76006956A4 /* MyRoUITests.swift */,
+				5DCF82531CDC2D76006956A4 /* Info.plist */,
+			);
+			path = MyRoUITests;
+			sourceTree = "<group>";
+		};
 		5DF89CB11CCD80E50016D9DD /* Coders */ = {
 			isa = PBXGroup;
 			children = (
@@ -624,6 +678,7 @@
 			isa = PBXGroup;
 			children = (
 				E257C9292EC4A0C1C589EDBE /* libPods-MyRo.a */,
+				C0182E33EF022AA9A295A240 /* libPods-MyRoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -656,9 +711,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5D7011601CB0AF3A006B4075 /* Build configuration list for PBXNativeTarget "MyRoTests" */;
 			buildPhases = (
+				AE7904418B4A0F2A37DCD4BD /* 📦 Check Pods Manifest.lock */,
 				5D7011551CB0AF39006B4075 /* Sources */,
 				5D7011561CB0AF39006B4075 /* Frameworks */,
 				5D7011571CB0AF39006B4075 /* Resources */,
+				E583668125FBA610D2E9A40F /* 📦 Embed Pods Frameworks */,
+				B020867A77CC699DE920F2CE /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -669,6 +727,24 @@
 			productName = MyRoTests;
 			productReference = 5D7011591CB0AF39006B4075 /* MyRoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5DCF824E1CDC2D76006956A4 /* MyRoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DCF82581CDC2D76006956A4 /* Build configuration list for PBXNativeTarget "MyRoUITests" */;
+			buildPhases = (
+				5DCF824B1CDC2D76006956A4 /* Sources */,
+				5DCF824C1CDC2D76006956A4 /* Frameworks */,
+				5DCF824D1CDC2D76006956A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5DCF82551CDC2D76006956A4 /* PBXTargetDependency */,
+			);
+			name = MyRoUITests;
+			productName = MyRoUITests;
+			productReference = 5DCF824F1CDC2D76006956A4 /* MyRoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -685,6 +761,10 @@
 						DevelopmentTeam = ZR774UBSWC;
 					};
 					5D7011581CB0AF39006B4075 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 5C80AA751AAB5DF300F21FFA;
+					};
+					5DCF824E1CDC2D76006956A4 = {
 						CreatedOnToolsVersion = 7.3;
 						TestTargetID = 5C80AA751AAB5DF300F21FFA;
 					};
@@ -705,6 +785,7 @@
 			targets = (
 				5C80AA751AAB5DF300F21FFA /* MyRo */,
 				5D7011581CB0AF39006B4075 /* MyRoTests */,
+				5DCF824E1CDC2D76006956A4 /* MyRoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -725,6 +806,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5D7011571CB0AF39006B4075 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DCF824D1CDC2D76006956A4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -764,6 +852,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyRo/Pods-MyRo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AE7904418B4A0F2A37DCD4BD /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B020867A77CC699DE920F2CE /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyRoTests/Pods-MyRoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CF1290D59CD57F805638F57A /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -792,6 +910,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E583668125FBA610D2E9A40F /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyRoTests/Pods-MyRoTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -836,9 +969,11 @@
 				5D7A99C81CD2DAA200BD276B /* MQTTSSLSecurityPolicyTransport.m in Sources */,
 				5DAC3ABB1CAE259700487C52 /* RobotService.swift in Sources */,
 				5D7A99CA1CD2DB1B00BD276B /* MqttManager.swift in Sources */,
+				5D2938EE1CD3C17200C7F99E /* Landmark.swift in Sources */,
 				5DB956081CB1F2A8008CF3B1 /* UIColor+ColorPalette.swift in Sources */,
 				5DF89CC51CCD810D0016D9DD /* NSDateFormatter+EasyDate.swift in Sources */,
 				5DAC3AA31CAE257700487C52 /* AFURLRequestSerialization.m in Sources */,
+				5D2938EC1CD3C10800C7F99E /* PlacesService.swift in Sources */,
 				5DAC3AB51CAE259700487C52 /* JSONModel.swift in Sources */,
 				5D5172BE1CCDE1CC00A96F5F /* RobotInstruction.swift in Sources */,
 				5C80AA7F1AAB5DF300F21FFA /* AppDelegate.m in Sources */,
@@ -874,6 +1009,7 @@
 				5D7A99C01CD2DAA200BD276B /* MQTTInMemoryPersistence.m in Sources */,
 				5DF89CC61CCD810D0016D9DD /* NSDate+EasyDate.swift in Sources */,
 				5DB955FC1CB1DA9B008CF3B1 /* TaskManager.swift in Sources */,
+				5D2938EA1CD3A48D00C7F99E /* MapViewController.swift in Sources */,
 				5DAC3A861CAE255500487C52 /* User.swift in Sources */,
 				5D7A99C51CD2DAA200BD276B /* MQTTSessionSynchron.m in Sources */,
 				5DAC3AB91CAE259700487C52 /* APIClient.swift in Sources */,
@@ -900,6 +1036,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5DCF824B1CDC2D76006956A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DCF825A1CDC2D8A006956A4 /* InitialUITests.swift in Sources */,
+				5DCF82521CDC2D76006956A4 /* MyRoUITests.swift in Sources */,
+				5DCF825E1CDC2DD3006956A4 /* RobotConnectionUITests.swift in Sources */,
+				5DCF825C1CDC2DB2006956A4 /* LoginUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -907,6 +1054,11 @@
 			isa = PBXTargetDependency;
 			target = 5C80AA751AAB5DF300F21FFA /* MyRo */;
 			targetProxy = 5D70115E1CB0AF3A006B4075 /* PBXContainerItemProxy */;
+		};
+		5DCF82551CDC2D76006956A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C80AA751AAB5DF300F21FFA /* MyRo */;
+			targetProxy = 5DCF82541CDC2D76006956A4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1056,6 +1208,7 @@
 		};
 		5D7011611CB0AF3A006B4075 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77D48274E558AAF99B0B8197 /* Pods-MyRoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1074,6 +1227,7 @@
 		};
 		5D7011621CB0AF3A006B4075 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAE9C0FF3D324719E30091E7 /* Pods-MyRoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1086,6 +1240,38 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.aadeshpatel.MyRoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyRo.app/MyRo";
+			};
+			name = Release;
+		};
+		5DCF82561CDC2D76006956A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = MyRoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aadeshpatel.MyRoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_TARGET_NAME = MyRo;
+			};
+			name = Debug;
+		};
+		5DCF82571CDC2D76006956A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = MyRoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aadeshpatel.MyRoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MyRo;
 			};
 			name = Release;
 		};
@@ -1118,6 +1304,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		5DCF82581CDC2D76006956A4 /* Build configuration list for PBXNativeTarget "MyRoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DCF82561CDC2D76006956A4 /* Debug */,
+				5DCF82571CDC2D76006956A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

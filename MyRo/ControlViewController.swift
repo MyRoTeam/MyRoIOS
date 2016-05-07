@@ -71,7 +71,7 @@ class ControlViewController: UIViewController {
         //let value = UIInterfaceOrientation.LandscapeRight.rawValue
         //UIDevice.currentDevice().setValue(value, forKey: "orientation")
         
-        MqttManager.sharedManager.connect()
+        //MqttManager.sharedManager.connect()
         
         let scene = JoystickScene(size: self.joystickSKView.frame.size)
         scene.scaleMode = SKSceneScaleMode.AspectFill
@@ -87,6 +87,11 @@ class ControlViewController: UIViewController {
         self.view.bringSubviewToFront(self.localView)
         self.view.bringSubviewToFront(self.endCallButton)
         self.view.bringSubviewToFront(self.cameraButton)
+        
+        self.client = ARDAppClient(delegate: self)
+        self.client.serverHostUrl = "https://apprtc.appspot.com"
+        self.client.connectToRoomWithId("my-ro-asdf-12", options: nil)
+        
         //self.view.bringSubviewToFront(self.audioButton)
         //self.view.bringSubviewToFront(self.videoButton)
         //self.view.bringSubviewToFront(self.joystickView)
@@ -102,14 +107,14 @@ class ControlViewController: UIViewController {
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
-        self.disconnect()
+        /*self.disconnect()
         self.client = ARDAppClient(delegate: self)
-        self.client.serverHostUrl = "https://apprtc.appspot.com"
+        self.client.serverHostUrl = "https://apprtc.appspot.com"*/
         
         //****************************************
         //     UNCOMMENT BELOW LINE
-        //****************************************
-        self.client.connectToRoomWithId("test-12345", options: nil)
+        ////****************************************
+        //self.client.connectToRoomWithId("my-ro-asdf-6", options: nil)
         //self.client.muteAudioIn()
         
         //SocketService.Socket = SocketIOClient(socketURL: NSURL(string: SocketService.URL)!, options: [.Log(true), .ForcePolling(true), .ConnectParams(["token": User.connectedRobotToken])])
@@ -246,6 +251,8 @@ class ControlViewController: UIViewController {
         self.manager.sendData(NSData(bytes: [Int(self.speedSlider.value)] as [Int], length: 1))*/
     }*/
     
+    /// Sends request to robot to take picture of what it is seeing, and returns that image
+    /// back to the user to be saved in the user's diary
     @IBAction func takePicture() {
         UIGraphicsBeginImageContextWithOptions(self.remoteView.bounds.size, true, 0.0)
         self.remoteView.drawViewHierarchyInRect(self.view.bounds, afterScreenUpdates: true)
@@ -348,18 +355,48 @@ extension ControlViewController: RTCEAGLVideoViewDelegate {
             }
         }
     }
+    
+    @IBAction func moveForward() {
+        MqttManager.sharedManager.publish("myro/instruction", message: "X")
+    }
 }
 
 extension ControlViewController: JoystickDelegate {
+    /// Joystick protocol method, that is invokved when there is movement on the joystick.
+    /// When invoked, this method will send the direction and speed (0.0 to 1.0) to the 
+    /// robot over the real time broker
     func joystickDidMove(joystickView: JoystickView) {
         if (joystickView.direction != nil) {
-            let speed = joystickView.hyp * 255.0
+            let speed = UInt8(joystickView.hyp * 255.0)
             print("SPEED: \(speed)")
             print("DIR: \(joystickView.direction.rawValue)")
             
-            let dataStr = "X\(joystickView.direction.rawValue)Y\(speed)"
+            
+            /*var dataStr = ""
+            if (speed == 0) {
+                dataStr = "X\(joystickView.direction.rawValue)Y0"
+            } else if (speed <= 50) {
+                dataStr = "X\(joystickView.direction.rawValue)Y\u{32}"
+            } else if (speed <= 100) {
+                dataStr = "X\(joystickView.direction.rawValue)Y\u{64}"
+            } else if (speed <= 150) {
+                dataStr = "X\(joystickView.direction.rawValue)Y\u{96}"
+            } else if (speed <= 200) {
+                dataStr = "X\(joystickView.direction.rawValue)Y\u{C8}"
+            } else {
+                dataStr = "X\(joystickView.direction.rawValue)Y\u{FF}"
+            }*/
+            
+            var dataStr = ""
+            if (speed == 0) {
+                dataStr = "XSY\(0)"
+            } else {
+                dataStr = "X\(joystickView.direction.rawValue)Y\(speed > 0 ? 1 : 0)"
+            }
+            
             MqttManager.sharedManager.publish("myro/instruction", message: dataStr)
-            //DataService.dataService.sendInstruction(dataStr)
+            //MqttManager.sharedManager.publish("myro/instruction", message: "{\"dir\": \"\(joystickView.direction.rawValue)\", \"speed\": \(speed)}")
+            //MqttManager.sharedManager.publish("myro/instruction", data: data)
             
             //guard let data = dataStr.dataUsingEncoding(NSUTF8StringEncoding) else { return }
             //self.manager.sendData(data)

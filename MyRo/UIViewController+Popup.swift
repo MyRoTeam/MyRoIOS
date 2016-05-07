@@ -10,7 +10,7 @@ private var popupKey = "UIViewControllerPopupKey"
 private var fadeBackgroundKey = "UIViewControllerFadeBackgroundKey"
 
 extension UIViewController {
-    
+    /// UIViewController instance used for displaying pop up views
     private var popupViewController: UIViewController! {
         get {
             return objc_getAssociatedObject(self, &popupKey) as? UIViewController
@@ -20,6 +20,7 @@ extension UIViewController {
         }
     }
     
+    /// Background view of popup view
     private var fadeBackgroundView: UIView! {
         get {
            return objc_getAssociatedObject(self, &fadeBackgroundKey) as? UIView
@@ -29,6 +30,13 @@ extension UIViewController {
         }
     }
     
+    /**
+     Displays the viewController as a popup viewcontroller
+     
+     - parameter viewController: UIViewController instance to display as a popup
+     - parameter animated: If popup presentation should be animated
+     - parameter completion: Block to be executed after viewController's presentation is complete
+     */
     public func presentPopupViewController(viewController: UIViewController, animated: Bool, completion: (() -> Void)?) {
         guard self.popupViewController == nil else { return }
         
@@ -92,6 +100,12 @@ extension UIViewController {
         }
     }
     
+    /**
+     Dismisses this UIViewController's popup viewcontroller
+     
+     - parameter animated: If dismissal of popup viewcontroller should be animated or not
+     - parameter completion: Block to be executed after popup viewcontroller is dismissed
+     */
     public func dismissPopupViewController(animated animated: Bool, completion: (() -> Void)?) {
         let fadeBackgroundView = self.fadeBackgroundView
         self.popupViewController.willMoveToParentViewController(nil)
@@ -128,6 +142,13 @@ extension UIViewController {
         }
     }
     
+    /**
+     Calculates and returns the popup view's frame based on the current screen layout
+     
+     - parameter viewController: PopupViewController
+     
+     - returns: Frame for the popup viewcontroller
+     */
     private func getPopupFrame(forViewController viewController: UIViewController) -> CGRect {
         let frame = viewController.view.frame
         

@@ -49,6 +49,10 @@ extension BLEService: CBPeripheralDelegate {
     }
     
     func peripheral(peripheral: CBPeripheral, didDiscoverServices error: NSError?) {
+        if (self.characteristic != nil) {
+            return
+        }
+        
         guard let services = peripheral.services where error == nil && self.connectedPeripheral == peripheral else { return }
         
         for service in services {
@@ -62,6 +66,10 @@ extension BLEService: CBPeripheralDelegate {
     }
     
     func peripheral(peripheral: CBPeripheral, didDiscoverCharacteristicsForService service: CBService, error: NSError?) {
+        if (self.characteristic != nil) {
+            return
+        }
+        
         guard let characteristics = service.characteristics where error == nil && self.connectedPeripheral == peripheral else { return }
         
         for characteristic in characteristics {
@@ -69,6 +77,31 @@ extension BLEService: CBPeripheralDelegate {
                 print("Found Characteristic: \(characteristic.UUID.UUIDString)")
                 peripheral.setNotifyValue(true, forCharacteristic: characteristic)
                 self.characteristic = characteristic
+                
+                
+                /*struct Static {
+                    static var onceToken: dispatch_once_t = 0
+                }
+                dispatch_once(&Static.onceToken) {
+                    self.sendData(NSData(bytes: ["X"] as [Character], length: 1))
+                    self.sendData(NSData(bytes: ["F"] as [Character], length: 1))
+                    self.sendData(NSData(bytes: ["Y"] as [Character], length: 1))
+                    self.sendData(NSData(bytes: [1] as [UInt8], length: 1))
+                }*/
+                
+                /*self.sendData(NSData(bytes: ["F"] as [Character], length: 1))
+                
+                let x = "F"
+                let data = x.dataUsingEncoding(NSUTF8StringEncoding)
+                self.sendData(data!)*/
+                
+                /*dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(100)), dispatch_get_main_queue()) {
+                //self.sendData(NSData(bytes: ["X"] as [Character], length: 1))
+                self.sendData(NSData(bytes: ["S"] as [Character], length: 1))
+                //self.sendData(NSData(bytes: ["Y"] as [Character], length: 1))
+                //self.sendData(NSData(bytes: [0] as [UInt8], length: 1))
+                }*/
+                
                 
                 //let dataStr = "XFY250"
                 //self.sendData(NSData(bytes: ["X"] as [Character], length: 1))

@@ -58,11 +58,23 @@ public enum JoystickDirection: RawRepresentable {
 }
 
 public class JoystickView: SKShapeNode {
+    /// If there were any recent movements on the joystick view
     public var changed: Bool = false
+    
+    /// Percentage of distance moved from the joystick's original position,
+    /// (0.0 to 1.0) 1.0 being when it hits the outer edge
     private(set) public var hyp: CGFloat = 0.0
+    
+    /// Direction of the joystick: F, L, R, B
     private(set) public var direction: JoystickDirection!
+    
+    /// Percentage of distance moved horizontally
     private(set) public var x: CGFloat!
+    
+    /// Percentage of distance moved vertically
     private(set) public var y: CGFloat!
+    
+    /// Angle at which the joystick is currently at: 0 to PI or -PI to 0
     private(set) public var angle: CGFloat!
     
     private var node: SKShapeNode!
@@ -135,14 +147,17 @@ public class JoystickView: SKShapeNode {
         }
         
         self.angle = CGFloat(atan2f(Float(y - self.position.y), Float(x - self.position.x)))
-        self.direction = JoystickDirection(angle: Double(self.angle))
+        let newDirection = JoystickDirection(angle: Double(self.angle))
         
         self.node.position = self.convertPoint(CGPointMake(x, y), fromNode: self.parent!)
         self.x = (x - self.position.x) / self.maxDistance
         self.y = (y - self.position.y) / self.maxDistance
-        self.hyp = sqrt(pow(self.x, 2) + pow(self.y, 2))
+        let newHyp = sqrt(pow(self.x, 2) + pow(self.y, 2))
         
-        self.changed = true
+        self.changed = self.direction != newDirection
+        self.direction = newDirection
+        self.hyp = newHyp
+        //self.changed = true
     }
     
     public override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -150,6 +165,7 @@ public class JoystickView: SKShapeNode {
         
         guard touches.contains(self.touch) else { return }
         self.reset()
+        self.changed = true
     }
     
     public override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
@@ -157,12 +173,17 @@ public class JoystickView: SKShapeNode {
         
         guard ((touches?.contains(self.touch)) != nil) else { return }
         self.reset()
+        self.changed = true
     }
     
+    /// Reset all movement settings for joystick. Occurs when 
+    /// user lets go of the joystick
     private func reset() {
         self.touch = nil
         self.x = 0.0
         self.y = 0.0
+        self.hyp = 0.0
+        self.direction = .Forward
         self.node.position = CGPointMake(0.0, 0.0)
     }
 }

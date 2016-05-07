@@ -52,7 +52,12 @@ class RobotViewController: UIViewController {
         
         self.view.bringSubviewToFront(self.endButton)
         
-        DataService.dataService.INS_REF.observeEventType(.ChildRemoved, withBlock: { snapshot in
+        self.client = ARDAppClient(delegate: self)
+        self.client.serverHostUrl = "https://apprtc.appspot.com"
+        self.client.connectToRoomWithId("my-ro-asdf-11", options: nil)
+        
+        
+        /*DataService.dataService.INS_REF.observeEventType(.ChildRemoved, withBlock: { snapshot in
             print("OBSERVE: \(snapshot.value)")
             
             guard let instruction = snapshot.value as? String else { return }
@@ -73,32 +78,45 @@ class RobotViewController: UIViewController {
                     }*/
                 }
             }*/
-        })
+        })*/
     }
     
     @IBAction func didReceiveInstruction(notif: NSNotification) {
         guard let instruction = notif.object as? String else { return }
         
         print("INSTRUC: \(instruction)")
+        
+        self.manager.sendData(NSData(bytes: ["X"] as [Character], length: 1))
+        self.manager.sendData(NSData(bytes: ["F"] as [Character], length: 1))
+        self.manager.sendData(NSData(bytes: ["Y"] as [Character], length: 1))
+        self.manager.sendData(NSData(bytes: [255] as [UInt8], length: 1))
+        //guard let data = NSData(bytes: instruction, length: 4) else { return }
         guard let data = instruction.dataUsingEncoding(NSUTF8StringEncoding) else { return }
         self.manager.sendData(data)
+        /*do {
+            guard let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String : AnyObject] else { return }
+            
+            print("DIR: \(json["dir" as! String])")
+            self.manager.sendData(NSData(bytes: ["X"] as [Character], length: 1))
+            self.manager.sendData(NSData(bytes: [json["dir"] as! String as! Character] as [Character], length: 1))
+            self.manager.sendData(NSData(bytes: ["Y"] as [Character], length: 1))
+            self.manager.sendData(NSData(bytes: [json["speed"] as! UInt8] as [UInt8], length: 1))
+            
+            //self.manager.sendData(data)
+        } catch {}*/
     }
 
     //private var manager: BLEManager!
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.client = ARDAppClient(delegate: self)
-        self.client.serverHostUrl = "https://apprtc.appspot.com"
-        //self.client.connectToRoomWithId("myro-000000", options: nil)
-        
-        self.handleRobotUdidIfNeeded({ (response: [String : AnyObject]) in
+        /*self.handleRobotUdidIfNeeded({ (response: [String : AnyObject]) in
                 print("Connecting To: \(Robot.currentRobot.code)")
                 self.client.connectToRoomWithId("myro-code123", options: nil)
             },
             failure: { (error: NSError) in
                 // TODO: Handle Error
-        })
+        })*/
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         

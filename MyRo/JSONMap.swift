@@ -64,6 +64,10 @@ public class JSONMap {
         get {
             self.key = key
             self.val = self.json[key]
+            
+            if let dict = self.val as? [String : AnyObject] {
+                self.json = dict
+            }
         
             return self
         }

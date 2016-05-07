@@ -5,18 +5,20 @@
 //  Created by Aadesh Patel on 2016.
 //
 
+@import GoogleMaps;
+
 #import "AppDelegate.h"
 #import "RTCPeerConnectionFactory.h"
 
-
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     //all global variables
     // Initialize WebRTC SSL Encryption
     [RTCPeerConnectionFactory initializeSSL];
+    
+    [GMSServices provideAPIKey:@"AIzaSyBpCSpX-lnnvj0KNptrYpd-IQaWVaZqXKU"];
 
     return YES;
 }

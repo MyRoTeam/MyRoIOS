@@ -3,19 +3,22 @@ PODS:
     - libjingle_peerconnection
     - SocketRocket
   - Firebase (2.5.1)
+  - GoogleMaps (1.13.0)
   - libjingle_peerconnection (11177.2.0)
   - SocketRocket (0.5.0)
 
 DEPENDENCIES:
   - AppRTC
   - Firebase
+  - GoogleMaps
 
 SPEC CHECKSUMS:
   AppRTC: 29a5418955fee7fba3df36a0c37285cd835272ad
   Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
+  GoogleMaps: 7a6caeb8336d7cb42982e969fc9b1b20a889fe79
   libjingle_peerconnection: 3458f646ddd61f08a9f3a0c43fb01fff5c165eb8
   SocketRocket: 2c51efccd2d73c99a923407ca4b06e7e9da95dbf
 
-PODFILE CHECKSUM: f0048ad7ee4ae7a29223eb0129c11a9b77add736
+PODFILE CHECKSUM: 3c82a63f00f6c29deb1e17dea3173d22bd4421f9
 
 COCOAPODS: 1.0.0.beta.8

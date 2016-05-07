@@ -9,12 +9,14 @@
 import SpriteKit
 
 @objc public protocol JoystickDelegate {
+    /// Protocol method invoked when movement is detected on joystick
     func joystickDidMove(joystickView: JoystickView)
 }
 
 public class JoystickScene: SKScene {
     public weak var joystickDelegate: JoystickDelegate?
     
+    /// Joystick View
     private var joystickView: JoystickView!
     
     public override init(size: CGSize) {
@@ -36,8 +38,11 @@ public class JoystickScene: SKScene {
         self.backgroundColor = UIColor.clearColor()
     }
     
+    /// Invokes the joystick protocol to notify current delegate that
+    /// the joystick has moved
     public override func update(currentTime: NSTimeInterval) {
         if (self.joystickView.changed) {
+            print("UPDATING")
             self.joystickDelegate?.joystickDidMove(self.joystickView)
             self.joystickView.changed = false
         }
