@@ -2,8 +2,8 @@
 //  APIClient.swift
 //  MyRo
 //
-//  Written by: Aadesh Patel
-//  Tested by: Aadesh Patel
+//  Written by: Aadesh Patel and Nikhil Nelson
+//  Tested by: Aadesh Patel and Nikhil Nelson
 //
 
 import UIKit
