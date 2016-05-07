@@ -2,8 +2,8 @@
 //  User.swift
 //  MyRo-iOS
 //
-//  Created by Aadesh Patel on 2/3/16.
-//  Copyright © 2016 Aadesh Patel. All rights reserved.
+//  Written by: Aadesh Patel
+//  Tested by: Aadesh Patel
 //
 
 import UIKit

@@ -2,8 +2,8 @@
 //  Instruction.swift
 //  MyRo
 //
-//  Created by Shreyas Hirday on 4/16/16.
-//  Copyright © 2016 MyRo. All rights reserved.
+//  Written by: Shreyas Hirday
+//  Tested by: Shreyas Hirday
 //
 
 import Foundation
@@ -62,7 +62,7 @@ class Instruction {
             
         }
         
-        self._insRef = DataService.dataService.INS_REF.childByAppendingPath(self._insKey)
+        //self._insRef = DataService.dataService.INS_REF.childByAppendingPath(self._insKey)
         
         
     }

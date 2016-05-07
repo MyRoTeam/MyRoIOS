@@ -2,8 +2,8 @@
 //  RobotInstruction.swift
 //  MyRo
 //
-//  Created by Aadesh Patel on 4/25/16.
-//  Copyright © 2016 MyRo. All rights reserved.
+//  Written by: Aadesh Patel and Shreyas Hirday
+//  Tested by: Aadesh Patel
 //
 
 import UIKit

@@ -2,8 +2,8 @@
 //  MapViewController.swift
 //  MyRo
 //
-//  Created by Aadesh Patel on 4/29/16.
-//  Copyright © 2016 MyRo. All rights reserved.
+//  Written by: Aadesh Patel
+//  Tested by: Aadesh Patel
 //
 
 import UIKit

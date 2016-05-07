@@ -2,8 +2,8 @@
 //  PlacesService.swift
 //  MyRo
 //
-//  Created by Shreyas Hirday on 4/29/16.
-//  Copyright © 2016 MyRo. All rights reserved.
+//  Written by: Shreyas Hirday
+//  Tested by: Shreyas Hirday
 //
 
 /// Enum that handles server API request route to retrieve landmarks

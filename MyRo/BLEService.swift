@@ -2,7 +2,8 @@
 //  BLEService.swift
 //  MyRo
 //
-//  Created by Aadesh Patel on 4/1/16.
+//  Written by: Aadesh Patel
+//  Tested by: Aadesh Patel
 //
 
 import CoreBluetooth

@@ -2,7 +2,6 @@
 //  AppDelegate.h
 //  MyRo
 //
-//  Created by Aadesh Patel on 2016.
 //
 
 #import <UIKit/UIKit.h>

@@ -3,8 +3,8 @@
 //  AsyncKit
 //  TaskManager.swift
 //
-//  Copyright (c) 2016 Aadesh Patel. All rights reserved.
-//
+//  Written by: Aadesh Patel
+//  Tested by: Aadesh Patel
 //
 
 import Foundation

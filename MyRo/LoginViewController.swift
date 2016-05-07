@@ -1,9 +1,9 @@
 //
 //  LoginViewController.swift
-//  MyRo-iOS
+//  MyRo
 //
-//  Created by Aadesh Patel on 2/4/16.
-//  Copyright © 2016 Aadesh Patel. All rights reserved.
+//  Written by: Aadesh Patel
+//  Tested by: Aadesh Patel
 //
 
 import UIKit
@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
         //SocketService.connect()
         //SocketService.publish("myro instruction", items: "Test123")
         
-        DataService.dataService.INS_REF.removeValue()
+        //DataService.dataService.INS_REF.removeValue()
     }
 
     override func didReceiveMemoryWarning() {

@@ -2,8 +2,8 @@
 //  DateCoder.swift
 //  MyRo
 //
-//  Created by Aadesh Patel on 4/11/16.
-//  Copyright © 2016 Aadesh Patel. All rights reserved.
+//  Written by: Aadesh Patel
+//  Tested by: Aadesh Patel
 //
 
 import UIKit
@@ -32,6 +32,6 @@ public class DateCoder: JSONCoder {
              return nil
         }
         
-        return date.dateString()
+        return date.dateString(self.format)
     }
 }

@@ -1,9 +1,9 @@
 //
 //  DiaryTableViewCell.swift
 //  MyRo
-//
-//  Created by Aadesh Patel on 4/24/16.
-//  Copyright © 2016 MyRo. All rights reserved.
+
+//  Written by: Shreyas Hirday and Aadesh Patel
+//  Tested by: Shreyas Hirday and Aadesh Patel
 //
 
 import UIKit

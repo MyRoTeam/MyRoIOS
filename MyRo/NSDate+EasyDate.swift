@@ -2,8 +2,8 @@
 //  NSDate+EasyDate.swift
 //  MyRo
 //
-//  Created by Aadesh Patel on 4/11/16.
-//  Copyright © 2016 Aadesh Patel. All rights reserved.
+//  Written by: Aadesh Patel
+//  Tested by: Aadesh Patel
 //
 
 /// Enum to retrieve the string for the appropriate "Time Ago"

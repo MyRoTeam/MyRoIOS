@@ -1,8 +1,8 @@
 //
 //  JSONMap.swift
 //
-//  Created by Aadesh Patel.
-//  Copyright © 2016 Aadesh Patel. All rights reserved.
+//  Written by: Aadesh Patel
+//  Tested by: Aadesh Patel
 //
 
 import UIKit

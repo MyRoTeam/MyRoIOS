@@ -2,8 +2,8 @@
 //  CloudVisionService.swift
 //  MyRo
 //
-//  Created by Aadesh Patel on 4/25/16.
-//  Copyright © 2016 MyRo. All rights reserved.
+//  Written by: Nikhil Nelson and Aadesh Patel
+//  Tested by: Nikhil Nelson and Aadesh Patel
 //
 
 /// Handles API routes for Google Vision API

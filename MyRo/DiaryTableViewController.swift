@@ -2,8 +2,8 @@
 //  DiaryTableViewController.swift
 //  MyRo
 //
-//  Created by Shreyas Hirday on 4/16/16.
-//  Copyright © 2016 MyRo. All rights reserved.
+//  Written by: Shreyas Hirday and Aadesh Patel
+//  Tested by: Shreyas Hirday and Aadesh Patel
 //
 
 import UIKit

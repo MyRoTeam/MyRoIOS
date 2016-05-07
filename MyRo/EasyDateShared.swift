@@ -2,8 +2,8 @@
 //  EasyDateInternal.swift
 //  MyRo
 //
-//  Created by Aadesh Patel on 3/20/16.
-//  Copyright © 2016 Aadesh Patel. All rights reserved.
+//  Written by: Aadesh Patel
+//  Tested by: Aadesh Patel
 //
 
 internal struct EasyDateShared {

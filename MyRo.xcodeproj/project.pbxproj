@@ -18,6 +18,7 @@
 		5D2938EA1CD3A48D00C7F99E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2938E91CD3A48D00C7F99E /* MapViewController.swift */; };
 		5D2938EC1CD3C10800C7F99E /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2938EB1CD3C10800C7F99E /* PlacesService.swift */; };
 		5D2938EE1CD3C17200C7F99E /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2938ED1CD3C17200C7F99E /* Landmark.swift */; };
+		5D483A361CDE5701004B936E /* JSONCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D483A351CDE5701004B936E /* JSONCoderTests.swift */; };
 		5D5172BE1CCDE1CC00A96F5F /* RobotInstruction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5172BD1CCDE1CC00A96F5F /* RobotInstruction.swift */; };
 		5D5172C11CCEA2C000A96F5F /* CloudVisionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5172C01CCEA2C000A96F5F /* CloudVisionService.swift */; };
 		5D5172C31CCEA41F00A96F5F /* UIImage+Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5172C21CCEA41F00A96F5F /* UIImage+Encode.swift */; };
@@ -146,6 +147,7 @@
 		5D2938E91CD3A48D00C7F99E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5D2938EB1CD3C10800C7F99E /* PlacesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
 		5D2938ED1CD3C17200C7F99E /* Landmark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
+		5D483A351CDE5701004B936E /* JSONCoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONCoderTests.swift; sourceTree = "<group>"; };
 		5D5172BD1CCDE1CC00A96F5F /* RobotInstruction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotInstruction.swift; sourceTree = "<group>"; };
 		5D5172C01CCEA2C000A96F5F /* CloudVisionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudVisionService.swift; sourceTree = "<group>"; };
 		5D5172C21CCEA41F00A96F5F /* UIImage+Encode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Encode.swift"; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 		5D70115A1CB0AF3A006B4075 /* MyRoTests */ = {
 			isa = PBXGroup;
 			children = (
+				5D483A351CDE5701004B936E /* JSONCoderTests.swift */,
 				5DB9560B1CB23684008CF3B1 /* TaskTests.swift */,
 				5D70116D1CB0BEC1006B4075 /* ModelCoderTests.swift */,
 				5D70116B1CB0BE47006B4075 /* APIClientTests.swift */,
@@ -1027,6 +1030,7 @@
 			files = (
 				5DB9560C1CB23684008CF3B1 /* TaskTests.swift in Sources */,
 				5D70116A1CB0BD17006B4075 /* APIRouteTests.swift in Sources */,
+				5D483A361CDE5701004B936E /* JSONCoderTests.swift in Sources */,
 				5D70115C1CB0AF3A006B4075 /* MyRoTests.swift in Sources */,
 				5D7011681CB0B8F9006B4075 /* KeychainTests.swift in Sources */,
 				5D70116C1CB0BE47006B4075 /* APIClientTests.swift in Sources */,
@@ -1312,6 +1316,7 @@
 				5DCF82571CDC2D76006956A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
